@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>دكان زمان | للتوريدات العمومية</title>
+  <meta name="description" content="دكان زمان للتوريدات العمومية — شريككم الموثوق في التوريدات والتشغيل. مورد واحد لاحتياجات متعددة وإدارة المشتريات نيابةً عن الشركات.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F2F1EE">
+  <script>
+    (function () {
+      var t;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/design-2.css">
+</head>
+<body id="top">
+
+  <svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="i-spray" viewBox="0 0 24 24"><path d="M3 3h.01M7 5h.01M11 7h.01M3 7h.01M7 9h.01M3 11h.01"/><rect width="4" height="4" x="15" y="5"/><path d="m19 9 2 2v10c0 .6-.4 1-1 1h-6c-.6 0-1-.4-1-1V11l2-2"/><path d="m13 14 8-2M13 19l8-2"/></symbol>
+      <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+      <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+      <symbol id="i-package" viewBox="0 0 24 24"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></symbol>
+      <symbol id="i-paper" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/></symbol>
+      <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M6 2v2M10 2v2M14 2v2"/></symbol>
+      <symbol id="i-hardhat" viewBox="0 0 24 24"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 6 6v3M4 15v-3a6 6 0 0 1 6-6"/><rect x="2" y="15" width="20" height="4" rx="1"/></symbol>
+      <symbol id="i-hammer" viewBox="0 0 24 24"><path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0a2.12 2.12 0 0 1 0-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></symbol>
+      <symbol id="i-medical" viewBox="0 0 24 24"><path d="M11 2v2M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+      <symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3M3 4h8"/></symbol>
+      <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+      <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/></symbol>
+      <symbol id="i-clipboard" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M12 11h4M12 16h4M8 11h.01M8 16h.01"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></symbol>
+      <symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></symbol>
+      <symbol id="i-list" viewBox="0 0 24 24"><path d="M3 12h.01M3 18h.01M3 6h.01M8 12h13M8 18h13M8 6h13"/></symbol>
+      <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m19 9-5 5-4-4-3 3"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+      <symbol id="i-building" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></symbol>
+      <symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7"/><path d="M12 2 20 7H4Z"/></symbol>
+      <symbol id="i-bank" viewBox="0 0 24 24"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></symbol>
+      <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2Z"/><path d="M19 17v4M17 19h4"/></symbol>
+      <symbol id="i-store" viewBox="0 0 24 24"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.6-.6.7.7 0 0 0-.8 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.6-.6.7.7 0 0 0-.8 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.6-.6.7.7 0 0 0-.8 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.6-.6.7.7 0 0 0-.8 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/></symbol>
+      <symbol id="i-office" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18ZM6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65M22 12.65l-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+      <symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.59 2.59A2 2 0 0 0 11.17 2H4a2 2 0 0 0-2 2v7.17a2 2 0 0 0 .59 1.42l8.7 8.7a2.43 2.43 0 0 0 3.42 0l6.58-6.58a2.43 2.43 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r="1"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+      <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="m18 14 4 4-4 4M18 2l4 4-4 4"/><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22M2 6h1.9c1.5 0 2.9.9 3.6 2.2M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-down" viewBox="0 0 24 24"><path d="M22 17 13.5 8.5l-5 5L2 7"/><path d="M16 17h6v-6"/></symbol>
+      <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></symbol>
+      <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/><path d="m7 12 3-3 2 2 5-5"/></symbol>
+      <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+      <symbol id="i-up" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+      <symbol id="cube" viewBox="0 0 100 100">
+        <path d="M50 6 92 30 50 54 8 30Z" fill="#FF8A3D" stroke="#FF8A3D" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M8 36 47 58.5V98L8 75.5Z" fill="#F37221" stroke="#F37221" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M53 58.5 92 36V75.5L53 98Z" fill="#D65E12" stroke="#D65E12" stroke-width="4" stroke-linejoin="round"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ============ ISLAND NAV ============ -->
+  <header class="island" id="island">
+    <a href="#top" class="island__brand" aria-label="دكان زمان — الصفحة الرئيسية">
+      <img class="logo-light" src="assets/logo.svg" alt="Dokan Zaman" width="120" height="48">
+      <img class="logo-dark" src="assets/logo-dark.svg" alt="Dokan Zaman" width="120" height="48">
+    </a>
+    <nav class="island__links" aria-label="القائمة الرئيسية">
+      <a href="#about">من نحن</a>
+      <a href="#categories">المجالات</a>
+      <a href="#process">كيف نعمل</a>
+      <a href="#procurement">إدارة المشتريات</a>
+      <a href="#clients">عملاؤنا</a>
+    </nav>
+    <div class="island__actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="تبديل المظهر الداكن / الفاتح">
+        <svg class="ico ico--sun"><use href="#i-sun"/></svg>
+        <svg class="ico ico--moon"><use href="#i-moon"/></svg>
+      </button>
+      <a href="#contact" class="pill pill--orange island__cta">عرض سعر</a>
+      <button class="icon-btn menu-btn" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="sheet">
+        <svg class="ico"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- full-screen mobile menu -->
+  <div class="sheet" id="sheet" hidden>
+    <button class="icon-btn sheet__close" type="button" aria-label="إغلاق القائمة"><svg class="ico"><use href="#i-x"/></svg></button>
+    <nav class="sheet__links" aria-label="القائمة">
+      <a href="#about"><span>01</span>من نحن</a>
+      <a href="#categories"><span>02</span>مجالات التوريد</a>
+      <a href="#process"><span>03</span>كيف نعمل</a>
+      <a href="#procurement"><span>04</span>إدارة المشتريات</a>
+      <a href="#clients"><span>05</span>عملاؤنا</a>
+      <a href="#contact"><span>06</span>تواصل معنا</a>
+    </nav>
+    <a href="#contact" class="pill pill--orange pill--lg sheet__cta">اطلب عرض سعر <svg class="ico"><use href="#i-arrow"/></svg></a>
+  </div>
+
+  <main>
+    <!-- ============ HERO BENTO ============ -->
+    <section class="hero" data-anim>
+      <div class="wrap bento bento--hero">
+        <article class="tile tile--intro" data-reveal>
+          <span class="tag"><i></i> دكان زمان للتوريدات العمومية</span>
+          <h1>مورد واحد<br><span class="hl">لكل احتياجات</span><br>التشغيل.</h1>
+          <p>شريككم الموثوق في التوريدات والتشغيل. نوفر للشركات والجهات مستهلكات النظافة، والأدوات المكتبية، ومستلزمات التشغيل، والتغليف، والبوفيه، والمستلزمات الطبية — بجودة والتزام بالمواعيد.</p>
+          <div class="row-btns">
+            <a href="#contact" class="pill pill--orange pill--lg">اطلب عرض سعر <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a href="#categories" class="pill pill--line pill--lg">مجالات التوريد</a>
+          </div>
+        </article>
+
+        <article class="tile tile--dark tile--brand" data-reveal style="--d:.08s">
+          <div class="brand-art" aria-hidden="true">
+            <span class="brand-art__lines"><i></i><i></i><i></i></span>
+            <img src="assets/logo-mark-dark.svg" alt="">
+          </div>
+          <p class="tile__foot">من طلبكم .. <b>إلى باب مقركم</b></p>
+        </article>
+
+        <article class="tile tile--orange tile--stat" data-reveal style="--d:.14s">
+          <span class="tile__label">وفورات في المشتريات</span>
+          <strong class="big"><span class="num"><span data-count="5">0</span>–<span data-count="20">0</span>%</span></strong>
+          <svg class="ico tile__corner"><use href="#i-down"/></svg>
+        </article>
+
+        <article class="tile tile--stat" data-reveal style="--d:.2s">
+          <span class="tile__label">دورة شراء أسرع حتى</span>
+          <strong class="big"><span class="num"><span data-count="30">0</span>%</span></strong>
+        </article>
+
+        <article class="tile tile--track" data-reveal style="--d:.26s" aria-label="مثال على تتبع طلب">
+          <div class="track__head">
+            <span class="live"><i></i> تتبع الطلب #2481</span>
+            <span class="track__status" id="track-status">طلب العميل</span>
+          </div>
+          <ol class="track" id="track">
+            <li><span><svg class="ico"><use href="#i-clipboard"/></svg></span>طلب العميل</li>
+            <li><span><svg class="ico"><use href="#i-package"/></svg></span>تجهيز الأصناف</li>
+            <li><span><svg class="ico"><use href="#i-shield"/></svg></span>مراجعة الجودة</li>
+            <li><span><svg class="ico"><use href="#i-truck"/></svg></span>التوصيل</li>
+            <li><span><svg class="ico"><use href="#i-headset"/></svg></span>المتابعة</li>
+          </ol>
+          <div class="track__bar"><span id="track-bar"></span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ DOUBLE TICKER ============ -->
+    <div class="ticker" data-anim aria-label="مجالات التوريد وقيمنا">
+      <div class="ticker__row ticker__row--orange">
+        <div class="ticker__track">
+          <ul>
+            <li>مستهلكات النظافة</li><li>الأدوات المكتبية</li><li>مستلزمات التشغيل</li><li>العبوات والتغليف</li><li>الورق ومستلزماته</li><li>البوفيه والضيافة</li><li>الصحة والسلامة</li><li>العدد والآلات الخفيفة</li><li>المستلزمات الطبية</li>
+          </ul>
+          <ul aria-hidden="true">
+            <li>مستهلكات النظافة</li><li>الأدوات المكتبية</li><li>مستلزمات التشغيل</li><li>العبوات والتغليف</li><li>الورق ومستلزماته</li><li>البوفيه والضيافة</li><li>الصحة والسلامة</li><li>العدد والآلات الخفيفة</li><li>المستلزمات الطبية</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ticker__row ticker__row--dark">
+        <div class="ticker__track ticker__track--rev">
+          <ul>
+            <li>جودة</li><li>تنوع</li><li>التزام بالمواعيد</li><li>خدمة الشركات</li><li>شفافية</li><li>سرعة الاستجابة</li><li>مرونة التوريد</li><li>شراكة طويلة المدى</li>
+          </ul>
+          <ul aria-hidden="true">
+            <li>جودة</li><li>تنوع</li><li>التزام بالمواعيد</li><li>خدمة الشركات</li><li>شفافية</li><li>سرعة الاستجابة</li><li>مرونة التوريد</li><li>شراكة طويلة المدى</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ABOUT BENTO ============ -->
+    <section class="sec" id="about">
+      <div class="wrap">
+        <header class="sec__head" data-reveal>
+          <span class="tag"><i></i> من نحن</span>
+          <h2>شريككم في <span class="hl">التشغيل اليومي</span></h2>
+        </header>
+        <div class="bento bento--about">
+          <article class="tile tile--wide" data-reveal>
+            <p class="quote">دكان زمان للتوريدات العمومية شركة متخصصة في توفير احتياجات التشغيل والتوريدات اليومية للشركات والمؤسسات والجهات، من خلال مجموعة متنوعة من المنتجات وحلول التوريد المرنة.</p>
+          </article>
+          <figure class="tile tile--photo about-photo" data-reveal style="--d:.04s">
+            <img src="assets/img/warehouse.webp" alt="مستودع منظم بأرفف مليئة بالأصناف" width="1280" height="853" loading="lazy" decoding="async">
+            <figcaption><b>9</b> مجالات توريد من مصدر واحد</figcaption>
+          </figure>
+          <article class="tile tile--blue about-mission" data-reveal style="--d:.06s">
+            <span class="tile__label tile__label--light">رسالتنا</span>
+            <p class="tile__text">توفير احتياجات عملائنا من التوريدات والتشغيل بطريقة منظمة ومرنة، مع التركيز على جودة الخدمة والالتزام بالمواعيد.</p>
+          </article>
+          <article class="tile pillar2" data-reveal>
+            <b class="pillar2__n">01</b>
+            <h3>تنوع الأصناف</h3>
+            <p>مجموعة واسعة من المنتجات التي تغطي احتياجات التشغيل اليومية.</p>
+          </article>
+          <article class="tile pillar2 tile--orange" data-reveal style="--d:.06s">
+            <b class="pillar2__n">02</b>
+            <h3>الالتزام</h3>
+            <p>الاهتمام بالمواعيد والكميات والمواصفات المتفق عليها.</p>
+          </article>
+          <article class="tile pillar2" data-reveal style="--d:.12s">
+            <b class="pillar2__n">03</b>
+            <h3>خدمة الشركات</h3>
+            <p>حلول توريد مناسبة للشركات والعقود والتوريد الدوري.</p>
+          </article>
+          <article class="tile tile--values" data-reveal style="--d:.18s">
+            <span class="tile__label">قيمنا</span>
+            <ul class="chips2">
+              <li>الالتزام</li><li>الشفافية</li><li>سرعة الاستجابة</li><li>جودة الخدمة</li><li>مرونة التوريد</li><li>علاقات طويلة المدى</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CATEGORIES CAROUSEL ============ -->
+    <section class="sec sec--flush" id="categories">
+      <div class="wrap">
+        <header class="sec__head sec__head--split" data-reveal>
+          <div>
+            <span class="tag"><i></i> مجالات التوريد</span>
+            <h2>تسعة مجالات. <span class="hl">مورد واحد.</span></h2>
+          </div>
+          <div class="car-ctrl">
+            <button class="icon-btn icon-btn--lg" type="button" data-car="prev" aria-label="السابق"><svg class="ico"><use href="#i-arrow"/></svg></button>
+            <button class="icon-btn icon-btn--lg" type="button" data-car="next" aria-label="التالي"><svg class="ico"><use href="#i-arrow"/></svg></button>
+          </div>
+        </header>
+      </div>
+
+      <div class="carousel" id="carousel" tabindex="0" aria-label="مجالات التوريد — مرّر أفقيًا">
+        <article class="card c-orange"><div class="card__media"><img src="assets/img/cat-cleaning.webp" alt="مستلزمات وأدوات النظافة" width="720" height="480" loading="lazy" decoding="async"></div><div class="card__top"><b>01</b><svg class="ico"><use href="#i-spray"/></svg></div><h3>مستهلكات وأدوات النظافة</h3><p>منظفات، أدوات تنظيف، أكياس قمامة، قفازات، مستلزمات الحمامات والمطابخ.</p></article>
+        <article class="card c-dark"><div class="card__media"><img src="assets/img/cat-office.webp" alt="أدوات مكتبية ومشابك" width="720" height="480" loading="lazy" decoding="async"></div><div class="card__top"><b>02</b><svg class="ico"><use href="#i-pen"/></svg></div><h3>الأدوات المكتبية</h3><p>أقلام، دفاتر، ملفات، أوراق، أدوات تنظيم ومستلزمات المكاتب.</p></article>
+        <article class="card c-plain"><div class="card__media"><img src="assets/img/cat-operations.webp" alt="مفاتيح وعدد صيانة" width="720" height="480" loading="lazy" decoding="async"></div><div class="card__top"><b>03</b><svg class="ico"><use href="#i-wrench"/></svg></div><h3>مستلزمات التشغيل</h3><p>مستلزمات صيانة وتشغيل، أدوات عمل، مهمات سلامة ومستلزمات فنية.</p></article>
+        <article class="card c-orange"><div class="card__media"><img src="assets/img/cat-packaging.webp" alt="كرتونة شحن" width="720" height="480" loading="lazy" decoding="async"></div><div class="card__top"><b>04</b><svg class="ico"><use href="#i-package"/></svg></div><h3>العبوات والتغليف</h3><p>عبوات ورقية وبلاستيكية، أكياس، كراتين، حلول تغليف حسب الطلب.</p></article>
+        <article class="card c-dark"><div class="card__media"><img src="assets/img/cat-paper.webp" alt="رزم من الورق" width="720" height="480" loading="lazy" decoding="async"></div><div class="card__top"><b>05</b><svg class="ico"><use href="#i-paper"/></svg></div><h3>الورق ومستلزماته</h3><p>أوراق طباعة وتصوير، رول ورق، مناديل ومستلزمات ورقية متنوعة.</p></article>
+        <article class="card c-plain"><div class="card__media"><img src="assets/img/cat-buffet.webp" alt="فنجان قهوة على صينية تقديم" width="720" height="480" loading="lazy" decoding="async"></div><div class="card__top"><b>06</b><svg class="ico"><use href="#i-coffee"/></svg></div><h3>مستلزمات البوفيه والضيافة</h3><p>أكواب وأطباق، أدوات تقديم، مناديل، مواد ومستلزمات الضيافة.</p></article>
+        <article class="card c-orange"><div class="card__media"><img src="assets/img/cat-safety.webp" alt="خوذة وقفازات ونظارات سلامة" width="720" height="480" loading="lazy" decoding="async"></div><div class="card__top"><b>07</b><svg class="ico"><use href="#i-hardhat"/></svg></div><h3>مهمات الصحة والسلامة</h3><p>مهمات الوقاية والسلامة المهنية لبيئات العمل المختلفة.</p></article>
+        <article class="card c-dark"><div class="card__media"><img src="assets/img/cat-tools.webp" alt="مثقاب كهربائي" width="720" height="480" loading="lazy" decoding="async"></div><div class="card__top"><b>08</b><svg class="ico"><use href="#i-hammer"/></svg></div><h3>العدد والآلات الخفيفة</h3><p>عدد يدوية وآلات خفيفة لأعمال الصيانة والتشغيل اليومية.</p></article>
+        <article class="card c-plain"><div class="card__media"><img src="assets/img/cat-medical.webp" alt="سماعة طبية" width="720" height="480" loading="lazy" decoding="async"></div><div class="card__top"><b>09</b><svg class="ico"><use href="#i-medical"/></svg></div><h3>المستلزمات الطبية</h3><p>مستلزمات طبية أساسية لاحتياجات المنشآت والمواقع.</p></article>
+      </div>
+      <div class="wrap"><div class="car-progress" aria-hidden="true"><span id="car-bar"></span></div></div>
+    </section>
+
+    <!-- ============ SERVICES TABLE ============ -->
+    <section class="sec" id="services">
+      <div class="wrap">
+        <header class="sec__head" data-reveal>
+          <span class="tag"><i></i> خدمات الشركات والعقود</span>
+          <h2>توريد يناسب <span class="hl">إيقاع عملكم</span></h2>
+        </header>
+        <ul class="rows">
+          <li class="row" data-reveal><b>01</b><h3>توريد شهري</h3><p>توريد مستلزمات التشغيل وفق جدول شهري.</p><svg class="ico"><use href="#i-calendar"/></svg></li>
+          <li class="row" data-reveal><b>02</b><h3>توريد دوري</h3><p>طلبات أسبوعية أو دورية حسب احتياج العميل.</p><svg class="ico"><use href="#i-repeat"/></svg></li>
+          <li class="row" data-reveal><b>03</b><h3>أوامر شراء</h3><p>التعامل مع أوامر الشراء وقوائم الأصناف المعتمدة.</p><svg class="ico"><use href="#i-cart"/></svg></li>
+          <li class="row" data-reveal><b>04</b><h3>توريدات حسب الطلب</h3><p>توفير أصناف محددة وفق المواصفات المطلوبة.</p><svg class="ico"><use href="#i-target"/></svg></li>
+          <li class="row" data-reveal><b>05</b><h3>قوائم أصناف مخصصة</h3><p>إعداد قوائم توريد خاصة بكل عميل أو موقع.</p><svg class="ico"><use href="#i-list"/></svg></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS (sticky) ============ -->
+    <section class="sec sec--tint" id="process">
+      <div class="wrap process2">
+        <div class="process2__aside">
+          <header class="sec__head" data-reveal>
+            <span class="tag"><i></i> نظام التوريد</span>
+            <h2>من طلبكم .. <span class="hl">إلى باب مقركم</span></h2>
+            <p class="sec__lead">نركز على وضوح الطلب، دقة التجهيز، الالتزام بالتسليم، وسهولة المتابعة.</p>
+          </header>
+          <div class="stepper" aria-hidden="true">
+            <div class="stepper__media" id="stepper-media">
+              <img class="is-on" src="assets/img/order-plan.webp" alt="" width="960" height="640" loading="lazy" decoding="async">
+              <img src="assets/img/warehouse.webp" alt="" width="1280" height="853" loading="lazy" decoding="async">
+              <img src="assets/img/order-check.webp" alt="" width="960" height="640" loading="lazy" decoding="async">
+              <img src="assets/img/delivery.webp" alt="" width="1280" height="853" loading="lazy" decoding="async">
+              <img src="assets/img/support.webp" alt="" width="960" height="640" loading="lazy" decoding="async">
+            </div>
+            <div class="stepper__num"><span id="stepper-num">01</span><small>/05</small></div>
+            <div class="stepper__icon" id="stepper-icon"><svg class="ico"><use href="#i-clipboard"/></svg></div>
+            <div class="stepper__dots" id="stepper-dots"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <ol class="steps2" id="steps2">
+          <li class="step2" data-icon="i-clipboard"><span class="step2__ico"><svg class="ico"><use href="#i-clipboard"/></svg></span><b>01</b><h3>طلب العميل</h3><p>استلام الطلب وتوضيح الأصناف والكميات والمواصفات المطلوبة.</p></li>
+          <li class="step2" data-icon="i-package"><span class="step2__ico"><svg class="ico"><use href="#i-package"/></svg></span><b>02</b><h3>تجهيز الأصناف</h3><p>تجميع كل الأصناف من مصدر واحد وفق القائمة المعتمدة.</p></li>
+          <li class="step2" data-icon="i-shield"><span class="step2__ico"><svg class="ico"><use href="#i-shield"/></svg></span><b>03</b><h3>مراجعة الجودة والكميات</h3><p>التأكد من المطابقة للمواصفات والكميات قبل خروج الطلب.</p></li>
+          <li class="step2" data-icon="i-truck"><span class="step2__ico"><svg class="ico"><use href="#i-truck"/></svg></span><b>04</b><h3>التوصيل</h3><p>التسليم إلى مقركم في الموعد المتفق عليه.</p></li>
+          <li class="step2" data-icon="i-headset"><span class="step2__ico"><svg class="ico"><use href="#i-headset"/></svg></span><b>05</b><h3>المتابعة وخدمة ما بعد البيع</h3><p>متابعة الطلب حتى التسليم وما بعده لضمان رضاكم.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ PROCUREMENT ============ -->
+    <section class="sec band" id="procurement" data-anim>
+      <div class="wrap">
+        <header class="sec__head sec__head--split" data-reveal>
+          <div>
+            <span class="tag tag--light"><i></i> خدمة جديدة للشركات</span>
+            <h2>ندير مشترياتكم <span class="hl">نيابةً عنكم</span></h2>
+          </div>
+          <p class="sec__lead">نموذج متكامل لإدارة المشتريات والتوريدات يحقق وفورات مالية حقيقية، مع رفع مستوى الجودة وسرعة الاستجابة.</p>
+        </header>
+
+        <div class="band__grid">
+          <div class="acc" data-reveal>
+            <details name="scope" open>
+              <summary><svg class="ico"><use href="#i-cart"/></svg>إدارة عمليات المشتريات<i></i></summary>
+              <ul class="ticks">
+                <li>استلام طلبات الشراء من الإدارات المعنية داخل الشركة.</li>
+                <li>إعداد وتحليل المواصفات وفق المعايير المعتمدة لديكم.</li>
+                <li>إدارة عمليات الاستفسار عن الأسعار (RFQs) والترسية.</li>
+                <li>التفاوض مع الموردين محليًا في مصر أو دوليًا للحصول على أفضل الأسعار.</li>
+                <li>إصدار وإدارة أوامر الشراء، ومتابعة التنفيذ حتى التسليم.</li>
+              </ul>
+            </details>
+            <details name="scope">
+              <summary><svg class="ico"><use href="#i-truck"/></svg>التوريدات واللوجستيات<i></i></summary>
+              <ul class="ticks">
+                <li>شراء المواد والمستلزمات بأسعار تنافسية.</li>
+                <li>التنسيق مع شركات الشحن (بري / بحري / جوي).</li>
+                <li>المتابعة التشغيلية حتى وصول الشحنات والتسليم النهائي.</li>
+                <li>توفير تخزين مؤقت عند الحاجة.</li>
+              </ul>
+            </details>
+            <details name="scope">
+              <summary><svg class="ico"><use href="#i-search"/></svg>مراقبة الجودة<i></i></summary>
+              <ul class="ticks">
+                <li>فحص المواد أو المعدات أو الأدوات أو الأجهزة قبل التسليم للتأكد من مطابقتها للمواصفات.</li>
+                <li>مراجعة الجودة وفق نماذج فحص معتمدة.</li>
+                <li>التعامل مع أي ملاحظات أو استبدال قبل التسليم.</li>
+              </ul>
+            </details>
+            <details name="scope">
+              <summary><svg class="ico"><use href="#i-users"/></svg>إدارة الموردين<i></i></summary>
+              <ul class="ticks">
+                <li>تحديث قاعدة بيانات الموردين واعتمادهم.</li>
+                <li>تقييم دوري لأداء الموردين.</li>
+                <li>ضمان الالتزام بمعايير الجودة والتسليم.</li>
+              </ul>
+            </details>
+            <details name="scope">
+              <summary><svg class="ico"><use href="#i-chart"/></svg>التقارير والمتابعة<i></i></summary>
+              <ul class="ticks">
+                <li>تقارير أسبوعية حول أوامر الشراء الجارية.</li>
+                <li>تحليل ربع سنوي للواردات والوفورات المحققة.</li>
+                <li>لوحة متابعة إلكترونية لعرض حالة الطلبات.</li>
+              </ul>
+            </details>
+          </div>
+
+          <div class="bento bento--value">
+            <article class="tile tile--orange vtile vtile--big" data-reveal>
+              <strong class="big"><span class="num">5–20%</span></strong>
+              <h3>تخفيض التكاليف المباشرة</h3>
+              <p>بتوحيد الشراء والتفاوض المركزي ومقارنات الأسعار الشفافة.</p>
+            </article>
+            <article class="tile tile--glass vtile" data-reveal style="--d:.06s">
+              <strong class="big big--sm">حتى <span class="num">30%</span></strong>
+              <h3>دورة شراء أسرع</h3>
+            </article>
+            <article class="tile tile--glass vtile" data-reveal style="--d:.12s">
+              <svg class="ico vtile__ico"><use href="#i-eye"/></svg>
+              <h3>شفافية أعلى وهدر أقل</h3>
+            </article>
+            <article class="tile tile--glass vtile" data-reveal style="--d:.18s">
+              <svg class="ico vtile__ico"><use href="#i-users"/></svg>
+              <h3>أعباء تشغيلية أقل</h3>
+            </article>
+            <article class="tile tile--glass vtile" data-reveal style="--d:.24s">
+              <svg class="ico vtile__ico"><use href="#i-award"/></svg>
+              <h3>جودة أعلى ومرتجعات أقل</h3>
+            </article>
+          </div>
+        </div>
+
+        <div class="flow" data-reveal aria-label="تتبع كل خطوة في الدورة الشرائية">
+          <span>طلب</span><span>تسعير</span><span>ترسية</span><span>شراء</span><span>فحص</span><span>توريد</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CALCULATOR ============ -->
+    <section class="sec" id="savings">
+      <div class="wrap">
+        <header class="sec__head sec__head--split" data-reveal>
+          <div>
+            <span class="tag"><i></i> نموذج العمل</span>
+            <h2>نربح <span class="hl">فقط</span> حين توفّرون</h2>
+          </div>
+          <p class="sec__lead">رسوم إدارة شهرية ثابتة (Management Fee) تشمل الفريق والنظام الإلكتروني والتقارير، ومشاركة في الوفورات (Savings Sharing) مقارنةً بخط أساس الأسعار السابقة.</p>
+        </header>
+
+        <div class="calc2" data-reveal>
+          <div class="calc2__inputs">
+            <h3>قدّر وفوراتكم السنوية</h3>
+            <span class="calc2__label">حجم المشتريات السنوي</span>
+            <div class="presets" role="group" aria-label="اختيارات سريعة لحجم المشتريات">
+              <button type="button" data-v="1000000">1 مليون</button>
+              <button type="button" data-v="5000000" class="is-on">5 مليون</button>
+              <button type="button" data-v="10000000">10 مليون</button>
+              <button type="button" data-v="25000000">25 مليون</button>
+            </div>
+            <label class="range2">
+              <span class="range2__row"><span>أو حدد بدقة</span><output id="c-spend">5,000,000 ج.م</output></span>
+              <input type="range" id="c-spend-in" min="250000" max="50000000" step="250000" value="5000000">
+            </label>
+            <label class="range2">
+              <span class="range2__row"><span>نسبة الوفر المتوقعة</span><output id="c-rate">12%</output></span>
+              <input type="range" id="c-rate-in" min="5" max="20" step="1" value="12">
+            </label>
+            <p class="calc2__note">مثال: مادة سعرها 1,000 ج.م تم تأمينها بـ 800 ج.م ← وفر 200 ج.م: 120 لشركتكم و80 لنا. الأرقام تقديرية.</p>
+          </div>
+
+          <div class="calc2__out">
+            <div class="donut">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle cx="60" cy="60" r="48" class="donut__track"/>
+                <circle cx="60" cy="60" r="48" class="donut__a" pathLength="100" stroke-dasharray="59 41"/>
+                <circle cx="60" cy="60" r="48" class="donut__b" pathLength="100" stroke-dasharray="39 61" stroke-dashoffset="-60"/>
+              </svg>
+              <div class="donut__center">
+                <small>إجمالي الوفر</small>
+                <strong id="c-total">600,000</strong>
+                <small>ج.م سنويًا</small>
+              </div>
+            </div>
+            <ul class="legend">
+              <li><i class="lg-a"></i><span>حصة شركتكم <b class="num">60%</b></span><strong id="c-client">360,000 ج.م</strong></li>
+              <li><i class="lg-b"></i><span>حصتنا <b class="num">40%</b></span><strong id="c-ours">240,000 ج.م</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ROADMAP ============ -->
+    <section class="sec sec--tint" id="roadmap">
+      <div class="wrap">
+        <header class="sec__head" data-reveal>
+          <span class="tag"><i></i> مراحل التنفيذ</span>
+          <h2>ثلاث مراحل إلى <span class="hl">التشغيل الكامل</span></h2>
+        </header>
+        <div class="road">
+          <div class="road__line" aria-hidden="true"><span id="road-bar"></span></div>
+          <article class="tile phase2" data-reveal>
+            <span class="phase2__dot">1</span>
+            <span class="phase2__time">شهر واحد</span>
+            <h3>الإعداد والتشغيل الأولي</h3>
+            <ul class="ticks ticks--dark">
+              <li>الاتفاق النهائي على نطاق الخدمات.</li>
+              <li>تجهيز الفريق واعتماد نظام العمل.</li>
+              <li>إعداد قاعدة بيانات المواد والموردين.</li>
+              <li>اختبار النظام الإلكتروني.</li>
+            </ul>
+          </article>
+          <article class="tile phase2" data-reveal style="--d:.08s">
+            <span class="phase2__dot">2</span>
+            <span class="phase2__time">شهران</span>
+            <h3>التشغيل التجريبي</h3>
+            <ul class="ticks ticks--dark">
+              <li>تشغيل أول دفعة من الطلبات.</li>
+              <li>قياس زمن الاستجابة وجودة التوريد ومؤشرات الأداء.</li>
+              <li>ضبط العمليات وفقًا للملاحظات.</li>
+            </ul>
+          </article>
+          <article class="tile tile--dark phase2" data-reveal style="--d:.16s">
+            <span class="phase2__dot phase2__dot--on">3</span>
+            <span class="phase2__time phase2__time--on">بعد 3 أشهر</span>
+            <h3>التشغيل الكامل</h3>
+            <ul class="ticks">
+              <li>اعتماد خطة شراء ربع سنوية.</li>
+              <li>إصدار تقارير دورية عن الوفورات.</li>
+              <li>تطوير عمليات إضافية مثل إدارة العقود والمخزون.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="team2" data-reveal>
+          <p><b>فريق متخصص + نظام إلكتروني:</b> منصة لمتابعة أوامر الشراء، ونماذج إلكترونية للطلبات والعروض، ولوحة تقارير.</p>
+          <ul><li>مدير مشتريات</li><li>أخصائي مشتريات</li><li>أخصائي جودة</li><li>مدير لوجستي</li><li>مساعد إداري</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHY ============ -->
+    <section class="sec" id="why">
+      <div class="wrap why2">
+        <header class="sec__head why2__head" data-reveal>
+          <span class="tag"><i></i> لماذا دكان زمان؟</span>
+          <h2>هدفنا: جعل التوريد <span class="hl">أبسط وأكثر انتظامًا</span></h2>
+          <a href="#contact" class="pill pill--dark pill--lg">ابدأ التعاون معنا <svg class="ico"><use href="#i-arrow"/></svg></a>
+          <figure class="why2__media"><img src="assets/img/handshake.webp" alt="مصافحة لإتمام اتفاق توريد" width="1280" height="853" loading="lazy" decoding="async"></figure>
+        </header>
+        <ol class="why2__list">
+          <li data-reveal><b>01</b>مورد متعدد الأصناف لتلبية احتياجاتكم من مصدر واحد.</li>
+          <li data-reveal><b>02</b>تقليل الوقت والجهد في متابعة عدة موردين.</li>
+          <li data-reveal><b>03</b>سرعة الاستجابة وتجهيز الطلبات.</li>
+          <li data-reveal><b>04</b>بدائل متعددة حسب المواصفات والميزانية.</li>
+          <li data-reveal><b>05</b>أسعار تنافسية وحلول توريد مرنة.</li>
+          <li data-reveal><b>06</b>إمكانية التوريد الدوري وفق احتياج العميل.</li>
+          <li data-reveal><b>07</b>متابعة الطلب حتى التسليم.</li>
+          <li data-reveal><b>08</b>شراكة طويلة المدى تقوم على الوضوح والثقة.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CLIENTS ============ -->
+    <section class="sec sec--tint" id="clients">
+      <div class="wrap">
+        <header class="sec__head" data-reveal>
+          <span class="tag"><i></i> عملاؤنا المستهدفون</span>
+          <h2>نخدم من يُشغّل <span class="hl">كل يوم</span></h2>
+        </header>
+        <ul class="clients2">
+          <li class="tile" data-reveal><svg class="ico"><use href="#i-landmark"/></svg>شركات القطاع العام</li>
+          <li class="tile" data-reveal style="--d:.04s"><svg class="ico"><use href="#i-sparkle"/></svg>شركات النظافة والصيانة</li>
+          <li class="tile" data-reveal style="--d:.08s"><svg class="ico"><use href="#i-bank"/></svg>البنوك</li>
+          <li class="tile" data-reveal style="--d:.12s"><svg class="ico"><use href="#i-building"/></svg>الشركات والمؤسسات</li>
+          <li class="tile" data-reveal style="--d:.16s"><svg class="ico"><use href="#i-landmark"/></svg>الجهات الحكومية والهيئات</li>
+          <li class="tile" data-reveal style="--d:.2s"><svg class="ico"><use href="#i-office"/></svg>المكاتب والمجمعات الإدارية</li>
+          <li class="tile" data-reveal style="--d:.24s"><svg class="ico"><use href="#i-store"/></svg>شركات تجارة الجملة والتجزئة</li>
+          <li class="tile tile--orange clients2__cta" data-reveal style="--d:.28s"><a href="#contact">وأنتم؟ <b>تواصلوا معنا</b> <svg class="ico"><use href="#i-arrow"/></svg></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="sec" id="contact">
+      <div class="wrap bento bento--contact">
+        <article class="tile tile--orange cta2" data-reveal>
+          <span class="tag tag--dark"><i></i> بيانات التواصل</span>
+          <h2>معًا .. نبني أعمالكم بشكل أفضل</h2>
+          <p>للتوريدات والعروض والأسعار والعقود المؤسسية.</p>
+          <ul class="cta2__list">
+            <li><svg class="ico"><use href="#i-phone"/></svg><a href="tel:+201000000000" dir="ltr">0100 000 0000</a></li>
+            <li><svg class="ico"><use href="#i-mail"/></svg><a href="mailto:info@dakan-zaman.com">info@dakan-zaman.com</a></li>
+            <li><svg class="ico"><use href="#i-pin"/></svg><span>القاهرة – مصر</span></li>
+            <li><svg class="ico"><use href="#i-globe"/></svg><a href="https://www.dakan-zaman.com" dir="ltr">www.dakan-zaman.com</a></li>
+          </ul>
+        </article>
+
+        <form class="tile form2" id="form2" novalidate data-reveal style="--d:.08s">
+          <h3>اطلب عرض سعر</h3>
+          <div class="form2__row">
+            <label class="f"><input name="name" type="text" placeholder=" " required autocomplete="name"><span>الاسم</span></label>
+            <label class="f"><input name="company" type="text" placeholder=" " autocomplete="organization"><span>اسم الشركة</span></label>
+          </div>
+          <div class="form2__row">
+            <label class="f"><input name="phone" type="tel" placeholder=" " required autocomplete="tel"><span>رقم الهاتف</span></label>
+            <label class="f f--select"><select name="service">
+              <option>توريدات حسب الطلب</option>
+              <option>توريد شهري / دوري</option>
+              <option>إدارة المشتريات نيابةً عن الشركة</option>
+              <option>قوائم أصناف مخصصة</option>
+            </select><span>نوع الخدمة</span></label>
+          </div>
+          <label class="f"><textarea name="message" rows="3" placeholder=" "></textarea><span>تفاصيل الطلب والأصناف المطلوبة</span></label>
+          <button type="submit" class="pill pill--dark pill--lg pill--block">إرسال الطلب <svg class="ico"><use href="#i-arrow"/></svg></button>
+          <p class="form2__msg" id="form2-msg" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <img class="foot__logo" src="assets/logo-dark.svg" alt="Dokan Zaman" width="160" height="64" loading="lazy">
+      <nav class="foot__links" aria-label="روابط سريعة">
+        <a href="#about">من نحن</a><a href="#categories">المجالات</a><a href="#process">كيف نعمل</a><a href="#procurement">إدارة المشتريات</a><a href="#savings">نموذج العمل</a><a href="#contact">تواصل معنا</a>
+      </nav>
+    </div>
+    <p class="foot__word" aria-hidden="true">دكان زمان</p>
+    <div class="wrap foot__bottom">
+      <small>© <span id="year">2026</span> دكان زمان للتوريدات العمومية. جميع الحقوق محفوظة.</small>
+      <small>جودة • تنوع • التزام • خدمة</small>
+    </div>
+  </footer>
+
+  <a href="#top" class="to-top2" aria-label="العودة للأعلى"><svg class="ico"><use href="#i-up"/></svg></a>
+
+  <!-- comparison switcher (remove after choosing a design) -->
+  <nav class="compare" aria-label="التبديل بين التصميمين">
+    <a href="index.html">التصميم 1</a>
+    <a href="design-2.html" aria-current="page">التصميم 2</a>
+  </nav>
+
+  <script src="js/design-2.js" defer></script>
+</body>
+</html>
