@@ -170,6 +170,27 @@
     }, 1800);
   }
 
+  /* ---------- Cards: cursor spotlight (keep this list in sync with the card list in the CSS) ---------- */
+  if (finePointer) {
+    $$('.supply-card, .pillar2, .vtile, .clients2 > li:not(.clients2__cta), .step2, .phase2, .tile--stat, .tile--values, .about-mission, .bento--about .tile--wide').forEach(card => {
+      let pending = false, mx = 0, my = 0, rect = null;
+      card.addEventListener('pointerenter', () => { rect = card.getBoundingClientRect(); });
+      card.addEventListener('pointermove', e => {
+        rect = rect || card.getBoundingClientRect();
+        mx = e.clientX - rect.left; my = e.clientY - rect.top;
+        if (!pending) {
+          pending = true;
+          requestAnimationFrame(() => {
+            pending = false;
+            card.style.setProperty('--mx', mx + 'px');
+            card.style.setProperty('--my', my + 'px');
+          });
+        }
+      }, { passive: true });
+      card.addEventListener('pointerleave', () => { rect = null; });
+    });
+  }
+
   /* ---------- Process: sticky stepper follows the active step ---------- */
   const steps = $$('.step2');
   const stepNum = $('#stepper-num');
