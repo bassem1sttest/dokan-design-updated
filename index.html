@@ -95,12 +95,11 @@
       </a>
 
       <nav class="nav__links" id="nav-links" aria-label="القائمة الرئيسية">
-        <a href="#about">من نحن</a>
-        <a href="#categories">مجالات التوريد</a>
-        <a href="#process">كيف نعمل</a>
-        <a href="#procurement">إدارة المشتريات</a>
-        <a href="#clients">عملاؤنا</a>
-        <a href="#contact">تواصل معنا</a>
+        <a href="index.html" class="is-active" aria-current="page">الرئيسية</a>
+        <a href="categories.html">مجالات التوريد</a>
+        <a href="services.html">كيف نعمل</a>
+        <a href="procurement.html">إدارة المشتريات</a>
+        <a href="about.html">من نحن</a>
         <a href="#contact" class="btn btn--primary nav__cta-mobile">اطلب عرض سعر</a>
       </nav>
 
@@ -237,483 +236,96 @@
       </div>
     </div>
 
-    <!-- ============ ABOUT ============ -->
+    <!-- ============ 1) WHAT WE SUPPLY — quick overview, details on categories.html ============ -->
+    <section class="section home-cats" id="categories">
+      <div class="container">
+        <div class="section-head section-head--row">
+          <div>
+            <p class="eyebrow" data-reveal><span class="dot"></span> ماذا نورّد؟</p>
+            <h2 class="h2" data-reveal>تسعة مجالات. <em>مورد واحد.</em></h2>
+          </div>
+          <a href="categories.html" class="link-more" data-reveal>تفاصيل كل المجالات <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+        <ul class="cat-tiles">
+          <li data-reveal style="--d:0.00s"><a href="categories.html#cat-1"><img src="assets/img/cat-cleaning.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-spray"/></svg>مستهلكات وأدوات النظافة</span></a></li>
+          <li data-reveal style="--d:0.04s"><a href="categories.html#cat-2"><img src="assets/img/cat-office.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-pen"/></svg>الأدوات المكتبية</span></a></li>
+          <li data-reveal style="--d:0.08s"><a href="categories.html#cat-3"><img src="assets/img/cat-operations.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-wrench"/></svg>مستلزمات التشغيل</span></a></li>
+          <li data-reveal style="--d:0.12s"><a href="categories.html#cat-4"><img src="assets/img/cat-packaging.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-package"/></svg>العبوات والتغليف</span></a></li>
+          <li data-reveal style="--d:0.16s"><a href="categories.html#cat-5"><img src="assets/img/cat-paper.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-paper"/></svg>الورق ومستلزماته</span></a></li>
+          <li data-reveal style="--d:0.20s"><a href="categories.html#cat-6"><img src="assets/img/cat-buffet.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-coffee"/></svg>البوفيه والضيافة</span></a></li>
+          <li data-reveal style="--d:0.24s"><a href="categories.html#cat-7"><img src="assets/img/cat-safety.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-hardhat"/></svg>الصحة والسلامة</span></a></li>
+          <li data-reveal style="--d:0.28s"><a href="categories.html#cat-8"><img src="assets/img/cat-tools.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-hammer"/></svg>العدد والآلات الخفيفة</span></a></li>
+          <li data-reveal style="--d:0.32s"><a href="categories.html#cat-9"><img src="assets/img/cat-medical.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-medical"/></svg>المستلزمات الطبية</span></a></li>
+          <li class="cat-tiles__more" data-reveal style="--d:.36s"><a href="categories.html"><b>كل المجالات<br>بالتفصيل</b><svg class="ico"><use href="#i-arrow"/></svg></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 2) HOW IT WORKS — five steps at a glance, details on services.html ============ -->
+    <section class="section process" id="process">
+      <div class="container">
+        <div class="section-head section-head--row">
+          <div>
+            <p class="eyebrow" data-reveal><span class="dot"></span> كيف نعمل؟</p>
+            <h2 class="h2" data-reveal>من طلبكم .. <em>إلى باب مقركم</em></h2>
+          </div>
+          <a href="services.html" class="link-more" data-reveal>نظام التوريد وأساليبه <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+        <ol class="steps steps--lite" id="steps">
+          <li class="steps__line" aria-hidden="true"><span></span></li>
+          <li class="step" data-reveal style="--d:0.00s"><span class="step__icon"><svg class="ico"><use href="#i-clipboard"/></svg><b>1</b></span><h3>طلب العميل</h3></li>
+          <li class="step" data-reveal style="--d:0.07s"><span class="step__icon"><svg class="ico"><use href="#i-package"/></svg><b>2</b></span><h3>تجهيز الأصناف</h3></li>
+          <li class="step" data-reveal style="--d:0.14s"><span class="step__icon"><svg class="ico"><use href="#i-shield"/></svg><b>3</b></span><h3>مراجعة الجودة</h3></li>
+          <li class="step" data-reveal style="--d:0.21s"><span class="step__icon"><svg class="ico"><use href="#i-truck"/></svg><b>4</b></span><h3>التوصيل</h3></li>
+          <li class="step" data-reveal style="--d:0.28s"><span class="step__icon"><svg class="ico"><use href="#i-headset"/></svg><b>5</b></span><h3>المتابعة</h3></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ 3) FLAGSHIP SERVICE — three numbers, details + calculator on procurement.html ============ -->
+    <section class="section procurement" id="procurement">
+      <img class="procurement__bg" src="assets/img/order-plan.webp" alt="" aria-hidden="true" width="960" height="640" loading="lazy" decoding="async">
+      <div class="container proc-lite">
+        <div>
+          <p class="eyebrow eyebrow--light" data-reveal><span class="dot"></span> خدمة جديدة للشركات</p>
+          <h2 class="h2 h2--light" data-reveal>ندير مشترياتكم <em>نيابةً عنكم</em></h2>
+          <p class="lead lead--light" data-reveal>فريق متخصص ونظام إلكتروني يديران دورة الشراء كاملة — ونربح فقط حين توفّرون.</p>
+          <div class="proc-lite__btns" data-reveal>
+            <a href="procurement.html" class="btn btn--primary btn--lg">تفاصيل الخدمة <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a href="procurement.html#pt-model" class="btn btn--ghost-light btn--lg">احسب وفوراتكم</a>
+          </div>
+        </div>
+        <ul class="proc-stats">
+          <li data-reveal><strong><span class="num"><span data-count="5">0</span>–<span data-count="20">0</span>%</span></strong><span>وفورات من تكاليف المشتريات السنوية</span></li>
+          <li data-reveal style="--d:.08s"><strong><span class="num"><span data-count="30">0</span>%</span></strong><span>أسرع في دورة الشراء (حتى)</span></li>
+          <li data-reveal style="--d:.16s"><strong><span class="num"><span data-count="60">0</span>%</span></strong><span>من الوفر المحقق يعود لشركتكم</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 4) WHY US — trust in four points, full story on about.html ============ -->
     <section class="section about" id="about">
       <div class="container about__grid">
         <div class="about__copy">
-          <p class="eyebrow" data-reveal><span class="dot"></span> من نحن</p>
+          <p class="eyebrow" data-reveal><span class="dot"></span> لماذا دكان زمان؟</p>
           <h2 class="h2" data-reveal>شريككم في <em>التشغيل اليومي</em></h2>
-          <p class="lead" data-reveal>
-            دكان زمان للتوريدات العمومية شركة متخصصة في توفير احتياجات التشغيل والتوريدات اليومية للشركات والمؤسسات والجهات،
-            من خلال مجموعة متنوعة من المنتجات وحلول التوريد المرنة.
-          </p>
-
-          <div class="mission" data-reveal>
-            <span class="mission__label">رسالتنا</span>
-            <p>توفير احتياجات عملائنا من التوريدات والتشغيل بطريقة منظمة ومرنة، مع التركيز على جودة الخدمة والالتزام بالمواعيد.</p>
-          </div>
-
-          <div class="values" data-reveal>
-            <span class="values__label">قيمنا</span>
-            <ul>
-              <li>الالتزام</li>
-              <li>الشفافية</li>
-              <li>سرعة الاستجابة</li>
-              <li>جودة الخدمة</li>
-              <li>مرونة التوريد</li>
-              <li>علاقات طويلة المدى</li>
-            </ul>
-          </div>
+          <p class="lead" data-reveal>شركة متخصصة في توفير احتياجات التشغيل والتوريدات اليومية للشركات والمؤسسات والجهات.</p>
+          <ul class="pillars-mini pillars-mini--2" data-reveal>
+            <li><span><svg class="ico"><use href="#i-layers"/></svg></span><div><h3>مورد واحد لكل الأصناف</h3><p>احتياجاتكم من مصدر واحد.</p></div></li>
+            <li><span><svg class="ico"><use href="#i-zap"/></svg></span><div><h3>سرعة الاستجابة</h3><p>تجهيز ومتابعة حتى التسليم.</p></div></li>
+            <li><span><svg class="ico"><use href="#i-tag"/></svg></span><div><h3>أسعار تنافسية</h3><p>بدائل حسب المواصفات والميزانية.</p></div></li>
+            <li><span><svg class="ico"><use href="#i-clock"/></svg></span><div><h3>التزام بالمواعيد</h3><p>توريد منتظم وفق احتياجكم.</p></div></li>
+          </ul>
+          <a href="about.html" class="btn btn--dark" data-reveal>المزيد عن الشركة <svg class="ico"><use href="#i-arrow"/></svg></a>
         </div>
-
         <figure class="about__media" data-reveal style="--d:.1s">
           <img src="assets/img/warehouse.webp" alt="مستودع منظم بأرفف مليئة بالأصناف" width="1280" height="853" loading="lazy" decoding="async">
           <figcaption class="about__badge"><strong>9</strong><span>مجالات توريد<br>من مصدر واحد</span></figcaption>
         </figure>
       </div>
-      <div class="container">
-        <div class="pillars pillars--row">
-          <article class="pillar" data-reveal style="--d:.05s">
-            <span class="pillar__num">01</span>
-            <span class="pillar__icon"><svg class="ico"><use href="#i-layers"/></svg></span>
-            <h3>تنوع الأصناف</h3>
-            <p>مجموعة واسعة من المنتجات التي تغطي احتياجات التشغيل اليومية.</p>
-          </article>
-          <article class="pillar pillar--accent" data-reveal style="--d:.12s">
-            <span class="pillar__num">02</span>
-            <span class="pillar__icon"><svg class="ico"><use href="#i-clock"/></svg></span>
-            <h3>الالتزام</h3>
-            <p>الاهتمام بالمواعيد والكميات والمواصفات المتفق عليها.</p>
-          </article>
-          <article class="pillar" data-reveal style="--d:.19s">
-            <span class="pillar__num">03</span>
-            <span class="pillar__icon"><svg class="ico"><use href="#i-handshake"/></svg></span>
-            <h3>خدمة الشركات</h3>
-            <p>حلول توريد مناسبة للشركات والعقود والتوريد الدوري.</p>
-          </article>
-        </div>
-      </div>
     </section>
 
-    <!-- ============ CATEGORIES ============ -->
-    <section class="section categories" id="categories">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow" data-reveal><span class="dot"></span> مجالات التوريد</p>
-          <h2 class="h2" data-reveal>تسعة مجالات. <em>مورد واحد.</em></h2>
-          <p class="lead" data-reveal>بدلًا من التعامل مع موردين متعددين لكل صنف، نقدم لكم حلًا متكاملًا للتوريدات من خلال مورد واحد.</p>
-        </div>
-
-        <div class="cat-grid">
-          <article class="cat" data-reveal style="--d:0s">
-            <div class="cat__media"><img src="assets/img/cat-cleaning.webp" alt="مستلزمات وأدوات النظافة" width="720" height="480" loading="lazy" decoding="async"></div>
-            <span class="cat__num">01</span>
-            <span class="cat__icon"><svg class="ico"><use href="#i-spray"/></svg></span>
-            <h3>مستهلكات وأدوات النظافة</h3>
-            <p>منظفات، أدوات تنظيف، أكياس قمامة، قفازات، مستلزمات الحمامات والمطابخ.</p>
-          </article>
-          <article class="cat" data-reveal style="--d:.06s">
-            <div class="cat__media"><img src="assets/img/cat-office.webp" alt="أدوات مكتبية ومشابك" width="720" height="480" loading="lazy" decoding="async"></div>
-            <span class="cat__num">02</span>
-            <span class="cat__icon"><svg class="ico"><use href="#i-pen"/></svg></span>
-            <h3>الأدوات المكتبية</h3>
-            <p>أقلام، دفاتر، ملفات، أوراق، أدوات تنظيم ومستلزمات المكاتب.</p>
-          </article>
-          <article class="cat" data-reveal style="--d:.12s">
-            <div class="cat__media"><img src="assets/img/cat-operations.webp" alt="مفاتيح وعدد صيانة" width="720" height="480" loading="lazy" decoding="async"></div>
-            <span class="cat__num">03</span>
-            <span class="cat__icon"><svg class="ico"><use href="#i-wrench"/></svg></span>
-            <h3>مستلزمات التشغيل</h3>
-            <p>مستلزمات صيانة وتشغيل، أدوات عمل، مهمات سلامة ومستلزمات فنية.</p>
-          </article>
-          <article class="cat" data-reveal style="--d:0s">
-            <div class="cat__media"><img src="assets/img/cat-packaging.webp" alt="كرتونة شحن" width="720" height="480" loading="lazy" decoding="async"></div>
-            <span class="cat__num">04</span>
-            <span class="cat__icon"><svg class="ico"><use href="#i-package"/></svg></span>
-            <h3>العبوات والتغليف</h3>
-            <p>عبوات ورقية وبلاستيكية، أكياس، كراتين، حلول تغليف حسب الطلب.</p>
-          </article>
-          <article class="cat" data-reveal style="--d:.06s">
-            <div class="cat__media"><img src="assets/img/cat-paper.webp" alt="رزم من الورق" width="720" height="480" loading="lazy" decoding="async"></div>
-            <span class="cat__num">05</span>
-            <span class="cat__icon"><svg class="ico"><use href="#i-paper"/></svg></span>
-            <h3>الورق ومستلزماته</h3>
-            <p>أوراق طباعة وتصوير، رول ورق، مناديل ومستلزمات ورقية متنوعة.</p>
-          </article>
-          <article class="cat" data-reveal style="--d:.12s">
-            <div class="cat__media"><img src="assets/img/cat-buffet.webp" alt="فنجان قهوة على صينية تقديم" width="720" height="480" loading="lazy" decoding="async"></div>
-            <span class="cat__num">06</span>
-            <span class="cat__icon"><svg class="ico"><use href="#i-coffee"/></svg></span>
-            <h3>مستلزمات البوفيه والضيافة</h3>
-            <p>أكواب وأطباق، أدوات تقديم، مناديل، مواد ومستلزمات الضيافة.</p>
-          </article>
-          <article class="cat" data-reveal style="--d:0s">
-            <div class="cat__media"><img src="assets/img/cat-safety.webp" alt="خوذة وقفازات ونظارات سلامة" width="720" height="480" loading="lazy" decoding="async"></div>
-            <span class="cat__num">07</span>
-            <span class="cat__icon"><svg class="ico"><use href="#i-hardhat"/></svg></span>
-            <h3>مهمات الصحة والسلامة</h3>
-            <p>مهمات الوقاية والسلامة المهنية لبيئات العمل المختلفة.</p>
-          </article>
-          <article class="cat" data-reveal style="--d:.06s">
-            <div class="cat__media"><img src="assets/img/cat-tools.webp" alt="مثقاب كهربائي" width="720" height="480" loading="lazy" decoding="async"></div>
-            <span class="cat__num">08</span>
-            <span class="cat__icon"><svg class="ico"><use href="#i-hammer"/></svg></span>
-            <h3>العدد والآلات الخفيفة</h3>
-            <p>عدد يدوية وآلات خفيفة لأعمال الصيانة والتشغيل اليومية.</p>
-          </article>
-          <article class="cat" data-reveal style="--d:.12s">
-            <div class="cat__media"><img src="assets/img/cat-medical.webp" alt="سماعة طبية" width="720" height="480" loading="lazy" decoding="async"></div>
-            <span class="cat__num">09</span>
-            <span class="cat__icon"><svg class="ico"><use href="#i-medical"/></svg></span>
-            <h3>المستلزمات الطبية</h3>
-            <p>مستلزمات طبية أساسية لاحتياجات المنشآت والمواقع.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CONTRACT SERVICES ============ -->
-    <section class="section services" id="services">
-      <div class="container services__grid">
-        <div class="services__head">
-          <p class="eyebrow" data-reveal><span class="dot"></span> خدمات الشركات والعقود</p>
-          <h2 class="h2" data-reveal>توريد يناسب <em>إيقاع عملكم</em></h2>
-          <p class="lead" data-reveal>سواء كان احتياجكم شهريًا ثابتًا أو طلبًا عاجلًا لصنف محدد، نصمم أسلوب التوريد الذي يناسب كل عميل وكل موقع.</p>
-          <a href="#contact" class="btn btn--dark" data-reveal>ناقشنا في عقد توريد <svg class="ico"><use href="#i-arrow"/></svg></a>
-          <figure class="services__media" data-reveal>
-            <img src="assets/img/handshake.webp" alt="مصافحة لإتمام اتفاق توريد" width="1280" height="853" loading="lazy" decoding="async">
-          </figure>
-        </div>
-        <ul class="svc-list">
-          <li class="svc" data-reveal style="--d:0s">
-            <span class="svc__icon"><svg class="ico"><use href="#i-calendar"/></svg></span>
-            <div><h3>توريد شهري</h3><p>توريد مستلزمات التشغيل وفق جدول شهري.</p></div>
-          </li>
-          <li class="svc" data-reveal style="--d:.06s">
-            <span class="svc__icon"><svg class="ico"><use href="#i-repeat"/></svg></span>
-            <div><h3>توريد دوري</h3><p>طلبات أسبوعية أو دورية حسب احتياج العميل.</p></div>
-          </li>
-          <li class="svc" data-reveal style="--d:.12s">
-            <span class="svc__icon"><svg class="ico"><use href="#i-cart"/></svg></span>
-            <div><h3>أوامر شراء</h3><p>التعامل مع أوامر الشراء وقوائم الأصناف المعتمدة.</p></div>
-          </li>
-          <li class="svc" data-reveal style="--d:.18s">
-            <span class="svc__icon"><svg class="ico"><use href="#i-target"/></svg></span>
-            <div><h3>توريدات حسب الطلب</h3><p>توفير أصناف محددة وفق المواصفات المطلوبة.</p></div>
-          </li>
-          <li class="svc" data-reveal style="--d:.24s">
-            <span class="svc__icon"><svg class="ico"><use href="#i-list"/></svg></span>
-            <div><h3>قوائم أصناف مخصصة</h3><p>إعداد قوائم توريد خاصة بكل عميل أو موقع.</p></div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ PROCESS ============ -->
-    <section class="section process" id="process">
-      <div class="container">
-        <div class="section-head section-head--center">
-          <p class="eyebrow" data-reveal><span class="dot"></span> نظام التوريد</p>
-          <h2 class="h2" data-reveal>من طلبكم .. <em>إلى باب مقركم</em></h2>
-          <p class="lead" data-reveal>نركز على وضوح الطلب، دقة التجهيز، الالتزام بالتسليم، وسهولة المتابعة.</p>
-        </div>
-
-        <ol class="steps" id="steps">
-          <li class="steps__line" aria-hidden="true"><span></span></li>
-          <li class="step" data-reveal style="--d:0s">
-            <span class="step__icon"><svg class="ico"><use href="#i-clipboard"/></svg><b>1</b></span>
-            <h3>طلب العميل</h3>
-            <p>استلام الطلب وتوضيح الأصناف والكميات والمواصفات.</p>
-          </li>
-          <li class="step" data-reveal style="--d:.08s">
-            <span class="step__icon"><svg class="ico"><use href="#i-package"/></svg><b>2</b></span>
-            <h3>تجهيز الأصناف</h3>
-            <p>تجميع الأصناف من مصدر واحد وفق القائمة المعتمدة.</p>
-          </li>
-          <li class="step" data-reveal style="--d:.16s">
-            <span class="step__icon"><svg class="ico"><use href="#i-shield"/></svg><b>3</b></span>
-            <h3>مراجعة الجودة والكميات</h3>
-            <p>التأكد من المطابقة للمواصفات قبل خروج الطلب.</p>
-          </li>
-          <li class="step" data-reveal style="--d:.24s">
-            <span class="step__icon"><svg class="ico"><use href="#i-truck"/></svg><b>4</b></span>
-            <h3>التوصيل</h3>
-            <p>التسليم إلى مقركم في الموعد المتفق عليه.</p>
-          </li>
-          <li class="step" data-reveal style="--d:.32s">
-            <span class="step__icon"><svg class="ico"><use href="#i-headset"/></svg><b>5</b></span>
-            <h3>المتابعة وخدمة ما بعد البيع</h3>
-            <p>متابعة الطلب حتى التسليم وما بعده.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ============ PROCUREMENT MANAGEMENT (dark) ============ -->
-    <section class="section procurement" id="procurement" data-anim>
-      <img class="procurement__bg" src="assets/img/order-plan.webp" alt="" aria-hidden="true" width="960" height="640" loading="lazy" decoding="async">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow eyebrow--light" data-reveal><span class="dot"></span> خدمة جديدة للشركات</p>
-          <h2 class="h2 h2--light" data-reveal>ندير مشترياتكم <em>نيابةً عنكم</em></h2>
-          <p class="lead lead--light" data-reveal>نموذج متكامل لإدارة عمليات المشتريات والتوريدات يدعم عملياتكم التشغيلية ويحقق وفورات مالية حقيقية، مع رفع مستوى الجودة وسرعة الاستجابة.</p>
-        </div>
-
-        <!-- Scope tabs -->
-        <div class="scope" data-reveal>
-          <div class="scope__tabs" role="tablist" aria-label="نطاق الخدمات">
-            <button role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true" tabindex="0"><svg class="ico"><use href="#i-cart"/></svg>إدارة المشتريات</button>
-            <button role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1"><svg class="ico"><use href="#i-truck"/></svg>التوريدات واللوجستيات</button>
-            <button role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1"><svg class="ico"><use href="#i-search"/></svg>مراقبة الجودة</button>
-            <button role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1"><svg class="ico"><use href="#i-users"/></svg>إدارة الموردين</button>
-            <button role="tab" id="tab-5" aria-controls="panel-5" aria-selected="false" tabindex="-1"><svg class="ico"><use href="#i-chart"/></svg>التقارير والمتابعة</button>
-          </div>
-
-          <div class="scope__panels">
-            <div class="scope__panel is-active" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
-              <h3>إدارة عمليات المشتريات</h3>
-              <ul class="checks">
-                <li>استلام طلبات الشراء من الإدارات المعنية داخل الشركة.</li>
-                <li>إعداد وتحليل المواصفات وفق المعايير المعتمدة لديكم.</li>
-                <li>إدارة عمليات الاستفسار عن الأسعار (RFQs) والترسية.</li>
-                <li>التفاوض مع الموردين محليًا في مصر أو دوليًا للحصول على أفضل الأسعار.</li>
-                <li>إصدار وإدارة أوامر الشراء، ومتابعة التنفيذ حتى التسليم.</li>
-              </ul>
-            </div>
-            <div class="scope__panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
-              <h3>التوريدات واللوجستيات</h3>
-              <ul class="checks">
-                <li>شراء المواد والمستلزمات بأسعار تنافسية.</li>
-                <li>التنسيق مع شركات الشحن (بري / بحري / جوي).</li>
-                <li>المتابعة التشغيلية حتى وصول الشحنات والتسليم النهائي.</li>
-                <li>توفير تخزين مؤقت عند الحاجة.</li>
-              </ul>
-            </div>
-            <div class="scope__panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
-              <h3>مراقبة الجودة</h3>
-              <ul class="checks">
-                <li>فحص المواد أو المعدات أو الأدوات أو الأجهزة قبل التسليم للتأكد من مطابقتها للمواصفات.</li>
-                <li>مراجعة الجودة وفق نماذج فحص معتمدة.</li>
-                <li>التعامل مع أي ملاحظات أو استبدال قبل التسليم.</li>
-              </ul>
-            </div>
-            <div class="scope__panel" role="tabpanel" id="panel-4" aria-labelledby="tab-4" hidden>
-              <h3>إدارة الموردين</h3>
-              <ul class="checks">
-                <li>تحديث قاعدة بيانات الموردين واعتمادهم.</li>
-                <li>تقييم دوري لأداء الموردين.</li>
-                <li>ضمان الالتزام بمعايير الجودة والتسليم.</li>
-              </ul>
-            </div>
-            <div class="scope__panel" role="tabpanel" id="panel-5" aria-labelledby="tab-5" hidden>
-              <h3>التقارير والمتابعة</h3>
-              <ul class="checks">
-                <li>تقارير أسبوعية حول أوامر الشراء الجارية.</li>
-                <li>تحليل ربع سنوي للواردات والوفورات المحققة.</li>
-                <li>لوحة متابعة إلكترونية لعرض حالة الطلبات.</li>
-              </ul>
-            </div>
-
-            <!-- Transparency chain -->
-            <div class="chain" aria-label="تتبع كل خطوة في الدورة الشرائية">
-              <span>طلب</span><i></i><span>تسعير</span><i></i><span>ترسية</span><i></i><span>شراء</span><i></i><span>فحص</span><i></i><span>توريد</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Value -->
-        <div class="value-grid">
-          <article class="value value--big" data-reveal>
-            <span class="value__icon"><svg class="ico"><use href="#i-down"/></svg></span>
-            <strong class="value__stat"><span class="num"><span data-count="5">0</span>–<span data-count="20">0</span>%</span></strong>
-            <h3>تخفيض التكاليف المباشرة</h3>
-            <p>وفورات من تكاليف المشتريات السنوية بفضل توحيد عمليات الشراء والتفاوض المركزي ومقارنات الأسعار الدقيقة والشفافة، تبعًا لطبيعة المواد والكميات.</p>
-          </article>
-          <article class="value value--big" data-reveal style="--d:.08s">
-            <span class="value__icon"><svg class="ico"><use href="#i-zap"/></svg></span>
-            <strong class="value__stat">حتى <span class="num"><span data-count="30">0</span>%</span></strong>
-            <h3>دورة شراء أسرع</h3>
-            <p>تقليل زمن دورة الشراء والأخطاء المرتبطة بالمواصفات أو التوريد، لضمان جاهزية المواد في الوقت المناسب.</p>
-          </article>
-          <article class="value" data-reveal style="--d:.04s">
-            <span class="value__icon"><svg class="ico"><use href="#i-eye"/></svg></span>
-            <h3>شفافية أعلى وهدر أقل</h3>
-            <p>نظام إلكتروني موحد يتتبع كل خطوة ويحد من تضارب المصالح وتضخيم الأسعار.</p>
-          </article>
-          <article class="value" data-reveal style="--d:.1s">
-            <span class="value__icon"><svg class="ico"><use href="#i-users"/></svg></span>
-            <h3>أعباء تشغيلية أقل</h3>
-            <p>فريق متخصص يتولى المهام الروتينية دون الحاجة إلى التعيين أو التدريب الداخلي.</p>
-          </article>
-          <article class="value" data-reveal style="--d:.16s">
-            <span class="value__icon"><svg class="ico"><use href="#i-award"/></svg></span>
-            <h3>جودة أعلى ومرتجعات أقل</h3>
-            <p>فحص قبل الاستلام، وقاعدة موردين مبنية على الجودة والالتزام، وبدائل متعددة لكل مادة.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ SAVINGS CALCULATOR ============ -->
-    <section class="section savings" id="savings">
-      <div class="container savings__grid">
-        <div class="savings__copy">
-          <p class="eyebrow" data-reveal><span class="dot"></span> نموذج العمل</p>
-          <h2 class="h2" data-reveal>نربح <em>فقط</em> حين توفّرون</h2>
-          <p class="lead" data-reveal>نموذج واضح يجمع بين رسوم إدارة شهرية ثابتة ومشاركة في الوفورات المحققة مقارنةً بخط أساس الأسعار السابقة.</p>
-
-          <div class="model" data-reveal>
-            <div class="model__item">
-              <span class="model__icon"><svg class="ico"><use href="#i-monitor"/></svg></span>
-              <div>
-                <h3>رسوم شهرية ثابتة <small>Management Fee</small></h3>
-                <p>تشمل إدارة المشتريات، وتشغيل النظام الإلكتروني، وتوفير الفريق، وإعداد التقارير، وإدارة الموردين.</p>
-              </div>
-            </div>
-            <div class="model__item">
-              <span class="model__icon model__icon--orange"><svg class="ico"><use href="#i-shuffle"/></svg></span>
-              <div>
-                <h3>مشاركة الوفورات <small>Savings Sharing</small></h3>
-                <p>أي وفر يتحقق مقارنة بخط الأساس يُقسَّم: <b class="num">60%</b> لشركتكم و<b class="num">40%</b> لنا.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="calc" data-reveal style="--d:.1s">
-          <div class="calc__head">
-            <span class="calc__badge"><svg class="ico"><use href="#i-sparkle"/></svg> حاسبة تفاعلية</span>
-            <h3>قدّر وفوراتكم السنوية</h3>
-          </div>
-
-          <label class="field">
-            <span class="field__row"><span>حجم المشتريات السنوي</span><output id="spend-out">5,000,000 ج.م</output></span>
-            <input type="range" id="spend" min="250000" max="50000000" step="250000" value="5000000">
-          </label>
-
-          <label class="field">
-            <span class="field__row"><span>نسبة الوفر المتوقعة</span><output id="rate-out">12%</output></span>
-            <input type="range" id="rate" min="5" max="20" step="1" value="12">
-            <span class="field__hint"><span class="num">5%</span><span class="num">20%</span></span>
-          </label>
-
-          <div class="calc__result">
-            <span>إجمالي الوفر المتوقع</span>
-            <strong id="total-out">600,000 <small>ج.م</small></strong>
-          </div>
-
-          <div class="split" aria-hidden="true">
-            <span class="split__a" style="width:60%"></span>
-            <span class="split__b" style="width:40%"></span>
-          </div>
-          <div class="calc__shares">
-            <div><i class="sw sw--navy"></i><span>حصة شركتكم (<span class="num">60%</span>)</span><b id="client-out">360,000 ج.م</b></div>
-            <div><i class="sw sw--orange"></i><span>حصتنا (<span class="num">40%</span>)</span><b id="ours-out">240,000 ج.م</b></div>
-          </div>
-
-          <p class="calc__note">مثال: مادة سعرها 1,000 ج.م تم تأمينها بـ 800 ج.م ← وفر 200 ج.م: 120 لشركتكم و80 لنا. الأرقام تقديرية وتختلف حسب طبيعة المواد والكميات.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ ROADMAP ============ -->
-    <section class="section roadmap" id="roadmap">
-      <div class="container">
-        <div class="section-head section-head--center">
-          <p class="eyebrow" data-reveal><span class="dot"></span> مراحل التنفيذ</p>
-          <h2 class="h2" data-reveal>ثلاث مراحل إلى <em>التشغيل الكامل</em></h2>
-        </div>
-
-        <div class="phases">
-          <article class="phase" data-reveal>
-            <header><span class="phase__tag">المرحلة الأولى</span><span class="phase__time">شهر واحد</span></header>
-            <h3>الإعداد والتشغيل الأولي</h3>
-            <ul class="checks checks--sm">
-              <li>الاتفاق النهائي على نطاق الخدمات.</li>
-              <li>تجهيز الفريق واعتماد نظام العمل.</li>
-              <li>إعداد قاعدة بيانات المواد والموردين.</li>
-              <li>اختبار النظام الإلكتروني.</li>
-            </ul>
-          </article>
-          <article class="phase" data-reveal style="--d:.1s">
-            <header><span class="phase__tag">المرحلة الثانية</span><span class="phase__time">شهران</span></header>
-            <h3>التشغيل التجريبي</h3>
-            <ul class="checks checks--sm">
-              <li>تشغيل أول دفعة من الطلبات.</li>
-              <li>قياس زمن الاستجابة وجودة التوريد ومؤشرات الأداء.</li>
-              <li>ضبط العمليات وفقًا للملاحظات.</li>
-            </ul>
-          </article>
-          <article class="phase phase--final" data-reveal style="--d:.2s">
-            <header><span class="phase__tag">المرحلة الثالثة</span><span class="phase__time">بعد 3 أشهر</span></header>
-            <h3>التشغيل الكامل</h3>
-            <ul class="checks checks--sm">
-              <li>اعتماد خطة شراء ربع سنوية.</li>
-              <li>إصدار تقارير دورية عن الوفورات.</li>
-              <li>تطوير عمليات إضافية مثل إدارة العقود والمخزون.</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="team" data-reveal>
-          <div class="team__copy">
-            <h3>فريق متخصص + نظام إلكتروني</h3>
-            <p>منصة خاصة لمتابعة أوامر الشراء، ونماذج إلكترونية للطلبات والعروض، ولوحة تقارير — مع فريق يُحدد عدده بالاتفاق.</p>
-          </div>
-          <ul class="team__roles">
-            <li>مدير مشتريات</li>
-            <li>أخصائي مشتريات</li>
-            <li>أخصائي جودة</li>
-            <li>مدير لوجستي</li>
-            <li>مساعد إداري</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ WHY US ============ -->
-    <section class="section why" id="why">
-      <div class="container">
-        <div class="why__top">
-          <div>
-            <p class="eyebrow" data-reveal><span class="dot"></span> لماذا دكان زمان؟</p>
-            <h2 class="h2" data-reveal>هدفنا: جعل التوريد <em>أبسط وأكثر انتظامًا</em></h2>
-          </div>
-        </div>
-        <div class="why-grid">
-          <div class="why-item" data-reveal><svg class="ico"><use href="#i-layers"/></svg><p>مورد متعدد الأصناف لتلبية احتياجاتكم من مصدر واحد.</p></div>
-          <div class="why-item" data-reveal style="--d:.05s"><svg class="ico"><use href="#i-clock"/></svg><p>تقليل الوقت والجهد في متابعة عدة موردين.</p></div>
-          <div class="why-item" data-reveal style="--d:.1s"><svg class="ico"><use href="#i-zap"/></svg><p>سرعة الاستجابة وتجهيز الطلبات.</p></div>
-          <div class="why-item" data-reveal style="--d:.15s"><svg class="ico"><use href="#i-shuffle"/></svg><p>بدائل متعددة حسب المواصفات والميزانية.</p></div>
-          <div class="why-item" data-reveal><svg class="ico"><use href="#i-tag"/></svg><p>أسعار تنافسية وحلول توريد مرنة.</p></div>
-          <div class="why-item" data-reveal style="--d:.05s"><svg class="ico"><use href="#i-calendar"/></svg><p>إمكانية التوريد الدوري وفق احتياج العميل.</p></div>
-          <div class="why-item" data-reveal style="--d:.1s"><svg class="ico"><use href="#i-truck"/></svg><p>متابعة الطلب حتى التسليم.</p></div>
-          <div class="why-item" data-reveal style="--d:.15s"><svg class="ico"><use href="#i-handshake"/></svg><p>شراكة طويلة المدى تقوم على الوضوح والثقة.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CLIENTS ============ -->
-    <section class="section clients" id="clients">
-      <div class="container">
-        <div class="section-head section-head--center">
-          <p class="eyebrow" data-reveal><span class="dot"></span> عملاؤنا المستهدفون</p>
-          <h2 class="h2" data-reveal>نخدم من يُشغّل <em>كل يوم</em></h2>
-          <p class="lead" data-reveal>حلول توريد مناسبة للاحتياجات التشغيلية اليومية والدورية.</p>
-        </div>
-        <ul class="client-grid">
-          <li class="client" data-reveal><span><svg class="ico"><use href="#i-landmark"/></svg></span>شركات القطاع العام</li>
-          <li class="client" data-reveal style="--d:.05s"><span><svg class="ico"><use href="#i-sparkle"/></svg></span>شركات النظافة والصيانة</li>
-          <li class="client" data-reveal style="--d:.1s"><span><svg class="ico"><use href="#i-bank"/></svg></span>البنوك</li>
-          <li class="client" data-reveal style="--d:.15s"><span><svg class="ico"><use href="#i-building"/></svg></span>الشركات والمؤسسات</li>
-          <li class="client" data-reveal style="--d:.2s"><span><svg class="ico"><use href="#i-landmark"/></svg></span>الجهات الحكومية والهيئات</li>
-          <li class="client" data-reveal style="--d:.25s"><span><svg class="ico"><use href="#i-office"/></svg></span>المكاتب والمجمعات الإدارية</li>
-          <li class="client" data-reveal style="--d:.3s"><span><svg class="ico"><use href="#i-store"/></svg></span>شركات تجارة الجملة والتجزئة</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ CONTACT ============ -->
+    <!-- ============ 5) CONTACT — the one action we want ============ -->
     <section class="section contact" id="contact">
       <div class="container">
         <div class="contact__card" data-reveal>
@@ -748,18 +360,6 @@
                 </select>
               </label>
             </div>
-            <fieldset class="chips">
-              <legend>المجالات المطلوبة</legend>
-              <label><input type="checkbox" name="cat" value="النظافة"><span>النظافة</span></label>
-              <label><input type="checkbox" name="cat" value="المكتبية"><span>المكتبية</span></label>
-              <label><input type="checkbox" name="cat" value="التشغيل"><span>التشغيل</span></label>
-              <label><input type="checkbox" name="cat" value="التغليف"><span>التغليف</span></label>
-              <label><input type="checkbox" name="cat" value="الورق"><span>الورق</span></label>
-              <label><input type="checkbox" name="cat" value="البوفيه"><span>البوفيه</span></label>
-              <label><input type="checkbox" name="cat" value="السلامة"><span>السلامة</span></label>
-              <label><input type="checkbox" name="cat" value="العدد"><span>العدد</span></label>
-              <label><input type="checkbox" name="cat" value="الطبية"><span>الطبية</span></label>
-            </fieldset>
             <label class="input"><span>تفاصيل الطلب</span><textarea name="message" rows="3"></textarea></label>
             <button type="submit" class="btn btn--primary btn--lg btn--block">
               إرسال الطلب
@@ -780,11 +380,12 @@
         <p>دكان زمان للتوريدات العمومية — شريككم الموثوق في التوريدات والتشغيل.</p>
       </div>
       <nav class="footer__links" aria-label="روابط سريعة">
-        <a href="#about">من نحن</a>
-        <a href="#categories">مجالات التوريد</a>
-        <a href="#process">كيف نعمل</a>
-        <a href="#procurement">إدارة المشتريات</a>
-        <a href="#savings">نموذج العمل</a>
+        <a href="index.html">الرئيسية</a>
+        <a href="categories.html">مجالات التوريد</a>
+        <a href="services.html">كيف نعمل</a>
+        <a href="procurement.html">إدارة المشتريات</a>
+        <a href="procurement.html#pt-model">نموذج العمل</a>
+        <a href="about.html">من نحن</a>
         <a href="#contact">تواصل معنا</a>
       </nav>
       <p class="footer__tag">جودة • تنوع • التزام • خدمة</p>

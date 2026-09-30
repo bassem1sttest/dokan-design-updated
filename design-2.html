@@ -89,11 +89,11 @@
       <img class="logo-dark" src="assets/logo-dark.svg" alt="Dokan Zaman" width="120" height="48">
     </a>
     <nav class="island__links" aria-label="القائمة الرئيسية">
-      <a href="#about">من نحن</a>
-      <a href="#categories">المجالات</a>
-      <a href="#process">كيف نعمل</a>
-      <a href="#procurement">إدارة المشتريات</a>
-      <a href="#clients">عملاؤنا</a>
+      <a href="design-2.html" class="is-active" aria-current="page">الرئيسية</a>
+      <a href="d2-categories.html">المجالات</a>
+      <a href="d2-services.html">كيف نعمل</a>
+      <a href="d2-procurement.html">إدارة المشتريات</a>
+      <a href="d2-about.html">من نحن</a>
     </nav>
     <div class="island__actions">
       <button class="icon-btn theme-toggle" type="button" aria-label="تبديل المظهر الداكن / الفاتح">
@@ -111,11 +111,11 @@
   <div class="sheet" id="sheet" hidden>
     <button class="icon-btn sheet__close" type="button" aria-label="إغلاق القائمة"><svg class="ico"><use href="#i-x"/></svg></button>
     <nav class="sheet__links" aria-label="القائمة">
-      <a href="#about"><span>01</span>من نحن</a>
-      <a href="#categories"><span>02</span>مجالات التوريد</a>
-      <a href="#process"><span>03</span>كيف نعمل</a>
-      <a href="#procurement"><span>04</span>إدارة المشتريات</a>
-      <a href="#clients"><span>05</span>عملاؤنا</a>
+      <a href="design-2.html"><span>01</span>الرئيسية</a>
+      <a href="d2-categories.html"><span>02</span>المجالات</a>
+      <a href="d2-services.html"><span>03</span>كيف نعمل</a>
+      <a href="d2-procurement.html"><span>04</span>إدارة المشتريات</a>
+      <a href="d2-about.html"><span>05</span>من نحن</a>
       <a href="#contact"><span>06</span>تواصل معنا</a>
     </nav>
     <a href="#contact" class="pill pill--orange pill--lg sheet__cta">اطلب عرض سعر <svg class="ico"><use href="#i-arrow"/></svg></a>
@@ -167,6 +167,7 @@
             <li><span><svg class="ico"><use href="#i-headset"/></svg></span>المتابعة</li>
           </ol>
           <div class="track__bar"><span id="track-bar"></span></div>
+          <a href="d2-services.html" class="link-more track__more">كيف نعمل؟ تفاصيل نظام التوريد <svg class="ico"><use href="#i-arrow"/></svg></a>
         </article>
       </div>
     </section>
@@ -195,59 +196,16 @@
       </div>
     </div>
 
-    <!-- ============ ABOUT BENTO ============ -->
-    <section class="sec" id="about">
-      <div class="wrap">
-        <header class="sec__head" data-reveal>
-          <span class="tag"><i></i> من نحن</span>
-          <h2>شريككم في <span class="hl">التشغيل اليومي</span></h2>
-        </header>
-        <div class="bento bento--about">
-          <article class="tile tile--wide" data-reveal>
-            <p class="quote">دكان زمان للتوريدات العمومية شركة متخصصة في توفير احتياجات التشغيل والتوريدات اليومية للشركات والمؤسسات والجهات، من خلال مجموعة متنوعة من المنتجات وحلول التوريد المرنة.</p>
-          </article>
-          <figure class="tile tile--photo about-photo" data-reveal style="--d:.04s">
-            <img src="assets/img/warehouse.webp" alt="مستودع منظم بأرفف مليئة بالأصناف" width="1280" height="853" loading="lazy" decoding="async">
-            <figcaption><b>9</b> مجالات توريد من مصدر واحد</figcaption>
-          </figure>
-          <article class="tile tile--blue about-mission" data-reveal style="--d:.06s">
-            <span class="tile__label tile__label--light">رسالتنا</span>
-            <p class="tile__text">توفير احتياجات عملائنا من التوريدات والتشغيل بطريقة منظمة ومرنة، مع التركيز على جودة الخدمة والالتزام بالمواعيد.</p>
-          </article>
-          <article class="tile pillar2" data-reveal>
-            <b class="pillar2__n">01</b>
-            <h3>تنوع الأصناف</h3>
-            <p>مجموعة واسعة من المنتجات التي تغطي احتياجات التشغيل اليومية.</p>
-          </article>
-          <article class="tile pillar2 tile--orange" data-reveal style="--d:.06s">
-            <b class="pillar2__n">02</b>
-            <h3>الالتزام</h3>
-            <p>الاهتمام بالمواعيد والكميات والمواصفات المتفق عليها.</p>
-          </article>
-          <article class="tile pillar2" data-reveal style="--d:.12s">
-            <b class="pillar2__n">03</b>
-            <h3>خدمة الشركات</h3>
-            <p>حلول توريد مناسبة للشركات والعقود والتوريد الدوري.</p>
-          </article>
-          <article class="tile tile--values" data-reveal style="--d:.18s">
-            <span class="tile__label">قيمنا</span>
-            <ul class="chips2">
-              <li>الالتزام</li><li>الشفافية</li><li>سرعة الاستجابة</li><li>جودة الخدمة</li><li>مرونة التوريد</li><li>علاقات طويلة المدى</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CATEGORIES CAROUSEL ============ -->
+    <!-- ============ 1) WHAT WE SUPPLY — swipeable overview, details on d2-categories.html ============ -->
     <section class="sec sec--flush" id="categories">
       <div class="wrap">
         <header class="sec__head sec__head--split" data-reveal>
           <div>
-            <span class="tag"><i></i> مجالات التوريد</span>
+            <span class="tag"><i></i> ماذا نورّد؟</span>
             <h2>تسعة مجالات. <span class="hl">مورد واحد.</span></h2>
           </div>
           <div class="car-ctrl">
+            <a href="d2-categories.html" class="link-more">تفاصيل كل المجالات <svg class="ico"><use href="#i-arrow"/></svg></a>
             <button class="icon-btn icon-btn--lg" type="button" data-car="prev" aria-label="السابق"><svg class="ico"><use href="#i-arrow"/></svg></button>
             <button class="icon-btn icon-btn--lg" type="button" data-car="next" aria-label="التالي"><svg class="ico"><use href="#i-arrow"/></svg></button>
           </div>
@@ -268,289 +226,62 @@
       <div class="wrap"><div class="car-progress" aria-hidden="true"><span id="car-bar"></span></div></div>
     </section>
 
-    <!-- ============ SERVICES TABLE ============ -->
-    <section class="sec" id="services">
-      <div class="wrap">
+    <!-- ============ 2) FLAGSHIP SERVICE — three numbers, details + calculator on d2-procurement.html ============ -->
+    <section class="sec band" id="procurement">
+      <div class="wrap band-lite">
         <header class="sec__head" data-reveal>
-          <span class="tag"><i></i> خدمات الشركات والعقود</span>
-          <h2>توريد يناسب <span class="hl">إيقاع عملكم</span></h2>
-        </header>
-        <ul class="rows">
-          <li class="row" data-reveal><b>01</b><h3>توريد شهري</h3><p>توريد مستلزمات التشغيل وفق جدول شهري.</p><svg class="ico"><use href="#i-calendar"/></svg></li>
-          <li class="row" data-reveal><b>02</b><h3>توريد دوري</h3><p>طلبات أسبوعية أو دورية حسب احتياج العميل.</p><svg class="ico"><use href="#i-repeat"/></svg></li>
-          <li class="row" data-reveal><b>03</b><h3>أوامر شراء</h3><p>التعامل مع أوامر الشراء وقوائم الأصناف المعتمدة.</p><svg class="ico"><use href="#i-cart"/></svg></li>
-          <li class="row" data-reveal><b>04</b><h3>توريدات حسب الطلب</h3><p>توفير أصناف محددة وفق المواصفات المطلوبة.</p><svg class="ico"><use href="#i-target"/></svg></li>
-          <li class="row" data-reveal><b>05</b><h3>قوائم أصناف مخصصة</h3><p>إعداد قوائم توريد خاصة بكل عميل أو موقع.</p><svg class="ico"><use href="#i-list"/></svg></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ PROCESS (sticky) ============ -->
-    <section class="sec sec--tint" id="process">
-      <div class="wrap process2">
-        <div class="process2__aside">
-          <header class="sec__head" data-reveal>
-            <span class="tag"><i></i> نظام التوريد</span>
-            <h2>من طلبكم .. <span class="hl">إلى باب مقركم</span></h2>
-            <p class="sec__lead">نركز على وضوح الطلب، دقة التجهيز، الالتزام بالتسليم، وسهولة المتابعة.</p>
-          </header>
-          <div class="stepper" aria-hidden="true">
-            <div class="stepper__media" id="stepper-media">
-              <img class="is-on" src="assets/img/order-plan.webp" alt="" width="960" height="640" loading="lazy" decoding="async">
-              <img src="assets/img/warehouse.webp" alt="" width="1280" height="853" loading="lazy" decoding="async">
-              <img src="assets/img/order-check.webp" alt="" width="960" height="640" loading="lazy" decoding="async">
-              <img src="assets/img/delivery.webp" alt="" width="1280" height="853" loading="lazy" decoding="async">
-              <img src="assets/img/support.webp" alt="" width="960" height="640" loading="lazy" decoding="async">
-            </div>
-            <div class="stepper__num"><span id="stepper-num">01</span><small>/05</small></div>
-            <div class="stepper__icon" id="stepper-icon"><svg class="ico"><use href="#i-clipboard"/></svg></div>
-            <div class="stepper__dots" id="stepper-dots"><i></i><i></i><i></i><i></i><i></i></div>
+          <span class="tag tag--light"><i></i> خدمة جديدة للشركات</span>
+          <h2>ندير مشترياتكم <span class="hl">نيابةً عنكم</span></h2>
+          <p class="sec__lead">فريق متخصص ونظام إلكتروني يديران دورة الشراء كاملة — ونربح فقط حين توفّرون.</p>
+          <div class="row-btns">
+            <a href="d2-procurement.html" class="pill pill--orange pill--lg">تفاصيل الخدمة <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a href="d2-procurement.html#savings" class="pill pill--ghost pill--lg">احسب وفوراتكم</a>
           </div>
+        </header>
+        <div class="bento bento--value">
+          <article class="tile tile--orange vtile vtile--big" data-reveal>
+            <strong class="big"><span class="num"><span data-count="5">0</span>–<span data-count="20">0</span>%</span></strong>
+            <h3>وفورات من تكاليف المشتريات السنوية</h3>
+          </article>
+          <article class="tile tile--glass vtile" data-reveal style="--d:.06s">
+            <strong class="big big--sm"><span class="num"><span data-count="30">0</span>%</span></strong>
+            <h3>أسرع في دورة الشراء (حتى)</h3>
+          </article>
+          <article class="tile tile--glass vtile" data-reveal style="--d:.12s">
+            <strong class="big big--sm"><span class="num"><span data-count="60">0</span>%</span></strong>
+            <h3>من الوفر المحقق يعود لشركتكم</h3>
+          </article>
         </div>
-        <ol class="steps2" id="steps2">
-          <li class="step2" data-icon="i-clipboard"><span class="step2__ico"><svg class="ico"><use href="#i-clipboard"/></svg></span><b>01</b><h3>طلب العميل</h3><p>استلام الطلب وتوضيح الأصناف والكميات والمواصفات المطلوبة.</p></li>
-          <li class="step2" data-icon="i-package"><span class="step2__ico"><svg class="ico"><use href="#i-package"/></svg></span><b>02</b><h3>تجهيز الأصناف</h3><p>تجميع كل الأصناف من مصدر واحد وفق القائمة المعتمدة.</p></li>
-          <li class="step2" data-icon="i-shield"><span class="step2__ico"><svg class="ico"><use href="#i-shield"/></svg></span><b>03</b><h3>مراجعة الجودة والكميات</h3><p>التأكد من المطابقة للمواصفات والكميات قبل خروج الطلب.</p></li>
-          <li class="step2" data-icon="i-truck"><span class="step2__ico"><svg class="ico"><use href="#i-truck"/></svg></span><b>04</b><h3>التوصيل</h3><p>التسليم إلى مقركم في الموعد المتفق عليه.</p></li>
-          <li class="step2" data-icon="i-headset"><span class="step2__ico"><svg class="ico"><use href="#i-headset"/></svg></span><b>05</b><h3>المتابعة وخدمة ما بعد البيع</h3><p>متابعة الطلب حتى التسليم وما بعده لضمان رضاكم.</p></li>
-        </ol>
       </div>
     </section>
 
-    <!-- ============ PROCUREMENT ============ -->
-    <section class="sec band" id="procurement" data-anim>
+    <!-- ============ 3) WHY US — trust in four points, full story on d2-about.html ============ -->
+    <section class="sec" id="about">
       <div class="wrap">
         <header class="sec__head sec__head--split" data-reveal>
           <div>
-            <span class="tag tag--light"><i></i> خدمة جديدة للشركات</span>
-            <h2>ندير مشترياتكم <span class="hl">نيابةً عنكم</span></h2>
+            <span class="tag"><i></i> لماذا دكان زمان؟</span>
+            <h2>شريككم في <span class="hl">التشغيل اليومي</span></h2>
           </div>
-          <p class="sec__lead">نموذج متكامل لإدارة المشتريات والتوريدات يحقق وفورات مالية حقيقية، مع رفع مستوى الجودة وسرعة الاستجابة.</p>
+          <a href="d2-about.html" class="link-more">المزيد عن الشركة <svg class="ico"><use href="#i-arrow"/></svg></a>
         </header>
-
-        <div class="band__grid">
-          <div class="acc" data-reveal>
-            <details name="scope" open>
-              <summary><svg class="ico"><use href="#i-cart"/></svg>إدارة عمليات المشتريات<i></i></summary>
-              <ul class="ticks">
-                <li>استلام طلبات الشراء من الإدارات المعنية داخل الشركة.</li>
-                <li>إعداد وتحليل المواصفات وفق المعايير المعتمدة لديكم.</li>
-                <li>إدارة عمليات الاستفسار عن الأسعار (RFQs) والترسية.</li>
-                <li>التفاوض مع الموردين محليًا في مصر أو دوليًا للحصول على أفضل الأسعار.</li>
-                <li>إصدار وإدارة أوامر الشراء، ومتابعة التنفيذ حتى التسليم.</li>
-              </ul>
-            </details>
-            <details name="scope">
-              <summary><svg class="ico"><use href="#i-truck"/></svg>التوريدات واللوجستيات<i></i></summary>
-              <ul class="ticks">
-                <li>شراء المواد والمستلزمات بأسعار تنافسية.</li>
-                <li>التنسيق مع شركات الشحن (بري / بحري / جوي).</li>
-                <li>المتابعة التشغيلية حتى وصول الشحنات والتسليم النهائي.</li>
-                <li>توفير تخزين مؤقت عند الحاجة.</li>
-              </ul>
-            </details>
-            <details name="scope">
-              <summary><svg class="ico"><use href="#i-search"/></svg>مراقبة الجودة<i></i></summary>
-              <ul class="ticks">
-                <li>فحص المواد أو المعدات أو الأدوات أو الأجهزة قبل التسليم للتأكد من مطابقتها للمواصفات.</li>
-                <li>مراجعة الجودة وفق نماذج فحص معتمدة.</li>
-                <li>التعامل مع أي ملاحظات أو استبدال قبل التسليم.</li>
-              </ul>
-            </details>
-            <details name="scope">
-              <summary><svg class="ico"><use href="#i-users"/></svg>إدارة الموردين<i></i></summary>
-              <ul class="ticks">
-                <li>تحديث قاعدة بيانات الموردين واعتمادهم.</li>
-                <li>تقييم دوري لأداء الموردين.</li>
-                <li>ضمان الالتزام بمعايير الجودة والتسليم.</li>
-              </ul>
-            </details>
-            <details name="scope">
-              <summary><svg class="ico"><use href="#i-chart"/></svg>التقارير والمتابعة<i></i></summary>
-              <ul class="ticks">
-                <li>تقارير أسبوعية حول أوامر الشراء الجارية.</li>
-                <li>تحليل ربع سنوي للواردات والوفورات المحققة.</li>
-                <li>لوحة متابعة إلكترونية لعرض حالة الطلبات.</li>
-              </ul>
-            </details>
-          </div>
-
-          <div class="bento bento--value">
-            <article class="tile tile--orange vtile vtile--big" data-reveal>
-              <strong class="big"><span class="num">5–20%</span></strong>
-              <h3>تخفيض التكاليف المباشرة</h3>
-              <p>بتوحيد الشراء والتفاوض المركزي ومقارنات الأسعار الشفافة.</p>
-            </article>
-            <article class="tile tile--glass vtile" data-reveal style="--d:.06s">
-              <strong class="big big--sm">حتى <span class="num">30%</span></strong>
-              <h3>دورة شراء أسرع</h3>
-            </article>
-            <article class="tile tile--glass vtile" data-reveal style="--d:.12s">
-              <svg class="ico vtile__ico"><use href="#i-eye"/></svg>
-              <h3>شفافية أعلى وهدر أقل</h3>
-            </article>
-            <article class="tile tile--glass vtile" data-reveal style="--d:.18s">
-              <svg class="ico vtile__ico"><use href="#i-users"/></svg>
-              <h3>أعباء تشغيلية أقل</h3>
-            </article>
-            <article class="tile tile--glass vtile" data-reveal style="--d:.24s">
-              <svg class="ico vtile__ico"><use href="#i-award"/></svg>
-              <h3>جودة أعلى ومرتجعات أقل</h3>
-            </article>
-          </div>
-        </div>
-
-        <div class="flow" data-reveal aria-label="تتبع كل خطوة في الدورة الشرائية">
-          <span>طلب</span><span>تسعير</span><span>ترسية</span><span>شراء</span><span>فحص</span><span>توريد</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CALCULATOR ============ -->
-    <section class="sec" id="savings">
-      <div class="wrap">
-        <header class="sec__head sec__head--split" data-reveal>
-          <div>
-            <span class="tag"><i></i> نموذج العمل</span>
-            <h2>نربح <span class="hl">فقط</span> حين توفّرون</h2>
-          </div>
-          <p class="sec__lead">رسوم إدارة شهرية ثابتة (Management Fee) تشمل الفريق والنظام الإلكتروني والتقارير، ومشاركة في الوفورات (Savings Sharing) مقارنةً بخط أساس الأسعار السابقة.</p>
-        </header>
-
-        <div class="calc2" data-reveal>
-          <div class="calc2__inputs">
-            <h3>قدّر وفوراتكم السنوية</h3>
-            <span class="calc2__label">حجم المشتريات السنوي</span>
-            <div class="presets" role="group" aria-label="اختيارات سريعة لحجم المشتريات">
-              <button type="button" data-v="1000000">1 مليون</button>
-              <button type="button" data-v="5000000" class="is-on">5 مليون</button>
-              <button type="button" data-v="10000000">10 مليون</button>
-              <button type="button" data-v="25000000">25 مليون</button>
-            </div>
-            <label class="range2">
-              <span class="range2__row"><span>أو حدد بدقة</span><output id="c-spend">5,000,000 ج.م</output></span>
-              <input type="range" id="c-spend-in" min="250000" max="50000000" step="250000" value="5000000">
-            </label>
-            <label class="range2">
-              <span class="range2__row"><span>نسبة الوفر المتوقعة</span><output id="c-rate">12%</output></span>
-              <input type="range" id="c-rate-in" min="5" max="20" step="1" value="12">
-            </label>
-            <p class="calc2__note">مثال: مادة سعرها 1,000 ج.م تم تأمينها بـ 800 ج.م ← وفر 200 ج.م: 120 لشركتكم و80 لنا. الأرقام تقديرية.</p>
-          </div>
-
-          <div class="calc2__out">
-            <div class="donut">
-              <svg viewBox="0 0 120 120" aria-hidden="true">
-                <circle cx="60" cy="60" r="48" class="donut__track"/>
-                <circle cx="60" cy="60" r="48" class="donut__a" pathLength="100" stroke-dasharray="59 41"/>
-                <circle cx="60" cy="60" r="48" class="donut__b" pathLength="100" stroke-dasharray="39 61" stroke-dashoffset="-60"/>
-              </svg>
-              <div class="donut__center">
-                <small>إجمالي الوفر</small>
-                <strong id="c-total">600,000</strong>
-                <small>ج.م سنويًا</small>
-              </div>
-            </div>
-            <ul class="legend">
-              <li><i class="lg-a"></i><span>حصة شركتكم <b class="num">60%</b></span><strong id="c-client">360,000 ج.م</strong></li>
-              <li><i class="lg-b"></i><span>حصتنا <b class="num">40%</b></span><strong id="c-ours">240,000 ج.م</strong></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ ROADMAP ============ -->
-    <section class="sec sec--tint" id="roadmap">
-      <div class="wrap">
-        <header class="sec__head" data-reveal>
-          <span class="tag"><i></i> مراحل التنفيذ</span>
-          <h2>ثلاث مراحل إلى <span class="hl">التشغيل الكامل</span></h2>
-        </header>
-        <div class="road">
-          <div class="road__line" aria-hidden="true"><span id="road-bar"></span></div>
-          <article class="tile phase2" data-reveal>
-            <span class="phase2__dot">1</span>
-            <span class="phase2__time">شهر واحد</span>
-            <h3>الإعداد والتشغيل الأولي</h3>
-            <ul class="ticks ticks--dark">
-              <li>الاتفاق النهائي على نطاق الخدمات.</li>
-              <li>تجهيز الفريق واعتماد نظام العمل.</li>
-              <li>إعداد قاعدة بيانات المواد والموردين.</li>
-              <li>اختبار النظام الإلكتروني.</li>
-            </ul>
+        <div class="bento bento--about">
+          <article class="tile tile--wide" data-reveal>
+            <p class="quote">شركة متخصصة في توفير احتياجات التشغيل والتوريدات اليومية للشركات والمؤسسات والجهات — من مصدر واحد.</p>
           </article>
-          <article class="tile phase2" data-reveal style="--d:.08s">
-            <span class="phase2__dot">2</span>
-            <span class="phase2__time">شهران</span>
-            <h3>التشغيل التجريبي</h3>
-            <ul class="ticks ticks--dark">
-              <li>تشغيل أول دفعة من الطلبات.</li>
-              <li>قياس زمن الاستجابة وجودة التوريد ومؤشرات الأداء.</li>
-              <li>ضبط العمليات وفقًا للملاحظات.</li>
-            </ul>
-          </article>
-          <article class="tile tile--dark phase2" data-reveal style="--d:.16s">
-            <span class="phase2__dot phase2__dot--on">3</span>
-            <span class="phase2__time phase2__time--on">بعد 3 أشهر</span>
-            <h3>التشغيل الكامل</h3>
-            <ul class="ticks">
-              <li>اعتماد خطة شراء ربع سنوية.</li>
-              <li>إصدار تقارير دورية عن الوفورات.</li>
-              <li>تطوير عمليات إضافية مثل إدارة العقود والمخزون.</li>
-            </ul>
-          </article>
-        </div>
-        <div class="team2" data-reveal>
-          <p><b>فريق متخصص + نظام إلكتروني:</b> منصة لمتابعة أوامر الشراء، ونماذج إلكترونية للطلبات والعروض، ولوحة تقارير.</p>
-          <ul><li>مدير مشتريات</li><li>أخصائي مشتريات</li><li>أخصائي جودة</li><li>مدير لوجستي</li><li>مساعد إداري</li></ul>
+          <figure class="tile tile--photo about-photo about-photo--short" data-reveal style="--d:.04s">
+            <img src="assets/img/warehouse.webp" alt="مستودع منظم بأرفف مليئة بالأصناف" width="1280" height="853" loading="lazy" decoding="async">
+            <figcaption><b>9</b> مجالات توريد من مصدر واحد</figcaption>
+          </figure>
+          <article class="tile pillar2" data-reveal><b class="pillar2__n">01</b><h3>مورد واحد لكل الأصناف</h3><p>احتياجاتكم من مصدر واحد.</p></article>
+          <article class="tile pillar2 tile--orange" data-reveal style="--d:.06s"><b class="pillar2__n">02</b><h3>سرعة الاستجابة</h3><p>تجهيز ومتابعة حتى التسليم.</p></article>
+          <article class="tile pillar2" data-reveal style="--d:.12s"><b class="pillar2__n">03</b><h3>أسعار تنافسية</h3><p>بدائل حسب المواصفات والميزانية.</p></article>
+          <article class="tile pillar2 tile--dark" data-reveal style="--d:.18s"><b class="pillar2__n">04</b><h3>التزام بالمواعيد</h3><p>توريد منتظم وفق احتياجكم.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- ============ WHY ============ -->
-    <section class="sec" id="why">
-      <div class="wrap why2">
-        <header class="sec__head why2__head" data-reveal>
-          <span class="tag"><i></i> لماذا دكان زمان؟</span>
-          <h2>هدفنا: جعل التوريد <span class="hl">أبسط وأكثر انتظامًا</span></h2>
-          <a href="#contact" class="pill pill--dark pill--lg">ابدأ التعاون معنا <svg class="ico"><use href="#i-arrow"/></svg></a>
-          <figure class="why2__media"><img src="assets/img/handshake.webp" alt="مصافحة لإتمام اتفاق توريد" width="1280" height="853" loading="lazy" decoding="async"></figure>
-        </header>
-        <ol class="why2__list">
-          <li data-reveal><b>01</b>مورد متعدد الأصناف لتلبية احتياجاتكم من مصدر واحد.</li>
-          <li data-reveal><b>02</b>تقليل الوقت والجهد في متابعة عدة موردين.</li>
-          <li data-reveal><b>03</b>سرعة الاستجابة وتجهيز الطلبات.</li>
-          <li data-reveal><b>04</b>بدائل متعددة حسب المواصفات والميزانية.</li>
-          <li data-reveal><b>05</b>أسعار تنافسية وحلول توريد مرنة.</li>
-          <li data-reveal><b>06</b>إمكانية التوريد الدوري وفق احتياج العميل.</li>
-          <li data-reveal><b>07</b>متابعة الطلب حتى التسليم.</li>
-          <li data-reveal><b>08</b>شراكة طويلة المدى تقوم على الوضوح والثقة.</li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ============ CLIENTS ============ -->
-    <section class="sec sec--tint" id="clients">
-      <div class="wrap">
-        <header class="sec__head" data-reveal>
-          <span class="tag"><i></i> عملاؤنا المستهدفون</span>
-          <h2>نخدم من يُشغّل <span class="hl">كل يوم</span></h2>
-        </header>
-        <ul class="clients2">
-          <li class="tile" data-reveal><svg class="ico"><use href="#i-landmark"/></svg>شركات القطاع العام</li>
-          <li class="tile" data-reveal style="--d:.04s"><svg class="ico"><use href="#i-sparkle"/></svg>شركات النظافة والصيانة</li>
-          <li class="tile" data-reveal style="--d:.08s"><svg class="ico"><use href="#i-bank"/></svg>البنوك</li>
-          <li class="tile" data-reveal style="--d:.12s"><svg class="ico"><use href="#i-building"/></svg>الشركات والمؤسسات</li>
-          <li class="tile" data-reveal style="--d:.16s"><svg class="ico"><use href="#i-landmark"/></svg>الجهات الحكومية والهيئات</li>
-          <li class="tile" data-reveal style="--d:.2s"><svg class="ico"><use href="#i-office"/></svg>المكاتب والمجمعات الإدارية</li>
-          <li class="tile" data-reveal style="--d:.24s"><svg class="ico"><use href="#i-store"/></svg>شركات تجارة الجملة والتجزئة</li>
-          <li class="tile tile--orange clients2__cta" data-reveal style="--d:.28s"><a href="#contact">وأنتم؟ <b>تواصلوا معنا</b> <svg class="ico"><use href="#i-arrow"/></svg></a></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ CONTACT ============ -->
+    <!-- ============ 4) CONTACT — the one action we want ============ -->
     <section class="sec" id="contact">
       <div class="wrap bento bento--contact">
         <article class="tile tile--orange cta2" data-reveal>
@@ -592,7 +323,7 @@
     <div class="wrap foot__inner">
       <img class="foot__logo" src="assets/logo-dark.svg" alt="Dokan Zaman" width="160" height="64" loading="lazy">
       <nav class="foot__links" aria-label="روابط سريعة">
-        <a href="#about">من نحن</a><a href="#categories">المجالات</a><a href="#process">كيف نعمل</a><a href="#procurement">إدارة المشتريات</a><a href="#savings">نموذج العمل</a><a href="#contact">تواصل معنا</a>
+        <a href="design-2.html">الرئيسية</a><a href="d2-categories.html">المجالات</a><a href="d2-services.html">كيف نعمل</a><a href="d2-procurement.html">إدارة المشتريات</a><a href="d2-procurement.html#savings">نموذج العمل</a><a href="d2-about.html">من نحن</a><a href="#contact">تواصل معنا</a>
       </nav>
     </div>
     <p class="foot__word" aria-hidden="true">دكان زمان</p>

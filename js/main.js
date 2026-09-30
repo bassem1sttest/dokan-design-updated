@@ -1,4 +1,5 @@
-/* Dokan Zaman — homepage interactions
+/* Dokan Zaman — site interactions (shared by the homepage and the inner pages;
+   every feature checks that its elements exist on the current page)
    Perf notes: one rAF-batched scroll handler (reads before writes),
    pointer handlers throttled to one update per frame, looping
    animations/timers paused when off-screen or the tab is hidden. */
@@ -64,22 +65,25 @@
   links.forEach(a => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 
-  const spyTargets = [...new Set(links.map(a => a.getAttribute('href')))].map(h => $(h)).filter(Boolean);
-  const spy = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const id = '#' + entry.target.id;
-      links.forEach(a => a.classList.toggle('is-active', !a.classList.contains('btn') && a.getAttribute('href') === id));
-    });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-  spyTargets.forEach(t => spy.observe(t));
+  // scroll-spy only applies to in-page (#hash) links; page links are marked active in the HTML
+  const hashLinks = links.filter(a => !a.classList.contains('btn') && /^#.+/.test(a.getAttribute('href')));
+  if (hashLinks.length) {
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = '#' + entry.target.id;
+        hashLinks.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === id));
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    hashLinks.map(a => $(a.getAttribute('href'))).filter(Boolean).forEach(t => spy.observe(t));
+  }
 
   /* ---------- Scroll-linked effects (single rAF loop) ---------- */
   const progress = $('.scroll-progress span');
   const toTop = $('.to-top');
   const steps = $('#steps');
   const stepLine = $('.steps__line span');
-  const stepItems = $$('.step', steps);
+  const stepItems = steps ? $$('.step', steps) : [];
   const mobileSteps = matchMedia('(max-width: 960px)');
 
   let docMax = 1, stepsTop = 0, stepsH = 1, vh = innerHeight;
@@ -89,9 +93,11 @@
   function measure() {
     vh = innerHeight;
     docMax = Math.max(1, root.scrollHeight - vh);
-    const r = steps.getBoundingClientRect();
-    stepsTop = r.top + scrollY;
-    stepsH = r.height;
+    if (steps) {
+      const r = steps.getBoundingClientRect();
+      stepsTop = r.top + scrollY;
+      stepsH = r.height;
+    }
     update();
   }
 
@@ -107,6 +113,7 @@
     const top = y > vh * 1.2;
     if (top !== showTop) { showTop = top; toTop.classList.toggle('is-visible', top); }
 
+    if (!steps) return;
     const p = Math.min(1, Math.max(0, (y + vh * 0.75 - stepsTop) / (stepsH + vh * 0.1)));
     stepLine.style.transform = mobileSteps.matches ? `scaleY(${p.toFixed(3)})` : `scaleX(${p.toFixed(3)})`;
     const lit = Math.min(stepItems.length, Math.floor(p * stepItems.length + 0.9));
@@ -199,13 +206,15 @@
     }, 160);
     trackerBar.style.transform = `scaleX(${(stepIndex + 1) / trackerSteps.length})`;
   }
-  renderTracker();
-  if (!reduceMotion) {
-    setInterval(() => {
-      if (!heroActive()) return;
-      stepIndex = (stepIndex + 1) % trackerSteps.length;
-      renderTracker();
-    }, 1800);
+  if (trackerStatus && trackerBar) {
+    renderTracker();
+    if (!reduceMotion) {
+      setInterval(() => {
+        if (!heroActive()) return;
+        stepIndex = (stepIndex + 1) % trackerSteps.length;
+        renderTracker();
+      }, 1800);
+    }
   }
 
   /* ---------- Hero stage parallax (desktop pointer only) ---------- */
@@ -232,30 +241,8 @@
     addEventListener('scroll', () => { rect = null; }, { passive: true });
   }
 
-  /* ---------- Category cards: cursor spotlight ---------- */
-  if (finePointer) {
-    $$('.cat').forEach(card => {
-      let pending = false, mx = 0, my = 0, rect = null;
-      card.addEventListener('pointerenter', () => { rect = card.getBoundingClientRect(); });
-      card.addEventListener('pointermove', e => {
-        rect = rect || card.getBoundingClientRect();
-        mx = e.clientX - rect.left; my = e.clientY - rect.top;
-        if (!pending) {
-          pending = true;
-          requestAnimationFrame(() => {
-            pending = false;
-            card.style.setProperty('--mx', mx + 'px');
-            card.style.setProperty('--my', my + 'px');
-          });
-        }
-      }, { passive: true });
-      card.addEventListener('pointerleave', () => { rect = null; });
-    });
-  }
-
-  /* ---------- Procurement scope tabs (WAI-ARIA tabs) ---------- */
-  const tabs = $$('[role="tab"]');
-  function selectTab(tab, focus = true) {
+  /* ---------- Tabs (WAI-ARIA pattern, one handler per [data-tabs] tablist) ---------- */
+  function selectTab(tabs, tab, focus) {
     tabs.forEach(t => {
       const selected = t === tab;
       t.setAttribute('aria-selected', selected);
@@ -267,83 +254,154 @@
     if (focus) tab.focus();
     tab.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: reduceMotion ? 'auto' : 'smooth' });
   }
-  tabs.forEach((tab, i) => {
-    tab.addEventListener('click', () => selectTab(tab, false));
-    tab.addEventListener('keydown', e => {
-      // RTL: ArrowLeft moves forward, ArrowRight moves back
-      const keys = { ArrowLeft: 1, ArrowDown: 1, ArrowRight: -1, ArrowUp: -1 };
-      if (e.key in keys) {
-        e.preventDefault();
-        selectTab(tabs[(i + keys[e.key] + tabs.length) % tabs.length]);
-      } else if (e.key === 'Home') { e.preventDefault(); selectTab(tabs[0]); }
-      else if (e.key === 'End') { e.preventDefault(); selectTab(tabs[tabs.length - 1]); }
+  // RTL: ArrowLeft moves forward, ArrowRight moves back
+  const tabKeys = { ArrowLeft: 1, ArrowDown: 1, ArrowRight: -1, ArrowUp: -1 };
+  function keyNav(e, items, i, activate) {
+    if (e.key in tabKeys) { e.preventDefault(); activate(items[(i + tabKeys[e.key] + items.length) % items.length]); }
+    else if (e.key === 'Home') { e.preventDefault(); activate(items[0]); }
+    else if (e.key === 'End') { e.preventDefault(); activate(items[items.length - 1]); }
+  }
+  $$('[data-tabs]').forEach(list => {
+    const tabs = $$('[role="tab"]', list);
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => selectTab(tabs, tab, false));
+      tab.addEventListener('keydown', e => keyNav(e, tabs, i, t => selectTab(tabs, t, true)));
     });
   });
+  // deep link to a tab from another page, e.g. procurement.html#pt-model
+  function openTabFromHash() {
+    const tab = /^#[\w-]+$/.test(location.hash) && $(location.hash + '[role="tab"]');
+    if (tab && tab.closest('[data-tabs]')) selectTab($$('[role="tab"]', tab.closest('[data-tabs]')), tab, false);
+  }
+  openTabFromHash();
+  addEventListener('hashchange', openTabFromHash);
+
+  /* ---------- Categories explorer: one panel, nine categories ---------- */
+  const explorer = $('#explorer');
+  if (explorer) {
+    const catTabs = $$('[role="tab"]', explorer);
+    const catImgs = $$('.explorer__imgs img', explorer);
+    const panel = $('#cat-panel');
+    const caption = $('.explorer__caption', explorer);
+    const num = $('#cat-num'), title = $('#cat-title'), desc = $('#cat-desc');
+    let current = 0, swapTimer = 0, userTouched = false, explorerVisible = false;
+
+    function showCategory(i, { focus = false, scroll = true } = {}) {
+      if (i !== current) {
+        current = i;
+        catTabs.forEach((t, k) => { t.setAttribute('aria-selected', k === i); t.tabIndex = k === i ? 0 : -1; });
+        catImgs.forEach((im, k) => im.classList.toggle('is-on', k === i));
+        panel.setAttribute('aria-labelledby', catTabs[i].id);
+        caption.classList.add('is-swap');
+        clearTimeout(swapTimer);
+        swapTimer = setTimeout(() => {
+          num.textContent = String(i + 1).padStart(2, '0');
+          title.textContent = catTabs[i].dataset.title;
+          desc.textContent = catTabs[i].dataset.desc;
+          caption.classList.remove('is-swap');
+        }, reduceMotion ? 0 : 200);
+      }
+      if (focus) catTabs[i].focus();
+      // keep the active chip in view inside the horizontal list (mobile) without moving the page
+      if (scroll) {
+        const list = catTabs[i].parentElement;
+        if (list.scrollWidth > list.clientWidth) {
+          const r = catTabs[i].getBoundingClientRect(), lr = list.getBoundingClientRect();
+          list.scrollBy({ left: (r.left + r.width / 2) - (lr.left + lr.width / 2), behavior: reduceMotion ? 'auto' : 'smooth' });
+        }
+      }
+    }
+    catTabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => { userTouched = true; showCategory(i); });
+      tab.addEventListener('keydown', e => keyNav(e, catTabs, i, t => { userTouched = true; showCategory(catTabs.indexOf(t), { focus: true }); }));
+      if (finePointer) tab.addEventListener('pointerenter', () => { userTouched = true; showCategory(i, { scroll: false }); });
+    });
+    // deep link from the homepage tiles, e.g. categories.html#cat-4
+    function openCategoryFromHash() {
+      const m = /^#cat-(\d+)$/.exec(location.hash);
+      if (!m || !catTabs[m[1] - 1]) return;
+      userTouched = true;
+      showCategory(m[1] - 1);
+      explorer.scrollIntoView({ block: 'center', behavior: 'auto' });
+    }
+    openCategoryFromHash();
+    addEventListener('hashchange', openCategoryFromHash);
+    // gentle auto-advance until the visitor interacts; only while on screen
+    new IntersectionObserver(es => { explorerVisible = es[0].isIntersecting; }, { threshold: 0.4 }).observe(explorer);
+    if (!reduceMotion) setInterval(() => {
+      if (userTouched || !explorerVisible || document.hidden) return;
+      showCategory((current + 1) % catTabs.length);
+    }, 3600);
+  }
 
   /* ---------- Savings calculator (60% client / 40% Dokan) ---------- */
   const spend = $('#spend');
   const rate = $('#rate');
-  const out = {
-    spend: $('#spend-out'), rate: $('#rate-out'), total: $('#total-out'),
-    client: $('#client-out'), ours: $('#ours-out')
-  };
-  let calcPending = false;
+  if (spend && rate) {
+    const out = {
+      spend: $('#spend-out'), rate: $('#rate-out'), total: $('#total-out'),
+      client: $('#client-out'), ours: $('#ours-out')
+    };
+    let calcPending = false;
 
-  function paintRange(input) {
-    const pct = (input.value - input.min) / (input.max - input.min) * 100;
-    input.style.setProperty('--fill', pct + '%');
+    function paintRange(input) {
+      const pct = (input.value - input.min) / (input.max - input.min) * 100;
+      input.style.setProperty('--fill', pct + '%');
+    }
+    function updateCalc() {
+      calcPending = false;
+      const s = +spend.value;
+      const total = Math.round(s * (+rate.value / 100));
+      out.spend.textContent = fmt.format(s) + ' ج.م';
+      out.rate.textContent = rate.value + '%';
+      out.total.innerHTML = fmt.format(total) + ' <small>ج.م</small>';
+      out.client.textContent = fmt.format(Math.round(total * 0.6)) + ' ج.م';
+      out.ours.textContent = fmt.format(Math.round(total * 0.4)) + ' ج.م';
+      paintRange(spend);
+      paintRange(rate);
+    }
+    [spend, rate].forEach(i => i.addEventListener('input', () => {
+      if (!calcPending) { calcPending = true; requestAnimationFrame(updateCalc); }
+    }));
+    updateCalc();
   }
-  function updateCalc() {
-    calcPending = false;
-    const s = +spend.value;
-    const total = Math.round(s * (+rate.value / 100));
-    out.spend.textContent = fmt.format(s) + ' ج.م';
-    out.rate.textContent = rate.value + '%';
-    out.total.innerHTML = fmt.format(total) + ' <small>ج.م</small>';
-    out.client.textContent = fmt.format(Math.round(total * 0.6)) + ' ج.م';
-    out.ours.textContent = fmt.format(Math.round(total * 0.4)) + ' ج.م';
-    paintRange(spend);
-    paintRange(rate);
-  }
-  [spend, rate].forEach(i => i.addEventListener('input', () => {
-    if (!calcPending) { calcPending = true; requestAnimationFrame(updateCalc); }
-  }));
-  updateCalc();
 
   /* ---------- Quote form → opens the visitor's mail app with a pre-filled request ---------- */
   const form = $('#quote-form');
   const msg = $('#form-msg');
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const data = new FormData(form);
-    let ok = true;
-    ['name', 'phone'].forEach(n => {
-      const field = form.elements[n];
-      const valid = field.value.trim().length > 0;
-      field.classList.toggle('is-invalid', !valid);
-      if (!valid) ok = false;
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const data = new FormData(form);
+      let ok = true;
+      ['name', 'phone'].forEach(n => {
+        const field = form.elements[n];
+        const valid = field.value.trim().length > 0;
+        field.classList.toggle('is-invalid', !valid);
+        if (!valid) ok = false;
+      });
+      if (!ok) {
+        msg.className = 'form__msg is-err';
+        msg.textContent = 'من فضلك أدخل الاسم ورقم الهاتف.';
+        form.querySelector('.is-invalid').focus();
+        return;
+      }
+      const body = [
+        'الاسم: ' + data.get('name'),
+        'الشركة: ' + (data.get('company') || '—'),
+        'الهاتف: ' + data.get('phone'),
+        'نوع الخدمة: ' + data.get('service'),
+        'المجالات: ' + (data.getAll('cat').join('، ') || '—'),
+        '',
+        data.get('message') || ''
+      ].join('\n');
+      const subject = 'طلب عرض سعر — ' + (data.get('company') || data.get('name'));
+      location.href = 'mailto:info@dakan-zaman.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      msg.className = 'form__msg is-ok';
+      msg.textContent = 'شكرًا لكم! تم تجهيز طلبكم في تطبيق البريد لإرساله.';
     });
-    if (!ok) {
-      msg.className = 'form__msg is-err';
-      msg.textContent = 'من فضلك أدخل الاسم ورقم الهاتف.';
-      form.querySelector('.is-invalid').focus();
-      return;
-    }
-    const body = [
-      'الاسم: ' + data.get('name'),
-      'الشركة: ' + (data.get('company') || '—'),
-      'الهاتف: ' + data.get('phone'),
-      'نوع الخدمة: ' + data.get('service'),
-      'المجالات: ' + (data.getAll('cat').join('، ') || '—'),
-      '',
-      data.get('message') || ''
-    ].join('\n');
-    const subject = 'طلب عرض سعر — ' + (data.get('company') || data.get('name'));
-    location.href = 'mailto:info@dakan-zaman.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    msg.className = 'form__msg is-ok';
-    msg.textContent = 'شكرًا لكم! تم تجهيز طلبكم في تطبيق البريد لإرساله.';
-  });
-  $$('input', form).forEach(i => i.addEventListener('input', () => i.classList.remove('is-invalid')));
+    $$('input', form).forEach(i => i.addEventListener('input', () => i.classList.remove('is-invalid')));
+  }
 
   /* ---------- Footer year ---------- */
   $('#year').textContent = new Date().getFullYear();

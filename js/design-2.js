@@ -1,4 +1,5 @@
-/* Dokan Zaman — Design 2 interactions (same perf rules as design 1) */
+/* Dokan Zaman — Design 2 interactions (shared by the homepage and the inner pages;
+   every feature checks that its elements exist on the current page) */
 (() => {
   const root = document.documentElement;
   root.classList.add('js');
@@ -61,13 +62,17 @@
   /* ---------- Island: hide on scroll down, show on scroll up; scroll-spy ---------- */
   const island = $('#island');
   const islandLinks = $$('.island__links a');
-  const spy = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (!en.isIntersecting) return;
-      islandLinks.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + en.target.id));
-    });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-  islandLinks.map(a => $(a.getAttribute('href'))).filter(Boolean).forEach(s => spy.observe(s));
+  // scroll-spy only applies to in-page (#hash) links; page links are marked active in the HTML
+  const hashLinks = islandLinks.filter(a => /^#.+/.test(a.getAttribute('href')));
+  if (hashLinks.length) {
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        hashLinks.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + en.target.id));
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    hashLinks.map(a => $(a.getAttribute('href'))).filter(Boolean).forEach(s => spy.observe(s));
+  }
 
   /* ---------- Scroll-linked (single rAF) ---------- */
   const toTop = $('.to-top2');
@@ -78,8 +83,10 @@
 
   function measure() {
     vh = innerHeight;
-    const r = road.getBoundingClientRect();
-    roadTop = r.top + scrollY; roadH = r.height;
+    if (road) {
+      const r = road.getBoundingClientRect();
+      roadTop = r.top + scrollY; roadH = r.height;
+    }
     update();
   }
   function update() {
@@ -94,8 +101,10 @@
     const t = y > vh;
     if (t !== showTop) { showTop = t; toTop.classList.toggle('is-visible', t); }
 
-    const p = Math.min(1, Math.max(0, (y + vh * 0.7 - roadTop) / roadH));
-    roadBar.style.transform = `scaleX(${p.toFixed(3)})`;
+    if (road && roadBar) {
+      const p = Math.min(1, Math.max(0, (y + vh * 0.7 - roadTop) / roadH));
+      roadBar.style.transform = `scaleX(${p.toFixed(3)})`;
+    }
   }
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
   addEventListener('resize', () => requestAnimationFrame(measure), { passive: true });
@@ -153,56 +162,60 @@
     setTimeout(() => { trackStatus.textContent = labels[ti]; trackStatus.style.opacity = 1; }, 160);
     trackBar.style.transform = `scaleX(${(ti + 1) / trackItems.length})`;
   }
-  renderTrack();
-  if (!reduceMotion) setInterval(() => {
-    if (!heroVisible || document.hidden) return;
-    ti = (ti + 1) % trackItems.length;
+  if (trackStatus && trackBar) {
     renderTrack();
-  }, 1800);
+    if (!reduceMotion) setInterval(() => {
+      if (!heroVisible || document.hidden) return;
+      ti = (ti + 1) % trackItems.length;
+      renderTrack();
+    }, 1800);
+  }
 
   /* ---------- Categories carousel: buttons, progress, drag ---------- */
   const car = $('#carousel');
   const carBar = $('#car-bar');
-  const cardStep = () => {
-    const c = car.querySelector('.card');
-    return c ? c.getBoundingClientRect().width + 14 : 300;
-  };
-  // RTL: scrollLeft is 0 at the start and negative towards the end
-  $$('[data-car]').forEach(btn => btn.addEventListener('click', () => {
-    const dir = btn.dataset.car === 'next' ? -1 : 1;
-    car.scrollBy({ left: dir * cardStep(), behavior: smooth });
-  }));
-  let carTick = false;
-  function carProgress() {
-    carTick = false;
-    const max = car.scrollWidth - car.clientWidth;
-    const p = max > 0 ? Math.abs(car.scrollLeft) / max : 1;
-    carBar.style.transform = `scaleX(${Math.max(0.12, p).toFixed(3)})`;
-  }
-  car.addEventListener('scroll', () => { if (!carTick) { carTick = true; requestAnimationFrame(carProgress); } }, { passive: true });
-  carProgress();
-  car.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft') { e.preventDefault(); car.scrollBy({ left: -cardStep(), behavior: smooth }); }
-    if (e.key === 'ArrowRight') { e.preventDefault(); car.scrollBy({ left: cardStep(), behavior: smooth }); }
-  });
-  if (finePointer) {
-    let down = false, startX = 0, startLeft = 0, moved = false;
-    car.addEventListener('pointerdown', e => {
-      if (e.pointerType !== 'mouse') return;
-      down = true; moved = false; startX = e.clientX; startLeft = car.scrollLeft;
+  if (car && carBar) {
+    const cardStep = () => {
+      const c = car.querySelector('.card');
+      return c ? c.getBoundingClientRect().width + 14 : 300;
+    };
+    // RTL: scrollLeft is 0 at the start and negative towards the end
+    $$('[data-car]').forEach(btn => btn.addEventListener('click', () => {
+      const dir = btn.dataset.car === 'next' ? -1 : 1;
+      car.scrollBy({ left: dir * cardStep(), behavior: smooth });
+    }));
+    let carTick = false;
+    function carProgress() {
+      carTick = false;
+      const max = car.scrollWidth - car.clientWidth;
+      const p = max > 0 ? Math.abs(car.scrollLeft) / max : 1;
+      carBar.style.transform = `scaleX(${Math.max(0.12, p).toFixed(3)})`;
+    }
+    car.addEventListener('scroll', () => { if (!carTick) { carTick = true; requestAnimationFrame(carProgress); } }, { passive: true });
+    carProgress();
+    car.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); car.scrollBy({ left: -cardStep(), behavior: smooth }); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); car.scrollBy({ left: cardStep(), behavior: smooth }); }
     });
-    addEventListener('pointermove', e => {
-      if (!down) return;
-      const dx = e.clientX - startX;
-      if (!moved && Math.abs(dx) > 5) { moved = true; car.classList.add('is-dragging'); }
-      if (moved) car.scrollLeft = startLeft - dx;
-    }, { passive: true });
-    addEventListener('pointerup', () => {
-      if (!down) return;
-      down = false;
-      // re-enabling scroll-snap lets the browser settle on the nearest card
-      if (moved) car.classList.remove('is-dragging');
-    });
+    if (finePointer) {
+      let down = false, startX = 0, startLeft = 0, moved = false;
+      car.addEventListener('pointerdown', e => {
+        if (e.pointerType !== 'mouse') return;
+        down = true; moved = false; startX = e.clientX; startLeft = car.scrollLeft;
+      });
+      addEventListener('pointermove', e => {
+        if (!down) return;
+        const dx = e.clientX - startX;
+        if (!moved && Math.abs(dx) > 5) { moved = true; car.classList.add('is-dragging'); }
+        if (moved) car.scrollLeft = startLeft - dx;
+      }, { passive: true });
+      addEventListener('pointerup', () => {
+        if (!down) return;
+        down = false;
+        // re-enabling scroll-snap lets the browser settle on the nearest card
+        if (moved) car.classList.remove('is-dragging');
+      });
+    }
   }
 
   /* ---------- Process: sticky stepper follows the active step ---------- */
@@ -212,24 +225,26 @@
   const dots = $$('#stepper-dots i');
   const stepImgs = $$('#stepper-media img');
   let activeStep = -1;
-  function setStep(i) {
-    if (i === activeStep) return;
-    activeStep = i;
-    steps.forEach((s, k) => s.classList.toggle('is-active', k === i));
-    dots.forEach((d, k) => d.classList.toggle('is-on', k <= i));
-    stepImgs.forEach((im, k) => im.classList.toggle('is-on', k === i));
-    stepNum.classList.add('is-swap');
-    setTimeout(() => {
-      stepNum.textContent = String(i + 1).padStart(2, '0');
-      stepIcon.setAttribute('href', '#' + steps[i].dataset.icon);
-      stepNum.classList.remove('is-swap');
-    }, 180);
+  if (steps.length && stepNum) {
+    function setStep(i) {
+      if (i === activeStep) return;
+      activeStep = i;
+      steps.forEach((s, k) => s.classList.toggle('is-active', k === i));
+      dots.forEach((d, k) => d.classList.toggle('is-on', k <= i));
+      stepImgs.forEach((im, k) => im.classList.toggle('is-on', k === i));
+      stepNum.classList.add('is-swap');
+      setTimeout(() => {
+        stepNum.textContent = String(i + 1).padStart(2, '0');
+        stepIcon.setAttribute('href', '#' + steps[i].dataset.icon);
+        stepNum.classList.remove('is-swap');
+      }, 180);
+    }
+    const stepObs = new IntersectionObserver(entries => {
+      entries.forEach(en => { if (en.isIntersecting) setStep(steps.indexOf(en.target)); });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    steps.forEach(s => stepObs.observe(s));
+    setStep(0);
   }
-  const stepObs = new IntersectionObserver(entries => {
-    entries.forEach(en => { if (en.isIntersecting) setStep(steps.indexOf(en.target)); });
-  }, { rootMargin: '-45% 0px -45% 0px' });
-  steps.forEach(s => stepObs.observe(s));
-  setStep(0);
 
   /* ---------- Accordion: only one open (fallback for browsers without details[name]) ---------- */
   const details = $$('.acc details');
@@ -242,47 +257,51 @@
   const presets = $$('.presets button');
   const o = { spend: $('#c-spend'), rate: $('#c-rate'), total: $('#c-total'), client: $('#c-client'), ours: $('#c-ours') };
   let calcPending = false;
-  const paint = i => i.style.setProperty('--fill', ((i.value - i.min) / (i.max - i.min) * 100) + '%');
-  function calc() {
-    calcPending = false;
-    const s = +spend.value, total = Math.round(s * +rate.value / 100);
-    o.spend.textContent = fmt.format(s) + ' ج.م';
-    o.rate.textContent = rate.value + '%';
-    o.total.textContent = fmt.format(total);
-    o.client.textContent = fmt.format(Math.round(total * .6)) + ' ج.م';
-    o.ours.textContent = fmt.format(Math.round(total * .4)) + ' ج.م';
-    presets.forEach(b => b.classList.toggle('is-on', +b.dataset.v === s));
-    paint(spend); paint(rate);
+  if (spend && rate) {
+    const paint = i => i.style.setProperty('--fill', ((i.value - i.min) / (i.max - i.min) * 100) + '%');
+    function calc() {
+      calcPending = false;
+      const s = +spend.value, total = Math.round(s * +rate.value / 100);
+      o.spend.textContent = fmt.format(s) + ' ج.م';
+      o.rate.textContent = rate.value + '%';
+      o.total.textContent = fmt.format(total);
+      o.client.textContent = fmt.format(Math.round(total * .6)) + ' ج.م';
+      o.ours.textContent = fmt.format(Math.round(total * .4)) + ' ج.م';
+      presets.forEach(b => b.classList.toggle('is-on', +b.dataset.v === s));
+      paint(spend); paint(rate);
+    }
+    const queue = () => { if (!calcPending) { calcPending = true; requestAnimationFrame(calc); } };
+    [spend, rate].forEach(i => i.addEventListener('input', queue));
+    presets.forEach(b => b.addEventListener('click', () => { spend.value = b.dataset.v; queue(); }));
+    calc();
   }
-  const queue = () => { if (!calcPending) { calcPending = true; requestAnimationFrame(calc); } };
-  [spend, rate].forEach(i => i.addEventListener('input', queue));
-  presets.forEach(b => b.addEventListener('click', () => { spend.value = b.dataset.v; queue(); }));
-  calc();
 
   /* ---------- Form → mail app ---------- */
   const form = $('#form2'), msg = $('#form2-msg');
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const data = new FormData(form);
-    let ok = true;
-    ['name', 'phone'].forEach(n => {
-      const f = form.elements[n], valid = f.value.trim().length > 0;
-      f.classList.toggle('is-invalid', !valid);
-      if (!valid) ok = false;
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const data = new FormData(form);
+      let ok = true;
+      ['name', 'phone'].forEach(n => {
+        const f = form.elements[n], valid = f.value.trim().length > 0;
+        f.classList.toggle('is-invalid', !valid);
+        if (!valid) ok = false;
+      });
+      if (!ok) {
+        msg.className = 'form2__msg is-err';
+        msg.textContent = 'من فضلك أدخل الاسم ورقم الهاتف.';
+        form.querySelector('.is-invalid').focus();
+        return;
+      }
+      const body = ['الاسم: ' + data.get('name'), 'الشركة: ' + (data.get('company') || '—'), 'الهاتف: ' + data.get('phone'),
+        'نوع الخدمة: ' + data.get('service'), '', data.get('message') || ''].join('\n');
+      location.href = 'mailto:info@dakan-zaman.com?subject=' + encodeURIComponent('طلب عرض سعر — ' + (data.get('company') || data.get('name'))) + '&body=' + encodeURIComponent(body);
+      msg.className = 'form2__msg is-ok';
+      msg.textContent = 'شكرًا لكم! تم تجهيز طلبكم في تطبيق البريد لإرساله.';
     });
-    if (!ok) {
-      msg.className = 'form2__msg is-err';
-      msg.textContent = 'من فضلك أدخل الاسم ورقم الهاتف.';
-      form.querySelector('.is-invalid').focus();
-      return;
-    }
-    const body = ['الاسم: ' + data.get('name'), 'الشركة: ' + (data.get('company') || '—'), 'الهاتف: ' + data.get('phone'),
-      'نوع الخدمة: ' + data.get('service'), '', data.get('message') || ''].join('\n');
-    location.href = 'mailto:info@dakan-zaman.com?subject=' + encodeURIComponent('طلب عرض سعر — ' + (data.get('company') || data.get('name'))) + '&body=' + encodeURIComponent(body);
-    msg.className = 'form2__msg is-ok';
-    msg.textContent = 'شكرًا لكم! تم تجهيز طلبكم في تطبيق البريد لإرساله.';
-  });
-  $$('input', form).forEach(i => i.addEventListener('input', () => i.classList.remove('is-invalid')));
+    $$('input', form).forEach(i => i.addEventListener('input', () => i.classList.remove('is-invalid')));
+  }
 
   $('#year').textContent = new Date().getFullYear();
 })();

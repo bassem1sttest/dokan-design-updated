@@ -706,3 +706,83 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
   .js [data-reveal]:not(.is-in) { opacity: 1; }
   .ticker__track { animation: none; }
 }
+
+/* =========================================================
+   HOME SUMMARY BLOCKS + INNER PAGES
+   The homepage is an overview: each section answers one question
+   and links to the inner page that holds the detail.
+   ========================================================= */
+.link-more {
+  display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+  font-weight: 700; color: var(--hl);
+  padding: 6px 0; border-bottom: 2px solid transparent;
+  transition: border-color .25s, gap .3s var(--ease);
+}
+.link-more .ico { width: 18px; height: 18px; }
+.link-more:hover { border-color: currentColor; gap: 12px; }
+.car-ctrl { align-items: center; }
+.car-ctrl .link-more { margin-inline-end: 10px; }
+.track__more { margin-top: 12px; font-size: .92rem; }
+
+.pill--ghost { border-color: rgba(255,255,255,.35); color: #fff; }
+.pill--ghost:hover { background: #fff; color: var(--ink-on-orange); border-color: #fff; }
+
+/* flagship service teaser */
+.band-lite { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
+.band-lite .sec__head { margin-bottom: 0; }
+.band-lite .sec__lead { margin-top: 14px; }
+.band-lite .vtile { min-height: 130px; }
+.band-lite .vtile--big { min-height: 170px; }
+.band-lite .vtile--big h3 { color: var(--ink-on-orange); }
+
+/* why-us teaser */
+.about-photo--short { grid-row: auto; min-height: 240px; }
+.pillar2.tile--dark p { color: rgba(255,255,255,.75); }
+.pillar2.tile--dark .pillar2__n { color: var(--orange); opacity: 1; }
+
+/* inner pages */
+.page-hero2 { padding: 100px 0 0; }
+.page-hero2__tile { padding: clamp(26px, 4vw, 48px); color: rgba(255,255,255,.78); }
+.page-hero2__tile::before {
+  content: ""; position: absolute; inset: auto auto -60% -10%; width: 60%; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(243,114,33,.4), transparent); pointer-events: none;
+}
+.page-hero2__tile > * { position: relative; }
+.page-hero2__tile h1 { color: #fff; font-size: clamp(2.2rem, 1.4rem + 3.2vw, 4rem); font-weight: 800; line-height: 1.25; letter-spacing: -.03em; }
+.page-hero2__tile p { max-width: 60ch; margin-top: 8px; font-size: 1.08rem; }
+.crumbs2 { display: flex; align-items: center; gap: 8px; font-size: .9rem; margin-bottom: 14px; color: rgba(255,255,255,.6); }
+.crumbs2 a { color: var(--orange-300); font-weight: 600; }
+.crumbs2 a:hover { text-decoration: underline; }
+.page-hero2 + .sec { padding-top: clamp(32px, 4vw, 56px); }
+
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.card-grid .card { min-height: 0; }
+
+.sec--cta { padding-top: clamp(24px, 3vw, 40px); }
+.cta-tile { display: flex; align-items: center; justify-content: space-between; gap: 18px 32px; flex-wrap: wrap; padding: clamp(24px, 4vw, 40px); }
+.cta-tile h2 { font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.3rem); font-weight: 800; }
+.cta-tile p { color: rgba(0,0,0,.78); }
+
+@media (max-width: 1080px) {
+  .card-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 960px) {
+  .band-lite { grid-template-columns: 1fr; }
+  .car-ctrl .link-more { order: -1; }
+}
+@media (max-width: 600px) {
+  .page-hero2 { padding-top: 88px; }
+  .card-grid { grid-template-columns: 1fr; }
+  .bento--about .pillar2 { grid-column: span 6; padding: 18px; }
+  .bento--about .pillar2__n { font-size: 2rem; margin-bottom: 10px; }
+  .bento--about .pillar2 h3 { font-size: 1.05rem; }
+  .cta-tile .pill { width: 100%; }
+  .sec__head--split .link-more { font-size: .92rem; }
+  /* keep the homepage short on phones */
+  .tile--brand { min-height: 170px; }
+  .brand-art img { width: min(34%, 120px); }
+  .about-photo--short { min-height: 170px; }
+  .cta2__list { grid-template-columns: 1fr 1fr; padding-top: 20px; }
+  .cta2__list li { flex-direction: column; align-items: flex-start; gap: 6px; padding: 10px 12px; font-size: .86rem; min-width: 0; }
+  .cta2__list li a, .cta2__list li span { overflow-wrap: anywhere; }
+}
