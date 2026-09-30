@@ -236,7 +236,7 @@
       </div>
     </div>
 
-    <!-- ============ 1) WHAT WE SUPPLY — quick overview, details on categories.html ============ -->
+    <!-- ============ 1) WHAT WE SUPPLY — swipeable overview, details on categories.html ============ -->
     <section class="section home-cats" id="categories">
       <div class="container">
         <div class="section-head section-head--row">
@@ -244,21 +244,26 @@
             <p class="eyebrow" data-reveal><span class="dot"></span> ماذا نورّد؟</p>
             <h2 class="h2" data-reveal>تسعة مجالات. <em>مورد واحد.</em></h2>
           </div>
-          <a href="categories.html" class="link-more" data-reveal>تفاصيل كل المجالات <svg class="ico"><use href="#i-arrow"/></svg></a>
+          <div class="car-ctrl" data-reveal>
+            <a href="categories.html" class="link-more">تفاصيل كل المجالات <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <button class="car-btn" type="button" data-car="prev" aria-label="السابق"><svg class="ico"><use href="#i-arrow"/></svg></button>
+            <button class="car-btn" type="button" data-car="next" aria-label="التالي"><svg class="ico"><use href="#i-arrow"/></svg></button>
+          </div>
         </div>
-        <ul class="cat-tiles">
-          <li data-reveal style="--d:0.00s"><a href="categories.html#cat-1"><img src="assets/img/cat-cleaning.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-spray"/></svg>مستهلكات وأدوات النظافة</span></a></li>
-          <li data-reveal style="--d:0.04s"><a href="categories.html#cat-2"><img src="assets/img/cat-office.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-pen"/></svg>الأدوات المكتبية</span></a></li>
-          <li data-reveal style="--d:0.08s"><a href="categories.html#cat-3"><img src="assets/img/cat-operations.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-wrench"/></svg>مستلزمات التشغيل</span></a></li>
-          <li data-reveal style="--d:0.12s"><a href="categories.html#cat-4"><img src="assets/img/cat-packaging.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-package"/></svg>العبوات والتغليف</span></a></li>
-          <li data-reveal style="--d:0.16s"><a href="categories.html#cat-5"><img src="assets/img/cat-paper.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-paper"/></svg>الورق ومستلزماته</span></a></li>
-          <li data-reveal style="--d:0.20s"><a href="categories.html#cat-6"><img src="assets/img/cat-buffet.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-coffee"/></svg>البوفيه والضيافة</span></a></li>
-          <li data-reveal style="--d:0.24s"><a href="categories.html#cat-7"><img src="assets/img/cat-safety.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-hardhat"/></svg>الصحة والسلامة</span></a></li>
-          <li data-reveal style="--d:0.28s"><a href="categories.html#cat-8"><img src="assets/img/cat-tools.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-hammer"/></svg>العدد والآلات الخفيفة</span></a></li>
-          <li data-reveal style="--d:0.32s"><a href="categories.html#cat-9"><img src="assets/img/cat-medical.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-medical"/></svg>المستلزمات الطبية</span></a></li>
-          <li class="cat-tiles__more" data-reveal style="--d:.36s"><a href="categories.html"><b>كل المجالات<br>بالتفصيل</b><svg class="ico"><use href="#i-arrow"/></svg></a></li>
-        </ul>
       </div>
+
+      <div class="carousel" id="carousel" tabindex="0" aria-label="مجالات التوريد — مرّر أفقيًا">
+        <article class="card c-orange"><div class="card__media"><img src="assets/img/cat-cleaning.webp" alt="مستلزمات وأدوات النظافة" width="720" height="480" loading="lazy" decoding="async"></div><div class="card__top"><b>01</b><svg class="ico"><use href="#i-spray"/></svg></div><h3>مستهلكات وأدوات النظافة</h3><p>منظفات، أدوات تنظيف، أكياس قمامة، قفازات، مستلزمات الحمامات والمطابخ.</p></article>
+        <article class="card c-dark"><div class="card__media"><img src="assets/img/cat-office.webp" alt="أدوات مكتبية ومشابك" width="720" height="480" loading="lazy" decoding="async"></div><div class="card__top"><b>02</b><svg class="ico"><use href="#i-pen"/></svg></div><h3>الأدوات المكتبية</h3><p>أقلام، دفاتر، ملفات، أوراق، أدوات تنظيم ومستلزمات المكاتب.</p></article>
+        <article class="card c-plain"><div class="card__media"><img src="assets/img/cat-operations.webp" alt="مفاتيح وعدد صيانة" width="720" height="480" loading="lazy" decoding="async"></div><div class="card__top"><b>03</b><svg class="ico"><use href="#i-wrench"/></svg></div><h3>مستلزمات التشغيل</h3><p>مستلزمات صيانة وتشغيل، أدوات عمل، مهمات سلامة ومستلزمات فنية.</p></article>
+        <article class="card c-orange"><div class="card__media"><img src="assets/img/cat-packaging.webp" alt="كرتونة شحن" width="720" height="480" loading="lazy" decoding="async"></div><div class="card__top"><b>04</b><svg class="ico"><use href="#i-package"/></svg></div><h3>العبوات والتغليف</h3><p>عبوات ورقية وبلاستيكية، أكياس، كراتين، حلول تغليف حسب الطلب.</p></article>
+        <article class="card c-dark"><div class="card__media"><img src="assets/img/cat-paper.webp" alt="رزم من الورق" width="720" height="480" loading="lazy" decoding="async"></div><div class="card__top"><b>05</b><svg class="ico"><use href="#i-paper"/></svg></div><h3>الورق ومستلزماته</h3><p>أوراق طباعة وتصوير، رول ورق، مناديل ومستلزمات ورقية متنوعة.</p></article>
+        <article class="card c-plain"><div class="card__media"><img src="assets/img/cat-buffet.webp" alt="فنجان قهوة على صينية تقديم" width="720" height="480" loading="lazy" decoding="async"></div><div class="card__top"><b>06</b><svg class="ico"><use href="#i-coffee"/></svg></div><h3>مستلزمات البوفيه والضيافة</h3><p>أكواب وأطباق، أدوات تقديم، مناديل، مواد ومستلزمات الضيافة.</p></article>
+        <article class="card c-orange"><div class="card__media"><img src="assets/img/cat-safety.webp" alt="خوذة وقفازات ونظارات سلامة" width="720" height="480" loading="lazy" decoding="async"></div><div class="card__top"><b>07</b><svg class="ico"><use href="#i-hardhat"/></svg></div><h3>مهمات الصحة والسلامة</h3><p>مهمات الوقاية والسلامة المهنية لبيئات العمل المختلفة.</p></article>
+        <article class="card c-dark"><div class="card__media"><img src="assets/img/cat-tools.webp" alt="مثقاب كهربائي" width="720" height="480" loading="lazy" decoding="async"></div><div class="card__top"><b>08</b><svg class="ico"><use href="#i-hammer"/></svg></div><h3>العدد والآلات الخفيفة</h3><p>عدد يدوية وآلات خفيفة لأعمال الصيانة والتشغيل اليومية.</p></article>
+        <article class="card c-plain"><div class="card__media"><img src="assets/img/cat-medical.webp" alt="سماعة طبية" width="720" height="480" loading="lazy" decoding="async"></div><div class="card__top"><b>09</b><svg class="ico"><use href="#i-medical"/></svg></div><h3>المستلزمات الطبية</h3><p>مستلزمات طبية أساسية لاحتياجات المنشآت والمواقع.</p></article>
+      </div>
+      <div class="container"><div class="car-progress" aria-hidden="true"><span id="car-bar"></span></div></div>
     </section>
 
     <!-- ============ 2) HOW IT WORKS — five steps at a glance, details on services.html ============ -->

@@ -9,7 +9,6 @@
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
   const fmt = new Intl.NumberFormat('en-US');
-  const smooth = reduceMotion ? 'auto' : 'smooth';
 
   /* ---------- Theme (shared localStorage key with design 1) ---------- */
   const themeBtn = $('.theme-toggle');
@@ -169,53 +168,6 @@
       ti = (ti + 1) % trackItems.length;
       renderTrack();
     }, 1800);
-  }
-
-  /* ---------- Categories carousel: buttons, progress, drag ---------- */
-  const car = $('#carousel');
-  const carBar = $('#car-bar');
-  if (car && carBar) {
-    const cardStep = () => {
-      const c = car.querySelector('.card');
-      return c ? c.getBoundingClientRect().width + 14 : 300;
-    };
-    // RTL: scrollLeft is 0 at the start and negative towards the end
-    $$('[data-car]').forEach(btn => btn.addEventListener('click', () => {
-      const dir = btn.dataset.car === 'next' ? -1 : 1;
-      car.scrollBy({ left: dir * cardStep(), behavior: smooth });
-    }));
-    let carTick = false;
-    function carProgress() {
-      carTick = false;
-      const max = car.scrollWidth - car.clientWidth;
-      const p = max > 0 ? Math.abs(car.scrollLeft) / max : 1;
-      carBar.style.transform = `scaleX(${Math.max(0.12, p).toFixed(3)})`;
-    }
-    car.addEventListener('scroll', () => { if (!carTick) { carTick = true; requestAnimationFrame(carProgress); } }, { passive: true });
-    carProgress();
-    car.addEventListener('keydown', e => {
-      if (e.key === 'ArrowLeft') { e.preventDefault(); car.scrollBy({ left: -cardStep(), behavior: smooth }); }
-      if (e.key === 'ArrowRight') { e.preventDefault(); car.scrollBy({ left: cardStep(), behavior: smooth }); }
-    });
-    if (finePointer) {
-      let down = false, startX = 0, startLeft = 0, moved = false;
-      car.addEventListener('pointerdown', e => {
-        if (e.pointerType !== 'mouse') return;
-        down = true; moved = false; startX = e.clientX; startLeft = car.scrollLeft;
-      });
-      addEventListener('pointermove', e => {
-        if (!down) return;
-        const dx = e.clientX - startX;
-        if (!moved && Math.abs(dx) > 5) { moved = true; car.classList.add('is-dragging'); }
-        if (moved) car.scrollLeft = startLeft - dx;
-      }, { passive: true });
-      addEventListener('pointerup', () => {
-        if (!down) return;
-        down = false;
-        // re-enabling scroll-snap lets the browser settle on the nearest card
-        if (moved) car.classList.remove('is-dragging');
-      });
-    }
   }
 
   /* ---------- Process: sticky stepper follows the active step ---------- */
