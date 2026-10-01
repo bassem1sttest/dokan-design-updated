@@ -998,17 +998,6 @@ input[type="range"]::-moz-range-thumb {
 .to-top:hover { background: var(--orange-600); }
 .to-top .ico { width: 22px; height: 22px; stroke-width: 2.4; }
 
-/* design comparison switcher (remove after choosing a design) */
-.compare {
-  position: fixed; right: 18px; bottom: 18px; z-index: 55;
-  display: flex; padding: 4px; border-radius: 999px;
-  background: #0B0B0C; box-shadow: 0 10px 30px -10px rgba(0,0,0,.5);
-  font-size: .85rem; font-weight: 600;
-}
-.compare a { padding: 8px 14px; border-radius: 999px; white-space: nowrap; color: rgba(255,255,255,.75); }
-.compare a[aria-current="page"] { background: var(--orange); color: #0B0B0C; }
-@media (max-width: 600px) { .compare { right: 50%; transform: translateX(50%); bottom: 14px; } .to-top { bottom: 70px; } }
-
 /* =========================================================
    REVEAL — uses the `translate` property + a one-shot animation,
    so it never interferes with hover `transform`s

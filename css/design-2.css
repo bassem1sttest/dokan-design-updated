@@ -574,16 +574,6 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
 .to-top2:hover { background: var(--heading); color: var(--bg); }
 .to-top2 .ico { width: 22px; height: 22px; stroke-width: 2.4; }
 
-/* design comparison switcher */
-.compare {
-  position: fixed; right: 18px; bottom: 18px; z-index: 55;
-  display: flex; padding: 4px; border-radius: 999px;
-  background: #0B0B0C; box-shadow: 0 10px 30px -10px rgba(0,0,0,.5);
-  font-size: .85rem; font-weight: 600;
-}
-.compare a { padding: 8px 14px; border-radius: 999px; white-space: nowrap; color: rgba(255,255,255,.75); }
-.compare a[aria-current="page"] { background: var(--orange); color: var(--ink-on-orange); }
-
 /* =========================================================
    REVEAL
    ========================================================= */
@@ -644,8 +634,6 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
   .clients2 li { min-height: 130px; font-size: .98rem; }
   .form2__row { grid-template-columns: 1fr; }
   .foot__word { margin-bottom: -.2em; }
-  .compare { right: 50%; transform: translateX(50%); bottom: 14px; }
-  .to-top2 { bottom: 70px; }
 }
 
 @media (hover: none) {
