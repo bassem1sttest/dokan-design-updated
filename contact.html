@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تواصل معنا | دكان زمان</title>
+  <meta name="description" content="تواصل مع دكان زمان للتوريدات العمومية لطلب عرض سعر للتوريدات والعقود المؤسسية.">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#F2F1EE">
+  <link rel="icon" type="image/svg+xml" href="assets/logos/logo-mark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="css/style.css?v=3f928d8d">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="js/tailwind.config.js?v=d42dae48"></script>
+</head>
+<body id="top">
+
+  <div data-site="header"></div>
+  <noscript><nav class="wrap" style="padding:24px 16px"><a href="index.html">الرئيسية</a> · <a href="categories.html">مجالات التوريد</a> · <a href="about.html">من نحن</a> · <a href="contact.html">تواصل معنا</a></nav></noscript>
+
+  <main>
+    <section class="page-hero2">
+      <div class="wrap">
+        <div class="tile tile--dark page-hero2__tile" data-reveal>
+          <nav class="crumbs2" aria-label="مسار الصفحة"><a href="index.html">الرئيسية</a><span aria-hidden="true">/</span><span aria-current="page">تواصل معنا</span></nav>
+          <h1>تواصل معنا</h1>
+          <p>للتوريدات والعروض والأسعار والعقود المؤسسية .. أرسلوا طلبكم وسنعود إليكم بعرض سعر مناسب.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT — details + quote request form ============ -->
+    <section class="sec" id="contact">
+      <div class="wrap grid grid-cols-[repeat(12,1fr)] gap-gap items-stretch">
+        <article class="tile tile--orange col-span-5 md:col-span-12 flex flex-col" data-reveal>
+          <span class="tag tag--dark"><i></i> بيانات التواصل</span>
+          <h2 class="text-[length:clamp(1.55rem,1rem+1.8vw,2.25rem)] font-bold leading-[1.4]">معًا .. نبني أعمالكم بشكل أفضل</h2>
+          <p class="mt-3 text-white/90">للتوريدات والعروض والأسعار والعقود المؤسسية.</p>
+          <ul class="grid gap-2.5 xs:grid-cols-2 mt-auto pt-8 xs:pt-5 [&>li]:flex [&>li]:items-center [&>li]:gap-3.5 [&>li]:py-3 [&>li]:px-4 [&>li]:rounded-[18px] [&>li]:bg-black/[.08] [&>li]:font-semibold [&>li]:text-[1.05rem] [&>li]:transition-colors [&>li]:duration-[250ms] [&>li]:ease-[ease] [&>li:hover]:bg-black/[.16] xs:[&>li]:flex-col xs:[&>li]:items-start xs:[&>li]:gap-1.5 xs:[&>li]:py-2.5 xs:[&>li]:px-3 xs:[&>li]:text-[.86rem] xs:[&>li]:min-w-0 xs:[&_a]:[overflow-wrap:anywhere] xs:[&_li>span]:[overflow-wrap:anywhere] [&_.ico]:w-[22px] [&_.ico]:h-[22px]" data-site="contact-list"></ul>
+        </article>
+
+        <form class="tile col-span-7 md:col-span-12 flex flex-col gap-3.5" id="form2" novalidate data-reveal style="--d:.08s">
+          <h3 class="text-[1.5rem] mb-1.5">اطلب عرض سعر</h3>
+          <div class="grid grid-cols-2 xs:grid-cols-1 gap-3.5">
+            <label class="f"><input name="name" type="text" placeholder=" " required autocomplete="name"><span>الاسم</span></label>
+            <label class="f"><input name="company" type="text" placeholder=" " autocomplete="organization"><span>اسم الشركة</span></label>
+          </div>
+          <div class="grid grid-cols-2 xs:grid-cols-1 gap-3.5">
+            <label class="f"><input name="phone" type="tel" placeholder=" " required autocomplete="tel"><span>رقم الهاتف</span></label>
+            <label class="f f--select"><select name="service">
+              <option>توريدات حسب الطلب</option>
+              <option>توريد شهري / دوري</option>
+              <option>إدارة المشتريات نيابةً عن الشركة</option>
+              <option>قوائم أصناف مخصصة</option>
+            </select><span>نوع الخدمة</span></label>
+          </div>
+          <label class="f flex-1 flex flex-col"><textarea name="message" rows="3" placeholder=" "></textarea><span>تفاصيل الطلب والأصناف المطلوبة</span></label>
+          <p class="text-center text-[.92rem] min-h-[1.4em] text-muted empty:hidden data-[state=ok]:text-[#1E9E67] data-[state=err]:text-[#E04848]" id="form2-msg" role="status"></p>
+          <button type="submit" class="pill pill--dark pill--lg pill--block">إرسال الطلب <svg class="ico"><use href="#i-arrow"/></svg></button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div data-site="footer"></div>
+
+  <script src="js/layout.js?v=ed892a58" defer></script>
+
+  <script src="js/main.js?v=4cc1e800" defer></script>
+</body>
+</html>

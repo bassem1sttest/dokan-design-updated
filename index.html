@@ -1,403 +1,309 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>دكان زمان | للتوريدات العمومية</title>
-  <meta name="description" content="دكان زمان للتوريدات العمومية — شريككم الموثوق في التوريدات والتشغيل. مورد واحد لاحتياجات متعددة: نظافة، أدوات مكتبية، مستلزمات تشغيل، تغليف، ورق، بوفيه، مستلزمات طبية، وإدارة المشتريات نيابةً عن الشركات.">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#FAF7F2">
-  <script>
-    /* Apply saved / system theme before first paint to avoid a flash */
-    (function () {
-      var t;
-      try { t = localStorage.getItem('theme'); } catch (e) {}
-      if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', t);
-    })();
-  </script>
-  <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg">
+  <meta name="description"
+    content="دكان زمان .. اسم من الماضي برؤية للمستقبل. ركّزوا على نمو أعمالكم، واتركوا لنا إدارة مشترياتكم بكفاءة واحترافية.">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#F2F1EE">
+  <link rel="icon" type="image/svg+xml" href="assets/logos/logo-mark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=c5ab0e64">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="css/style.css?v=3f928d8d">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="js/tailwind.config.js?v=d42dae48"></script>
 </head>
+
 <body id="top">
 
-  <!-- ============ SVG ICON SPRITE ============ -->
-  <svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <symbol id="i-spray" viewBox="0 0 24 24"><path d="M3 3h.01M7 5h.01M11 7h.01M3 7h.01M7 9h.01M3 11h.01"/><rect width="4" height="4" x="15" y="5"/><path d="m19 9 2 2v10c0 .6-.4 1-1 1h-6c-.6 0-1-.4-1-1V11l2-2"/><path d="m13 14 8-2M13 19l8-2"/></symbol>
-      <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
-      <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
-      <symbol id="i-package" viewBox="0 0 24 24"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></symbol>
-      <symbol id="i-paper" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/></symbol>
-      <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M6 2v2M10 2v2M14 2v2"/></symbol>
-      <symbol id="i-hardhat" viewBox="0 0 24 24"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 6 6v3M4 15v-3a6 6 0 0 1 6-6"/><rect x="2" y="15" width="20" height="4" rx="1"/></symbol>
-      <symbol id="i-hammer" viewBox="0 0 24 24"><path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0a2.12 2.12 0 0 1 0-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></symbol>
-      <symbol id="i-medical" viewBox="0 0 24 24"><path d="M11 2v2M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></symbol>
-      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
-      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
-      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
-      <symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3M3 4h8"/></symbol>
-      <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
-      <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/></symbol>
-      <symbol id="i-clipboard" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M12 11h4M12 16h4M8 11h.01M8 16h.01"/></symbol>
-      <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></symbol>
-      <symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></symbol>
-      <symbol id="i-list" viewBox="0 0 24 24"><path d="M3 12h.01M3 18h.01M3 6h.01M8 12h13M8 18h13M8 6h13"/></symbol>
-      <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></symbol>
-      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
-      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m19 9-5 5-4-4-3 3"/></symbol>
-      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
-      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
-      <symbol id="i-building" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></symbol>
-      <symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7"/><path d="M12 2 20 7H4Z"/></symbol>
-      <symbol id="i-bank" viewBox="0 0 24 24"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></symbol>
-      <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2Z"/><path d="M19 17v4M17 19h4"/></symbol>
-      <symbol id="i-store" viewBox="0 0 24 24"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.6-.6.7.7 0 0 0-.8 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.6-.6.7.7 0 0 0-.8 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.6-.6.7.7 0 0 0-.8 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.6-.6.7.7 0 0 0-.8 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/></symbol>
-      <symbol id="i-office" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18ZM6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
-      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
-      <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
-      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
-      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></symbol>
-      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
-      <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65M22 12.65l-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
-      <symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.59 2.59A2 2 0 0 0 11.17 2H4a2 2 0 0 0-2 2v7.17a2 2 0 0 0 .59 1.42l8.7 8.7a2.43 2.43 0 0 0 3.42 0l6.58-6.58a2.43 2.43 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r="1"/></symbol>
-      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
-      <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="m18 14 4 4-4 4M18 2l4 4-4 4"/><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22M2 6h1.9c1.5 0 2.9.9 3.6 2.2M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/></symbol>
-      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></symbol>
-      <symbol id="i-down" viewBox="0 0 24 24"><path d="M22 17 13.5 8.5l-5 5L2 7"/><path d="M16 17h6v-6"/></symbol>
-      <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></symbol>
-      <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/><path d="m7 12 3-3 2 2 5-5"/></symbol>
-      <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
-      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
-      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
-      <symbol id="i-up" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></symbol>
-      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
-      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
-      <symbol id="cube" viewBox="0 0 100 100">
-        <path d="M50 6 92 30 50 54 8 30Z" fill="#FF8A3D" stroke="#FF8A3D" stroke-width="4" stroke-linejoin="round"/>
-        <path d="M8 36 47 58.5V98L8 75.5Z" fill="#F37221" stroke="#F37221" stroke-width="4" stroke-linejoin="round"/>
-        <path d="M53 58.5 92 36V75.5L53 98Z" fill="#D65E12" stroke="#D65E12" stroke-width="4" stroke-linejoin="round"/>
-      </symbol>
-    </defs>
-  </svg>
-
-  <div class="scroll-progress" aria-hidden="true"><span></span></div>
-
-  <!-- ============ HEADER ============ -->
-  <header class="nav">
-    <div class="container nav__inner">
-      <a href="#top" class="nav__brand" aria-label="دكان زمان — الصفحة الرئيسية">
-        <img class="logo-light" src="assets/logo.svg" alt="Dokan Zaman" width="150" height="60">
-        <img class="logo-dark" src="assets/logo-dark.svg" alt="Dokan Zaman" width="150" height="60">
-      </a>
-
-      <nav class="nav__links" id="nav-links" aria-label="القائمة الرئيسية">
-        <a href="index.html" class="is-active" aria-current="page">الرئيسية</a>
-        <a href="categories.html">مجالات التوريد</a>
-        <a href="services.html">كيف نعمل</a>
-        <a href="procurement.html">إدارة المشتريات</a>
-        <a href="about.html">من نحن</a>
-        <a href="#contact" class="btn btn--primary nav__cta-mobile">اطلب عرض سعر</a>
-      </nav>
-
-      <div class="nav__actions">
-        <button class="theme-toggle" type="button" aria-label="تبديل المظهر الداكن / الفاتح" title="تبديل المظهر">
-          <svg class="ico ico--sun"><use href="#i-sun"/></svg>
-          <svg class="ico ico--moon"><use href="#i-moon"/></svg>
-        </button>
-        <a href="#contact" class="btn btn--primary btn--sm nav__cta">
-          اطلب عرض سعر
-          <svg class="ico"><use href="#i-arrow"/></svg>
-        </a>
-        <button class="nav__toggle" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="nav-links">
-          <svg class="ico ico--open"><use href="#i-menu"/></svg>
-          <svg class="ico ico--close"><use href="#i-x"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
+  <div data-site="header"></div>
+  <noscript><nav class="wrap" style="padding:24px 16px"><a href="index.html">الرئيسية</a> · <a href="categories.html">مجالات التوريد</a> · <a href="about.html">من نحن</a> · <a href="contact.html">تواصل معنا</a></nav></noscript>
 
   <main>
-    <!-- ============ HERO ============ -->
-    <section class="hero" data-anim>
-      <div class="hero__bg" aria-hidden="true">
-        <span class="blob blob--a"></span>
-        <span class="blob blob--b"></span>
-        <span class="hero__grid"></span>
-      </div>
+    <!-- ============ HERO BENTO ============ -->
+    <section class="hero pt-[104px] xs:pt-[92px] pb-[18px]" data-anim>
+      <div class="wrap grid grid-cols-12 gap-gap auto-rows-[minmax(0,auto)]">
+        <article class="tile col-span-7 row-span-2 lg:col-span-12 lg:row-auto flex flex-col justify-start [container-type:inline-size]" data-reveal>
+          <span class="tag self-start"><i></i> دكان زمان .. اسم من الماضي برؤية للمستقبل</span>
+          <h1 class="mt-1 font-bold leading-[1.3] tracking-[-.03em] text-[length:min(clamp(2.1rem,1.2rem+3vw,4rem),10.4cqi)]"><span class="block whitespace-nowrap">ركّزوا على <span class="hl">نمو أعمالكم</span>،</span> <span class="block whitespace-nowrap">واتركوا لنا مشترياتكم.</span></h1>
+          <p class="mt-[18px] max-w-[52ch] text-muted text-[length:clamp(1rem,.95rem+.3vw,1.15rem)] [&_b]:text-heading"><b>رسالتنا:</b> ندير مشترياتكم بكفاءة واحترافية، ونعمل على تحقيق وفورات ملموسة وقيمة مضافة مستدامة — مع
+            توفير احتياجاتكم من التوريدات والتشغيل بطريقة منظمة ومرنة، والالتزام بالمواعيد.</p>
 
-      <div class="container hero__inner">
-        <div class="hero__copy">
-          <p class="eyebrow" data-reveal><span class="dot"></span> دكان زمان للتوريدات العمومية</p>
-          <h1 class="hero__title" data-reveal style="--d:.08s">
-            كل احتياجات
-            <span class="rotator" aria-live="polite">
-              <span class="rotator__word is-active">التشغيل</span>
-              <span class="rotator__word">النظافة</span>
-              <span class="rotator__word">المكاتب</span>
-              <span class="rotator__word">الضيافة</span>
-              <span class="rotator__word">التغليف</span>
-            </span>
-            <br>من مورد واحد.
-          </h1>
-          <p class="hero__lead" data-reveal style="--d:.16s">
-            شريككم الموثوق في التوريدات والتشغيل. شركة توريدات متكاملة لاحتياجات الشركات والجهات،
-            من مستهلكات النظافة والأدوات المكتبية إلى المستلزمات الطبية ومواد التغليف — بجودة، وتنوع، والتزام بالمواعيد.
-          </p>
-          <div class="hero__ctas" data-reveal style="--d:.24s">
-            <a href="#contact" class="btn btn--primary btn--lg">
-              اطلب عرض سعر
-              <svg class="ico"><use href="#i-arrow"/></svg>
-            </a>
-            <a href="#categories" class="btn btn--ghost btn--lg">استكشف مجالات التوريد</a>
+          <div class="flex flex-wrap gap-2.5 mt-auto pt-7 xs:[&>.pill]:flex-[1_1_100%]">
+            <a href="contact.html" class="pill pill--orange pill--lg">اطلب عرض سعر <svg class="ico">
+                <use href="#i-arrow" />
+              </svg></a>
+            <a href="#categories" class="pill pill--line pill--lg">مجالات التوريد</a>
           </div>
+        </article>
 
-          <ul class="hero__stats" data-reveal style="--d:.32s">
-            <li><strong><span data-count="9">0</span></strong><span>مجالات توريد</span></li>
-            <li><strong>حتى <span class="num"><span data-count="20">0</span>%</span></strong><span>وفورات في المشتريات</span></li>
-            <li><strong>حتى <span class="num"><span data-count="30">0</span>%</span></strong><span>أسرع في دورة الشراء</span></li>
-          </ul>
-        </div>
-
-        <!-- Visual stage -->
-        <div class="hero__visual" data-reveal style="--d:.2s">
-          <div class="stage" id="stage">
-            <div class="stage__speed" aria-hidden="true">
-              <i></i><i></i><i></i><i></i><i></i>
-            </div>
-            <span class="stage__logo" aria-hidden="true">
-              <img class="logo-light" src="assets/logo-mark.svg" alt="">
-              <img class="logo-dark" src="assets/logo-mark-dark.svg" alt="">
-            </span>
-            <span class="stage__floor" aria-hidden="true"></span>
-            <svg class="stage__cube stage__cube--1" data-depth="18" aria-hidden="true"><use href="#cube"/></svg>
-            <svg class="stage__cube stage__cube--2" data-depth="-24" aria-hidden="true"><use href="#cube"/></svg>
-            <svg class="stage__cube stage__cube--3" data-depth="30" aria-hidden="true"><use href="#cube"/></svg>
-
-            <div class="float-card float-card--quality" data-depth="-14">
-              <span class="float-card__icon"><svg class="ico"><use href="#i-shield"/></svg></span>
-              <div><b>مراجعة الجودة</b><small>مطابقة للمواصفات</small></div>
-            </div>
-            <div class="float-card float-card--save" data-depth="22">
-              <span class="float-card__icon float-card__icon--orange"><svg class="ico"><use href="#i-down"/></svg></span>
-              <div><b>وفورات <span class="num">5–20%</span></b><small>من تكاليف المشتريات</small></div>
-            </div>
-
-            <!-- Live order tracker -->
-            <div class="tracker" data-depth="-8" aria-label="مثال على تتبع طلب">
-              <div class="tracker__head">
-                <span class="tracker__live"><i></i> طلب #2481</span>
-                <span class="tracker__status" id="tracker-status">طلب العميل</span>
-              </div>
-              <ol class="tracker__steps" id="tracker-steps">
-                <li class="is-done"><svg class="ico"><use href="#i-clipboard"/></svg></li>
-                <li><svg class="ico"><use href="#i-package"/></svg></li>
-                <li><svg class="ico"><use href="#i-shield"/></svg></li>
-                <li><svg class="ico"><use href="#i-truck"/></svg></li>
-                <li><svg class="ico"><use href="#i-headset"/></svg></li>
-              </ol>
-              <div class="tracker__bar"><span id="tracker-bar"></span></div>
-            </div>
+        <article class="tile tile--brand col-span-5 lg:col-span-6 xs:col-span-12 min-h-[300px] xs:min-h-[170px] flex flex-col justify-center items-center bg-[rgba(26,54,89,.171)] border-transparent text-heading before:content-[''] before:absolute before:top-auto before:left-auto before:-right-[20%] before:-bottom-[60%] before:w-[90%] before:aspect-square before:rounded-full before:bg-[radial-gradient(closest-side,rgba(243,114,33,.35),transparent)]" data-reveal style="--d:.08s">
+          <div class="brand-art" aria-hidden="true">
+            <span class="brand-art__lines"><i></i><i></i><i></i></span>
+            <img src="assets/logos/logo-mark.svg" alt="">
           </div>
-        </div>
-      </div>
+        </article>
 
-      <a href="#about" class="hero__scroll" aria-label="انتقل للأسفل"><span></span></a>
+        <article class="tile card-fx col-span-3 xs:col-span-6 flex flex-col justify-between gap-4 min-h-[170px] xs:min-h-[140px] bg-orange border-transparent text-white [--spot:rgba(255,255,255,.34)]" data-reveal style="--d:.14s">
+          <span class="block text-[.9rem] font-semibold text-white/85 pe-[38px]">وفورات في المشتريات</span>
+          <strong class="big text-white"><span class="num"><span data-count="5">٠</span>–<span
+                data-count="20">٠</span>٪</span></strong>
+          <svg class="ico absolute top-[22px] left-[22px] w-7 h-7 [stroke-width:2.2] text-white">
+            <use href="#i-down" />
+          </svg>
+        </article>
+
+        <article class="tile card-fx col-span-2 lg:col-span-3 xs:col-span-6 flex flex-col justify-between gap-4 min-h-[170px] xs:min-h-[140px]" data-reveal style="--d:.2s">
+          <span class="block text-[.9rem] font-semibold text-muted">دورة شراء أسرع حتى</span>
+          <strong class="big"><span class="num"><span data-count="30">٠</span>٪</span></strong>
+        </article>
+
+        <article class="tile col-span-12" data-reveal style="--d:.26s" aria-label="مثال على تتبع طلب">
+          <div class="flex justify-between items-center mb-4 text-[.92rem]">
+            <p class="tag"><i></i>كيف نعمل؟ تفاصيل نظام التوريد <svg
+                class="ico">
+
+              </svg></p>
+            <span class="font-bold text-hl transition-opacity duration-200" id="track-status">طلب العميل</span>
+          </div>
+          <ol class="grid grid-cols-5 gap-2.5
+            [&>li]:flex [&>li]:items-center [&>li]:gap-3 [&>li]:py-2.5 [&>li]:px-3 [&>li]:rounded-[18px] [&>li]:bg-tint [&>li]:text-muted [&>li]:text-[.92rem] [&>li]:font-medium [&>li]:transition-colors [&>li]:duration-300
+            lg:[&>li]:flex-col lg:[&>li]:text-center lg:[&>li]:gap-1.5 lg:[&>li]:text-[.8rem] xs:[&>li]:py-2 xs:[&>li]:px-1 xs:[&>li]:text-[0px] xs:[&>li]:gap-0
+            [&>li>span]:w-[38px] [&>li>span]:h-[38px] xs:[&>li>span]:w-[34px] xs:[&>li>span]:h-[34px] [&>li>span]:flex-none [&>li>span]:rounded-xl [&>li>span]:grid [&>li>span]:place-items-center [&>li>span]:bg-chip [&>li>span]:transition-colors [&>li>span]:duration-300 [&_.ico]:w-[19px] [&_.ico]:h-[19px]
+            [&>li.is-done]:text-heading [&>li.is-done>span]:bg-orange/[.16] [&>li.is-done>span]:text-hl
+            [&>li.is-current]:bg-navy [&>li.is-current]:text-white [&>li.is-current>span]:bg-orange [&>li.is-current>span]:text-white" id="track">
+            <li><span><svg class="ico">
+                  <use href="#i-clipboard" />
+                </svg></span>طلب العميل</li>
+            <li><span><svg class="ico">
+                  <use href="#i-package" />
+                </svg></span>تجهيز الأصناف</li>
+            <li><span><svg class="ico">
+                  <use href="#i-shield" />
+                </svg></span>مراجعة الجودة</li>
+            <li><span><svg class="ico">
+                  <use href="#i-truck" />
+                </svg></span>التوصيل</li>
+            <li><span><svg class="ico">
+                  <use href="#i-headset" />
+                </svg></span>المتابعة</li>
+          </ol>
+          <div class="h-[5px] mt-3.5 rounded-full bg-chip overflow-hidden"><span class="block h-full bg-orange rounded-full origin-right scale-x-[.2] transition-transform duration-[600ms] ease-brand" id="track-bar"></span></div>
+
+        </article>
+      </div>
     </section>
 
-    <!-- ============ MARQUEE ============ -->
-    <div class="marquee" data-anim aria-label="مجالات التوريد">
-      <div class="marquee__track">
-        <ul>
-          <li><svg class="ico"><use href="#i-spray"/></svg>مستهلكات وأدوات النظافة</li>
-          <li><svg class="ico"><use href="#i-pen"/></svg>الأدوات المكتبية</li>
-          <li><svg class="ico"><use href="#i-wrench"/></svg>مستلزمات التشغيل</li>
-          <li><svg class="ico"><use href="#i-package"/></svg>العبوات والتغليف</li>
-          <li><svg class="ico"><use href="#i-paper"/></svg>الورق ومستلزماته</li>
-          <li><svg class="ico"><use href="#i-coffee"/></svg>البوفيه والضيافة</li>
-          <li><svg class="ico"><use href="#i-hardhat"/></svg>مهمات الصحة والسلامة</li>
-          <li><svg class="ico"><use href="#i-hammer"/></svg>العدد والآلات الخفيفة</li>
-          <li><svg class="ico"><use href="#i-medical"/></svg>المستلزمات الطبية</li>
-        </ul>
-        <ul aria-hidden="true">
-          <li><svg class="ico"><use href="#i-spray"/></svg>مستهلكات وأدوات النظافة</li>
-          <li><svg class="ico"><use href="#i-pen"/></svg>الأدوات المكتبية</li>
-          <li><svg class="ico"><use href="#i-wrench"/></svg>مستلزمات التشغيل</li>
-          <li><svg class="ico"><use href="#i-package"/></svg>العبوات والتغليف</li>
-          <li><svg class="ico"><use href="#i-paper"/></svg>الورق ومستلزماته</li>
-          <li><svg class="ico"><use href="#i-coffee"/></svg>البوفيه والضيافة</li>
-          <li><svg class="ico"><use href="#i-hardhat"/></svg>مهمات الصحة والسلامة</li>
-          <li><svg class="ico"><use href="#i-hammer"/></svg>العدد والآلات الخفيفة</li>
-          <li><svg class="ico"><use href="#i-medical"/></svg>المستلزمات الطبية</li>
-        </ul>
+    <!-- ============ DOUBLE TICKER ============ -->
+    <div class="group mt-14" data-anim aria-label="مجالات التوريد ورسائلنا">
+      <div class="overflow-hidden py-3.5 bg-orange text-white">
+        <div class="flex w-max animate-[marquee_50s_linear_infinite] group-hover:[animation-play-state:paused] motionless:animate-none">
+          <ul class="flex gap-9 pe-9 [&>li]:inline-flex [&>li]:items-center [&>li]:gap-9 [&>li]:whitespace-nowrap [&>li]:font-bold [&>li]:text-[length:clamp(1.1rem,.9rem+.8vw,1.6rem)] [&>li]:after:content-['✦'] [&>li]:after:text-[.7em]">
+            <li>مستهلكات وأدوات النظافة</li>
+            <li>الأدوات المكتبية</li>
+            <li>الورق ومستلزماته</li>
+            <li>متطلبات البوفيه والضيافة</li>
+            <li>التغليف والعبوات والكراتين</li>
+            <li>مهمات الصحة والسلامة</li>
+            <li>مستلزمات التشغيل</li>
+            <li>المستلزمات الطبية</li>
+            <li>العدد والآلات الخفيفة</li>
+          </ul>
+          <ul class="flex gap-9 pe-9 [&>li]:inline-flex [&>li]:items-center [&>li]:gap-9 [&>li]:whitespace-nowrap [&>li]:font-bold [&>li]:text-[length:clamp(1.1rem,.9rem+.8vw,1.6rem)] [&>li]:after:content-['✦'] [&>li]:after:text-[.7em]" aria-hidden="true">
+            <li>مستهلكات وأدوات النظافة</li>
+            <li>الأدوات المكتبية</li>
+            <li>الورق ومستلزماته</li>
+            <li>متطلبات البوفيه والضيافة</li>
+            <li>التغليف والعبوات والكراتين</li>
+            <li>مهمات الصحة والسلامة</li>
+            <li>مستلزمات التشغيل</li>
+            <li>المستلزمات الطبية</li>
+            <li>العدد والآلات الخفيفة</li>
+          </ul>
+        </div>
+      </div>
+      <div class="overflow-hidden py-3.5 bg-band text-white">
+        <div class="flex w-max animate-[marquee_60s_linear_infinite_reverse] group-hover:[animation-play-state:paused] motionless:animate-none">
+          <ul class="flex gap-9 pe-9 [&>li]:inline-flex [&>li]:items-center [&>li]:gap-9 [&>li]:whitespace-nowrap [&>li]:font-medium [&>li]:text-[length:clamp(1rem,.9rem+.4vw,1.2rem)] [&>li]:after:content-[''] [&>li]:after:w-2 [&>li]:after:h-2 [&>li]:after:rounded-[2px] [&>li]:after:bg-orange [&>li]:after:rotate-45">
+            <li>مشتريات أذكى</li>
+            <li>تكاليف أقل</li>
+            <li>نتائج أفضل</li>
+            <li>تكلفة أقل. قيمة أعلى. أداء أقوى</li>
+            <li>مشترياتك علينا .. والتوفير لك</li>
+          </ul>
+          <ul class="flex gap-9 pe-9 [&>li]:inline-flex [&>li]:items-center [&>li]:gap-9 [&>li]:whitespace-nowrap [&>li]:font-medium [&>li]:text-[length:clamp(1rem,.9rem+.4vw,1.2rem)] [&>li]:after:content-[''] [&>li]:after:w-2 [&>li]:after:h-2 [&>li]:after:rounded-[2px] [&>li]:after:bg-orange [&>li]:after:rotate-45" aria-hidden="true">
+            <li>مشتريات أذكى</li>
+            <li>تكاليف أقل</li>
+            <li>نتائج أفضل</li>
+            <li>تكلفة أقل. قيمة أعلى. أداء أقوى</li>
+            <li>مشترياتك علينا .. والتوفير لك</li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <!-- ============ 1) WHAT WE SUPPLY — quick overview, details on categories.html ============ -->
-    <section class="section home-cats" id="categories">
-      <div class="container">
-        <div class="section-head section-head--row">
+    <!-- ============ 1) WHAT WE SUPPLY — nine photo cards, details on categories.html ============ -->
+    <section class="sec" id="categories">
+      <div class="wrap">
+        <header class="sec__head sec__head--split" data-reveal>
           <div>
-            <p class="eyebrow" data-reveal><span class="dot"></span> ماذا نورّد؟</p>
-            <h2 class="h2" data-reveal>تسعة مجالات. <em>مورد واحد.</em></h2>
+            <span class="tag"><i></i> ماذا نورّد؟</span>
+            <h2>مُوَرِّد واحد .. <span class="hl">لاحتياجات متعددة</span></h2>
           </div>
-          <a href="categories.html" class="link-more" data-reveal>تفاصيل كل المجالات <svg class="ico"><use href="#i-arrow"/></svg></a>
+          <a href="categories.html" class="pill pill--dark pill--lg">تفاصيل كل المجالات <svg class="ico">
+              <use href="#i-arrow" />
+            </svg></a>
+        </header>
+        <div class="grid grid-cols-3 lg:grid-cols-2 gap-8 xs:gap-x-4 xs:[&_.supply-card\_\_media]:mb-2 xs:[&_.supply-card\_\_media]:rounded-2xl xs:[&_.supply-card\_\_num]:top-2 xs:[&_.supply-card\_\_num]:right-2 xs:[&_.supply-card\_\_num]:text-[.72rem] xs:[&_.supply-card\_\_num]:px-2 xs:[&_.supply-card\_\_num]:py-px xs:[&_h3]:text-[.95rem] xs:[&_h3]:px-[2px] xs:[&_h3]:leading-[1.5] xs:[&_p]:hidden">
+          <article class="supply-card" data-reveal style="--d:0.00s">
+            <div class="supply-card__media"><img src="assets/img/categories/cleaning.webp?v=7a54be75" alt="منظفات وأدوات نظافة"
+                width="720" height="480" loading="lazy" decoding="async"></div>
+            <span class="supply-card__num">١</span>
+            <h3><a href="category.html?c=cleaning" class="supply-card__link">مستهلكات وأدوات النظافة</a></h3>
+            <p style="font-weight: 20;">المنظفات، الملمعات، أدوات النظافة، الخامات، أكياس الرابش، والمناديل.</p>
+          </article>
+          <article class="supply-card" data-reveal style="--d:0.06s">
+            <div class="supply-card__media"><img src="assets/img/categories/office.webp?v=0637ccbe"
+                alt="منظم مكتب بالأوراق والأدوات المكتبية" width="720" height="480" loading="lazy" decoding="async">
+            </div>
+            <span class="supply-card__num">٢</span>
+            <h3><a href="category.html?c=office" class="supply-card__link">الأدوات المكتبية</a></h3>
+            <p style="font-weight: 20;">أقلام، ملفات، دفاتر، أدوات تنظيم ومستلزمات المكاتب.</p>
+          </article>
+          <article class="supply-card" data-reveal style="--d:0.12s">
+            <div class="supply-card__media"><img src="assets/img/categories/paper.webp?v=80b0c609" alt="ماكينات طباعة وتصوير"
+                width="720" height="480" loading="lazy" decoding="async"></div>
+            <span class="supply-card__num">٣</span>
+            <h3><a href="category.html?c=paper" class="supply-card__link">الورق ومستلزماته</a></h3>
+            <p style="font-weight: 20;">ورق A4 وA3، أوراق طباعة وتصوير، رول ورق، ومستلزمات ورقية متنوعة.</p>
+          </article>
+          <article class="supply-card" data-reveal style="--d:0.00s">
+            <div class="supply-card__media"><img src="assets/img/categories/buffet.webp?v=368095a1" alt="ماكينة تحضير قهوة"
+                width="720" height="480" loading="lazy" decoding="async"></div>
+            <span class="supply-card__num">٤</span>
+            <h3><a href="category.html?c=buffet" class="supply-card__link">متطلبات البوفيه والضيافة</a></h3>
+            <p style="font-weight: 20;">شاي، قهوة، حليب، ينسون، سكر، وماكينات تحضير القهوة.</p>
+          </article>
+          <article class="supply-card" data-reveal style="--d:0.06s">
+            <div class="supply-card__media"><img src="assets/img/categories/packaging.webp?v=100e6e05"
+                alt="كراتين وبكر لصق ورولات تغليف" width="720" height="480" loading="lazy" decoding="async"></div>
+            <span class="supply-card__num">٥</span>
+            <h3><a href="category.html?c=packaging" class="supply-card__link">التغليف والعبوات والكراتين</a></h3>
+            <p style="font-weight: 20;">الكراتين، بكر اللصق، الإستريتش، البابل، العبوات، والجراكن.</p>
+          </article>
+          <article class="supply-card" data-reveal style="--d:0.12s">
+            <div class="supply-card__media"><img src="assets/img/categories/safety.webp?v=f820139d"
+                alt="رفوف مهمات الصحة والسلامة" width="720" height="480" loading="lazy" decoding="async"></div>
+            <span class="supply-card__num">٦</span>
+            <h3><a href="category.html?c=safety" class="supply-card__link">مهمات الصحة والسلامة</a></h3>
+            <p style="font-weight: 20;">الفيست، الخوذة، الجوانتي، والعلامات الإرشادية.</p>
+          </article>
+          <article class="supply-card" data-reveal style="--d:0.00s">
+            <div class="supply-card__media"><img src="assets/img/categories/operations.webp?v=0b1de168"
+                alt="طقم عدد صيانة متكامل" width="720" height="480" loading="lazy" decoding="async"></div>
+            <span class="supply-card__num">٧</span>
+            <h3><a href="category.html?c=operations" class="supply-card__link">مستلزمات التشغيل</a></h3>
+            <p style="font-weight: 20;">أدوات العمل والمستلزمات الفنية.</p>
+          </article>
+          <article class="supply-card" data-reveal style="--d:0.06s">
+            <div class="supply-card__media"><img src="assets/img/categories/medical.webp?v=cc4c0b6e"
+                alt="مستلزمات طبية: جوانتي وكمامات وسماعة" width="720" height="480" loading="lazy" decoding="async">
+            </div>
+            <span class="supply-card__num">٨</span>
+            <h3><a href="category.html?c=medical" class="supply-card__link">المستلزمات الطبية</a></h3>
+            <p style="font-weight: 20;">الجوانتي، الكمامة، الشاش، واللصق الطبي.</p>
+          </article>
+          <article class="supply-card" data-reveal style="--d:0.12s">
+            <div class="supply-card__media"><img src="assets/img/categories/tools.webp?v=1e449ba0" alt="عدد وآلات خفيفة"
+                width="720" height="480" loading="lazy" decoding="async"></div>
+            <span class="supply-card__num">٩</span>
+            <h3><a href="category.html?c=tools" class="supply-card__link">العدد والآلات الخفيفة</a></h3>
+            <p style="font-weight: 20;">المفكات، المفاتيح، العدد الكهربائية، السلالم، وشنط العدة من ١٢ إلى ٥٠ قطعة.</p>
+          </article>
         </div>
-        <ul class="cat-tiles">
-          <li data-reveal style="--d:0.00s"><a href="categories.html#cat-1"><img src="assets/img/cat-cleaning.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-spray"/></svg>مستهلكات وأدوات النظافة</span></a></li>
-          <li data-reveal style="--d:0.04s"><a href="categories.html#cat-2"><img src="assets/img/cat-office.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-pen"/></svg>الأدوات المكتبية</span></a></li>
-          <li data-reveal style="--d:0.08s"><a href="categories.html#cat-3"><img src="assets/img/cat-operations.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-wrench"/></svg>مستلزمات التشغيل</span></a></li>
-          <li data-reveal style="--d:0.12s"><a href="categories.html#cat-4"><img src="assets/img/cat-packaging.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-package"/></svg>العبوات والتغليف</span></a></li>
-          <li data-reveal style="--d:0.16s"><a href="categories.html#cat-5"><img src="assets/img/cat-paper.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-paper"/></svg>الورق ومستلزماته</span></a></li>
-          <li data-reveal style="--d:0.20s"><a href="categories.html#cat-6"><img src="assets/img/cat-buffet.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-coffee"/></svg>البوفيه والضيافة</span></a></li>
-          <li data-reveal style="--d:0.24s"><a href="categories.html#cat-7"><img src="assets/img/cat-safety.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-hardhat"/></svg>الصحة والسلامة</span></a></li>
-          <li data-reveal style="--d:0.28s"><a href="categories.html#cat-8"><img src="assets/img/cat-tools.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-hammer"/></svg>العدد والآلات الخفيفة</span></a></li>
-          <li data-reveal style="--d:0.32s"><a href="categories.html#cat-9"><img src="assets/img/cat-medical.webp" alt="" width="720" height="480" loading="lazy" decoding="async"><span><svg class="ico"><use href="#i-medical"/></svg>المستلزمات الطبية</span></a></li>
-          <li class="cat-tiles__more" data-reveal style="--d:.36s"><a href="categories.html"><b>كل المجالات<br>بالتفصيل</b><svg class="ico"><use href="#i-arrow"/></svg></a></li>
-        </ul>
       </div>
     </section>
 
-    <!-- ============ 2) HOW IT WORKS — five steps at a glance, details on services.html ============ -->
-    <section class="section process" id="process">
-      <div class="container">
-        <div class="section-head section-head--row">
+    <!-- ============ 2) FLAGSHIP SERVICE — three numbers, details on about.html#procurement ============ -->
+    <section class="sec bg-navy text-white/85 [&_h2]:text-white [&_h3]:text-white [&_.hl]:text-orange-300" id="procurement">
+      <div class="wrap grid grid-cols-[1.05fr_.95fr] md:grid-cols-1 gap-[clamp(24px,4vw,56px)] items-stretch">
+        <header class="sec__head mb-0 flex flex-col" data-reveal>
+          <span class="tag tag--light"><i></i> خدمة جديدة للشركات</span>
+          <h2>نحوّل مشترياتكم من عبء تشغيلي <span class="hl">إلى ميزة تنافسية</span></h2>
+          <p class="sec__lead text-white/70">لا تتحملوا تكلفة بناء إدارة مشتريات كاملة، عندما يمكنكم التعاقد على نتائجها — ونربح فقط
+            حين توفّرون.</p>
+        </header>
+        <div class="grid grid-cols-2 gap-gap">
+          <article class="tile card-fx col-span-2 flex flex-col justify-end gap-1.5 min-h-[170px] bg-orange border-transparent text-white [--spot:rgba(255,255,255,.34)] [&_h3]:text-[1.1rem]" data-reveal>
+            <strong class="big text-white"><span class="num"><span data-count="5">٠</span>–<span
+                  data-count="20">٠</span>٪</span></strong>
+            <h3>وفورات من تكاليف المشتريات السنوية</h3>
+          </article>
+          <article class="tile card-fx flex flex-col justify-end gap-1.5 min-h-[130px] bg-white/5 border-white/10 [--spot:rgba(243,114,33,.26)] [&_h3]:text-[1.1rem] hover:bg-white/[.09]" data-reveal style="--d:.06s">
+            <strong class="big big--sm text-orange-300"><span class="num"><span data-count="30">٠</span>٪</span></strong>
+            <h3>أسرع في دورة الشراء (حتى)</h3>
+          </article>
+          <article class="tile card-fx flex flex-col justify-end gap-1.5 min-h-[130px] bg-white/5 border-white/10 [--spot:rgba(243,114,33,.26)] [&_h3]:text-[1.1rem] hover:bg-white/[.09]" data-reveal style="--d:.12s">
+            <strong class="big big--sm text-orange-300"><span class="num"><span data-count="60">٠</span>٪</span></strong>
+            <h3>من الوفر المحقق يعود لشركتكم</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3) WHY US — trust in four points, full story on about.html ============ -->
+    <section class="sec" id="about">
+      <div class="wrap">
+        <header class="sec__head sec__head--split" data-reveal>
           <div>
-            <p class="eyebrow" data-reveal><span class="dot"></span> كيف نعمل؟</p>
-            <h2 class="h2" data-reveal>من طلبكم .. <em>إلى باب مقركم</em></h2>
+            <span class="tag"><i></i> لماذا دكان زمان؟</span>
+            <h2>اسم من الماضي .. <span class="hl">برؤية للمستقبل</span></h2>
           </div>
-          <a href="services.html" class="link-more" data-reveal>نظام التوريد وأساليبه <svg class="ico"><use href="#i-arrow"/></svg></a>
-        </div>
-        <ol class="steps steps--lite" id="steps">
-          <li class="steps__line" aria-hidden="true"><span></span></li>
-          <li class="step" data-reveal style="--d:0.00s"><span class="step__icon"><svg class="ico"><use href="#i-clipboard"/></svg><b>1</b></span><h3>طلب العميل</h3></li>
-          <li class="step" data-reveal style="--d:0.07s"><span class="step__icon"><svg class="ico"><use href="#i-package"/></svg><b>2</b></span><h3>تجهيز الأصناف</h3></li>
-          <li class="step" data-reveal style="--d:0.14s"><span class="step__icon"><svg class="ico"><use href="#i-shield"/></svg><b>3</b></span><h3>مراجعة الجودة</h3></li>
-          <li class="step" data-reveal style="--d:0.21s"><span class="step__icon"><svg class="ico"><use href="#i-truck"/></svg><b>4</b></span><h3>التوصيل</h3></li>
-          <li class="step" data-reveal style="--d:0.28s"><span class="step__icon"><svg class="ico"><use href="#i-headset"/></svg><b>5</b></span><h3>المتابعة</h3></li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ============ 3) FLAGSHIP SERVICE — three numbers, details + calculator on procurement.html ============ -->
-    <section class="section procurement" id="procurement">
-      <img class="procurement__bg" src="assets/img/order-plan.webp" alt="" aria-hidden="true" width="960" height="640" loading="lazy" decoding="async">
-      <div class="container proc-lite">
-        <div>
-          <p class="eyebrow eyebrow--light" data-reveal><span class="dot"></span> خدمة جديدة للشركات</p>
-          <h2 class="h2 h2--light" data-reveal>ندير مشترياتكم <em>نيابةً عنكم</em></h2>
-          <p class="lead lead--light" data-reveal>فريق متخصص ونظام إلكتروني يديران دورة الشراء كاملة — ونربح فقط حين توفّرون.</p>
-          <div class="proc-lite__btns" data-reveal>
-            <a href="procurement.html" class="btn btn--primary btn--lg">تفاصيل الخدمة <svg class="ico"><use href="#i-arrow"/></svg></a>
-            <a href="procurement.html#pt-model" class="btn btn--ghost-light btn--lg">احسب وفوراتكم</a>
-          </div>
-        </div>
-        <ul class="proc-stats">
-          <li data-reveal><strong><span class="num"><span data-count="5">0</span>–<span data-count="20">0</span>%</span></strong><span>وفورات من تكاليف المشتريات السنوية</span></li>
-          <li data-reveal style="--d:.08s"><strong><span class="num"><span data-count="30">0</span>%</span></strong><span>أسرع في دورة الشراء (حتى)</span></li>
-          <li data-reveal style="--d:.16s"><strong><span class="num"><span data-count="60">0</span>%</span></strong><span>من الوفر المحقق يعود لشركتكم</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ 4) WHY US — trust in four points, full story on about.html ============ -->
-    <section class="section about" id="about">
-      <div class="container about__grid">
-        <div class="about__copy">
-          <p class="eyebrow" data-reveal><span class="dot"></span> لماذا دكان زمان؟</p>
-          <h2 class="h2" data-reveal>شريككم في <em>التشغيل اليومي</em></h2>
-          <p class="lead" data-reveal>شركة متخصصة في توفير احتياجات التشغيل والتوريدات اليومية للشركات والمؤسسات والجهات.</p>
-          <ul class="pillars-mini pillars-mini--2" data-reveal>
-            <li><span><svg class="ico"><use href="#i-layers"/></svg></span><div><h3>مورد واحد لكل الأصناف</h3><p>احتياجاتكم من مصدر واحد.</p></div></li>
-            <li><span><svg class="ico"><use href="#i-zap"/></svg></span><div><h3>سرعة الاستجابة</h3><p>تجهيز ومتابعة حتى التسليم.</p></div></li>
-            <li><span><svg class="ico"><use href="#i-tag"/></svg></span><div><h3>أسعار تنافسية</h3><p>بدائل حسب المواصفات والميزانية.</p></div></li>
-            <li><span><svg class="ico"><use href="#i-clock"/></svg></span><div><h3>التزام بالمواعيد</h3><p>توريد منتظم وفق احتياجكم.</p></div></li>
-          </ul>
-          <a href="about.html" class="btn btn--dark" data-reveal>المزيد عن الشركة <svg class="ico"><use href="#i-arrow"/></svg></a>
-        </div>
-        <figure class="about__media" data-reveal style="--d:.1s">
-          <img src="assets/img/warehouse.webp" alt="مستودع منظم بأرفف مليئة بالأصناف" width="1280" height="853" loading="lazy" decoding="async">
-          <figcaption class="about__badge"><strong>9</strong><span>مجالات توريد<br>من مصدر واحد</span></figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- ============ 5) CONTACT — the one action we want ============ -->
-    <section class="section contact" id="contact">
-      <div class="container">
-        <div class="contact__card" data-reveal>
-          <img class="contact__bg" src="assets/img/delivery.webp" alt="" aria-hidden="true" width="1280" height="853" loading="lazy" decoding="async">
-          <div class="contact__info">
-            <p class="eyebrow eyebrow--light"><span class="dot"></span> بيانات التواصل</p>
-            <h2 class="h2 h2--light">معًا .. نبني أعمالكم <em>بشكل أفضل</em></h2>
-            <p class="lead lead--light">للتوريدات والعروض والأسعار والعقود المؤسسية.</p>
-
-            <ul class="contact__list">
-              <li><span><svg class="ico"><use href="#i-phone"/></svg></span><div><small>الهاتف</small><a href="tel:+201000000000" dir="ltr">0100 000 0000</a></div></li>
-              <li><span><svg class="ico"><use href="#i-mail"/></svg></span><div><small>البريد الإلكتروني</small><a href="mailto:info@dakan-zaman.com">info@dakan-zaman.com</a></div></li>
-              <li><span><svg class="ico"><use href="#i-pin"/></svg></span><div><small>العنوان</small><b>القاهرة – مصر</b></div></li>
-              <li><span><svg class="ico"><use href="#i-globe"/></svg></span><div><small>الموقع الإلكتروني</small><a href="https://www.dakan-zaman.com" dir="ltr">www.dakan-zaman.com</a></div></li>
-            </ul>
-          </div>
-
-          <form class="form" id="quote-form" novalidate>
-            <h3>اطلب عرض سعر</h3>
-            <div class="form__row">
-              <label class="input"><span>الاسم</span><input name="name" type="text" required autocomplete="name"></label>
-              <label class="input"><span>اسم الشركة</span><input name="company" type="text" autocomplete="organization"></label>
-            </div>
-            <div class="form__row">
-              <label class="input"><span>رقم الهاتف</span><input name="phone" type="tel" required dir="ltr" autocomplete="tel"></label>
-              <label class="input"><span>نوع الخدمة</span>
-                <select name="service">
-                  <option>توريدات حسب الطلب</option>
-                  <option>توريد شهري / دوري</option>
-                  <option>إدارة المشتريات نيابةً عن الشركة</option>
-                  <option>قوائم أصناف مخصصة</option>
-                </select>
-              </label>
-            </div>
-            <label class="input"><span>تفاصيل الطلب</span><textarea name="message" rows="3"></textarea></label>
-            <button type="submit" class="btn btn--primary btn--lg btn--block">
-              إرسال الطلب
-              <svg class="ico"><use href="#i-arrow"/></svg>
-            </button>
-            <p class="form__msg" id="form-msg" role="status"></p>
-          </form>
+          <a href="about.html" class="pill pill--dark pill--lg">المزيد عن الشركة <svg class="ico">
+              <use href="#i-arrow" />
+            </svg></a>
+        </header>
+        <div class="grid grid-cols-12 gap-gap">
+          <article class="tile card-fx col-span-7 lg:col-span-12 flex items-center" data-reveal>
+            <p class="text-[length:clamp(1.2rem,1rem+.7vw,1.55rem)] font-medium leading-[1.7] text-heading">نعيد تقديم فكرة الدكان الذي كان في كل منطقة بروح عصرية: قيمة الثقة، والقرب، وجودة الخدمة،
+              وتلبية الاحتياجات.</p>
+          </article>
+          <figure class="tile tile--photo col-span-5 lg:col-span-12 m-0 min-h-[240px] xs:min-h-[170px]" data-reveal style="--d:.04s">
+            <img src="assets/img/site/warehouse.webp" alt="مستودع منظم بأرفف مليئة بالأصناف" width="1280" height="853"
+              loading="lazy" decoding="async">
+            <figcaption><b>٩</b> مجالات توريد من مصدر واحد</figcaption>
+          </figure>
+          <article class="tile card-fx col-span-3 lg:col-span-4 xs:col-span-6 flex flex-col gap-1.5" data-reveal><b class="text-[3rem] xs:text-[2rem] font-bold leading-none opacity-20 mb-[18px] xs:mb-2.5">١</b>
+            <h3 class="text-[1.3rem] xs:text-[1.05rem]">مُوَرِّد واحد لكل الأصناف</h3>
+            <p class="text-muted text-[.98rem]">احتياجاتكم من مصدر واحد.</p>
+          </article>
+          <article class="tile card-fx col-span-3 lg:col-span-4 xs:col-span-6 flex flex-col gap-1.5 bg-orange border-transparent text-white [--spot:rgba(255,255,255,.34)]" data-reveal style="--d:.06s"><b class="text-[3rem] xs:text-[2rem] font-bold leading-none opacity-[.35] mb-[18px] xs:mb-2.5">٢</b>
+            <h3 class="text-[1.3rem] xs:text-[1.05rem] text-white">سرعة الاستجابة</h3>
+            <p class="text-white/90 text-[.98rem]">تجهيز ومتابعة حتى التسليم.</p>
+          </article>
+          <article class="tile card-fx col-span-3 lg:col-span-4 xs:col-span-6 flex flex-col gap-1.5" data-reveal style="--d:.12s"><b class="text-[3rem] xs:text-[2rem] font-bold leading-none opacity-20 mb-[18px] xs:mb-2.5">٣</b>
+            <h3 class="text-[1.3rem] xs:text-[1.05rem]">أسعار تنافسية</h3>
+            <p class="text-muted text-[.98rem]">بدائل حسب المواصفات والميزانية.</p>
+          </article>
+          <article class="tile card-fx col-span-3 lg:col-span-4 xs:col-span-6 flex flex-col gap-1.5 bg-navy border-transparent text-white/85 [--spot:rgba(243,114,33,.26)]" data-reveal style="--d:.18s"><b class="text-[3rem] xs:text-[2rem] font-bold leading-none text-orange mb-[18px] xs:mb-2.5">٤</b>
+            <h3 class="text-[1.3rem] xs:text-[1.05rem] text-white">التزام بالمواعيد</h3>
+            <p class="text-white/75 text-[.98rem]">توريد منتظم وفق احتياجكم.</p>
+          </article>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__brand">
-        <img class="footer__logo" src="assets/logo-dark.svg" alt="Dokan Zaman" width="140" height="56" loading="lazy">
-        <p>دكان زمان للتوريدات العمومية — شريككم الموثوق في التوريدات والتشغيل.</p>
-      </div>
-      <nav class="footer__links" aria-label="روابط سريعة">
-        <a href="index.html">الرئيسية</a>
-        <a href="categories.html">مجالات التوريد</a>
-        <a href="services.html">كيف نعمل</a>
-        <a href="procurement.html">إدارة المشتريات</a>
-        <a href="procurement.html#pt-model">نموذج العمل</a>
-        <a href="about.html">من نحن</a>
-        <a href="#contact">تواصل معنا</a>
-      </nav>
-      <p class="footer__tag">جودة • تنوع • التزام • خدمة</p>
-    </div>
-    <div class="container footer__bottom">
-      <small>© <span id="year">2026</span> دكان زمان للتوريدات العمومية. جميع الحقوق محفوظة.</small>
-    </div>
-  </footer>
+  <div data-site="footer"></div>
 
-  <a href="#top" class="to-top" aria-label="العودة للأعلى"><svg class="ico"><use href="#i-up"/></svg></a>
+  <script src="js/layout.js?v=ed892a58" defer></script>
 
-
-  <script src="js/main.js?v=a0bf32bf" defer></script>
+  <script src="js/main.js?v=4cc1e800" defer></script>
 </body>
+
 </html>
