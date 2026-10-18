@@ -4,7 +4,7 @@
    أي تعديل هنا يظهر في كل الصفحات مرة واحدة:
    • SITE      بيانات التواصل، روابط القائمة، نصوص الفوتر
    • ICONS     كل أيقونات الموقع
-   • header()  الشريط العلوي + قائمة الموبايل
+   • header()  الشريط الكحلي (تواصل + ملف الشركة + السوشيال) + الشريط العلوي + قائمة الموبايل
    • footer()  الفوتر + زر واتساب + زر الرجوع لأعلى
    الصفحات فيها أماكن فاضية فقط:
      <div data-site="header"></div>   <div data-site="footer"></div>
@@ -27,7 +27,8 @@ window.SITE = {
   //      match: صفحات أخرى تجعل هذا الرابط مُفعّلًا
   pages: [
     { href: 'index.html', label: 'الرئيسية' },
-    { href: 'categories.html', label: 'مجالات التوريد', match: ['category.html'] },
+    { href: 'procurement.html', label: 'إدارة المشتريات', badge: 'جديد' },     // badge: شارة صغيرة بجانب الاسم (احذفها لإخفائها)
+    { href: 'categories.html', label: 'مجالات التوريد', match: ['category.html', 'products.html', 'product-details.html'] },
     { href: 'about.html', label: 'من نحن' },
     { href: 'clients.html', label: 'عملاؤنا' },
     { href: 'contact.html', label: 'تواصل معنا', navbar: false, footer: false },
@@ -35,13 +36,13 @@ window.SITE = {
   navButton: { href: 'contact.html', label: 'تواصل معنا' },     // الزر البرتقالي في الشريط العلوي
   menuButton: { href: 'contact.html', label: 'اطلب عرض سعر' },  // الزر في قائمة الموبايل
 
-  // ---- ملف التعريف بالشركة (لينك «اعرف شركتنا !» في الشريط العلوي وقائمة الموبايل)
+  // ---- ملف التعريف بالشركة (لينك في الشريط الكحلي أعلى الصفحة وفي قائمة الموبايل)
   //      لتغيير الملف: ضع الملف الجديد في assets/files باسم company-profile.pdf (بدل القديم)،
   //      أو ضعه بأي اسم وغيّر href هنا. downloadName = اسم الملف عند الزائر بعد التحميل.
   companyFile: { href: 'assets/files/company-profile.pdf', label: 'ملف تعريف الشركة', downloadName: 'دكان زمان - تعريف الشركة.pdf' },
   copyright: 'دكان زمان للتوريدات العمومية. جميع الحقوق محفوظة.',
 
-  // ---- صفحات التواصل الاجتماعي (أيقونات بألوانها الأصلية في الفوتر، تفتح في تبويب جديد)
+  // ---- صفحات التواصل الاجتماعي (أيقونات بألوانها الأصلية في الشريط الكحلي أعلى الصفحة وفي قائمة الموبايل، تفتح في تبويب جديد)
   //      ضع رابط صفحة الشركة مكان الرابط العام (مثال: 'https://www.facebook.com/اسم-الصفحة')، واحذف السطر لإخفاء الأيقونة
   social: [
     { key: 'facebook', name: 'فيسبوك', icon: 'i-facebook', href: 'https://www.facebook.com/profile.php?id=61595169910489' },
@@ -60,8 +61,8 @@ window.SITE = {
     'i-shopping-bag': 'viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>',
     'i-download': 'viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>',
     'i-arrow': 'viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"></path></symbol>',
-    'i-award': 'viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"></circle><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"></path></symbol>',
-    'i-bank': 'viewBox="0 0 24 24"><rect width="20" height="12" x="2" y="6" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></symbol>',
+    'i-check': 'viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></symbol>',
+    'i-award':'viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"></circle><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"></path></symbol>',
     'i-building': 'viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"></rect><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"></path></symbol>',
     'i-calendar': 'viewBox="0 0 24 24"><path d="M8 2v4M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></symbol>',
     'i-cart': 'viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></symbol>',
@@ -74,17 +75,13 @@ window.SITE = {
     'i-landmark': 'viewBox="0 0 24 24"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7"></path><path d="M12 2 20 7H4Z"></path></symbol>',
     'i-list': 'viewBox="0 0 24 24"><path d="M3 12h.01M3 18h.01M3 6h.01M8 12h13M8 18h13M8 6h13"></path></symbol>',
     'i-mail': 'viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></symbol>',
-    'i-medical': 'viewBox="0 0 24 24"><path d="M11 2v2M5 2v2"></path><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"></path><path d="M8 15a6 6 0 0 0 12 0v-3"></path><circle cx="20" cy="10" r="2"></circle></symbol>',
     'i-menu': 'viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></symbol>',
-    'i-office': 'viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18ZM6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"></path></symbol>',
     'i-package': 'viewBox="0 0 24 24"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5M12 22V12"></path></symbol>',
     'i-phone': 'viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></symbol>',
     'i-pin': 'viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></symbol>',
     'i-repeat': 'viewBox="0 0 24 24"><path d="m17 2 4 4-4 4"></path><path d="M3 11v-1a4 4 0 0 1 4-4h14"></path><path d="m7 22-4-4 4-4"></path><path d="M21 13v1a4 4 0 0 1-4 4H3"></path></symbol>',
     'i-shield': 'viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></symbol>',
     'i-shuffle': 'viewBox="0 0 24 24"><path d="m18 14 4 4-4 4M18 2l4 4-4 4"></path><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22M2 6h1.9c1.5 0 2.9.9 3.6 2.2M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"></path></symbol>',
-    'i-sparkle': 'viewBox="0 0 24 24"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2Z"></path><path d="M19 17v4M17 19h4"></path></symbol>',
-    'i-store': 'viewBox="0 0 24 24"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4M2 7h20"></path><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.6-.6.7.7 0 0 0-.8 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.6-.6.7.7 0 0 0-.8 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.6-.6.7.7 0 0 0-.8 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.6-.6.7.7 0 0 0-.8 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"></path></symbol>',
     'i-target': 'viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></symbol>',
     'i-truck': 'viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></symbol>',
     'i-up': 'viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"></path></symbol>',
@@ -107,34 +104,66 @@ window.SITE = {
     ? `<a href="${S.companyFile.href}" class="${cls}" download="${S.companyFile.downloadName || ''}"><span>${S.companyFile.label}</span>${ico('i-download')}</a>`
     : '';
 
+  // social links keep each network's own colour (top bar + mobile menu)
+  const SOCIAL_BG = {
+    facebook: 'bg-[#1877F2]',
+    instagram: 'bg-[radial-gradient(circle_at_30%_107%,#FDF497_0%,#FDF497_5%,#FD5949_45%,#D6249F_60%,#285AEB_90%)]',
+    linkedin: 'bg-[#0A66C2]',
+  };
+  const socialLinks = size => (S.social || []).map(s => `<a href="${s.href}" class="${SOCIAL_BG[s.key] || 'bg-navy'} ${size} grid place-items-center rounded-full text-white `
+    + 'transition-[transform,filter] duration-300 ease-brand hover:-translate-y-0.5 hover:brightness-110 active:scale-[.92]" '
+    + `target="_blank" rel="noopener" aria-label="${s.name}" title="${s.name}">${ico(s.icon)}</a>`).join('');
+
   // ---- Tailwind class sets (shared pieces)
-  const NAV_LINK = 'group inline-flex items-center gap-2 h-11 px-6 tab:px-4 rounded-full font-medium text-[1.02rem] tab:text-[.97rem] text-heading '
-    + 'transition-[background-color,color,transform] duration-200 hover:bg-chip active:bg-navy active:text-white active:scale-[.97] '
-    + '[&.is-active]:!bg-navy [&.is-active]:!text-white';
-  const NAV_FILE_ICON = '[&_.ico]:w-[17px] [&_.ico]:h-[17px] [&_.ico]:[stroke-width:2.1] [&_.ico]:transition-transform [&_.ico]:duration-300 hover:[&_.ico]:translate-y-[2px]';
+  // navbar link: grey pill on hover; the current page is a navy pill with a small orange dot under the label
+  const NAV_LINK = 'relative inline-flex items-center h-11 px-[18px] tab:px-3.5 rounded-full font-medium text-[1rem] tab:text-[.95rem] text-heading whitespace-nowrap '
+    + 'transition-[background-color,color,transform] duration-200 hover:bg-chip active:scale-[.97] [&.is-active]:!bg-navy [&.is-active]:!text-white '
+    + "after:content-[''] after:absolute after:bottom-[6px] after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:rounded-full after:bg-orange after:opacity-0 [&.is-active]:after:opacity-100";
+  // the «جديد» badge next to a page name (SITE.pages[].badge)
+  const badge = (p, cls) => p.badge ? `<span class="${cls} rounded-full bg-orange text-white font-bold leading-none">${p.badge}</span>` : '';
+  const TOP_LINK = 'inline-flex items-center gap-2 hover:text-orange-300 transition-colors duration-200 [&_.ico]:w-[15px] [&_.ico]:h-[15px] [&_.ico]:text-orange-300';
 
+  // header = a slim navy bar (contact, company file, social) + the floating navbar.
+  // On scroll the whole block slides up by the bar's height (main.js adds .is-scrolled), so only the navbar stays.
   const header = () => `
-  <header class="island fixed z-[60] top-[14px] left-1/2 -translate-x-1/2 w-[min(1200px,100%-32px)] grid grid-cols-[1fr_auto_1fr] md:grid-cols-[1fr_auto] items-center gap-5 tab:gap-3 py-2 pr-[10px] pl-2 min-h-[62px] bg-tile border border-solid border-line rounded-full shadow-card" id="island">
-    <a href="${here === 'index.html' ? '#top' : 'index.html'}" class="justify-self-start flex items-center ps-3" aria-label="دكان زمان — الصفحة الرئيسية">
-      <img class="h-[38px] xs:h-[34px] w-auto" src="assets/logos/logo.svg" alt="Dokan Zaman" width="120" height="48">
-    </a>
-    <nav class="island__links justify-self-center flex gap-2 tab:gap-1 md:hidden" aria-label="القائمة الرئيسية">
-      ${S.pages.filter(p => p.navbar !== false).map(p => `<a class="${NAV_LINK}${isOn(p) ? ' is-active' : ''}" href="${p.href}"${isOn(p) ? ' aria-current="page"' : ''}>${p.label}</a>`).join('\n      ')}
-      ${fileLink(`${NAV_LINK} ${NAV_FILE_ICON}`)}
-    </nav>
-    <div class="justify-self-end flex items-center gap-2">
-      <a href="${S.navButton.href}" class="pill pill--orange h-11 px-[22px] tab:px-[18px] text-[.95rem] font-semibold xs:hidden [&[aria-current=page]]:bg-orange-600"${S.navButton.href === here ? ' aria-current="page"' : ''}>${S.navButton.label}</a>
-      <button class="icon-btn menu-btn hidden md:inline-grid" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="sheet">${ico('i-menu')}</button>
+  <div class="group/head fixed top-0 inset-x-0 z-[60] pointer-events-none [--bar:40px] xs:[--bar:36px] transition-transform duration-300 ease-brand [&.is-scrolled]:-translate-y-[var(--bar)]" id="site-head">
+    <div class="h-[var(--bar)] bg-band text-white/80 text-[.84rem] xs:text-[.8rem] pointer-events-auto transition-opacity duration-300 group-[.is-scrolled]/head:opacity-0">
+      <div class="wrap h-full flex items-center justify-between gap-4">
+        <div class="flex items-center gap-5">
+          <a href="tel:${S.phone.tel}" class="${TOP_LINK}">${ico('i-phone')}<span dir="ltr">${S.phone.display}</span></a>
+          <a href="mailto:${S.emails[0]}" class="${TOP_LINK} sm:hidden">${ico('i-mail')}<span>${S.emails[0]}</span></a>
+        </div>
+        <div class="flex items-center gap-4 xs:gap-3">
+          ${fileLink('inline-flex items-center gap-1.5 font-semibold text-orange-300 hover:text-white transition-colors duration-200 md:hidden [&_.ico]:w-[15px] [&_.ico]:h-[15px] [&_.ico]:[stroke-width:2.2]')}
+          <span class="w-px h-4 bg-white/20 md:hidden" aria-hidden="true"></span>
+          <span class="sm:hidden">تابعونا</span>
+          <div class="flex items-center gap-2">${socialLinks('w-7 h-7 [&_.ico]:w-[14px] [&_.ico]:h-[14px]')}</div>
+        </div>
+      </div>
     </div>
-  </header>
 
-  <div class="sheet fixed inset-0 z-[70] bg-band text-white flex flex-col justify-center gap-9 pt-[90px] px-7 pb-10 opacity-0 -translate-y-4 pointer-events-none transition-[opacity,transform] duration-300 ease-brand [&[hidden]]:hidden [&.is-open]:opacity-100 [&.is-open]:translate-y-0 [&.is-open]:pointer-events-auto" id="sheet" hidden>
+    <header class="island pointer-events-auto mx-auto mt-2.5 w-[min(1200px,100%-32px)] grid grid-cols-[auto_1fr_auto] lg:grid-cols-[1fr_auto] items-center gap-4 tab:gap-3 py-2 ps-[10px] pe-2 min-h-[62px] bg-tile border border-solid border-line rounded-full shadow-card transition-shadow duration-300 group-[.is-scrolled]/head:shadow-[0_16px_36px_-18px_rgba(16,36,63,.45)]" id="island">
+      <a href="${here === 'index.html' ? '#top' : 'index.html'}" class="justify-self-start flex items-center ps-3" aria-label="دكان زمان — الصفحة الرئيسية">
+        <img class="h-[38px] xs:h-[34px] w-auto" src="assets/logos/logo.svg" alt="Dokan Zaman" width="120" height="48">
+      </a>
+      <nav class="justify-self-center flex items-center gap-1 lg:hidden" aria-label="القائمة الرئيسية">
+        ${S.pages.filter(p => p.navbar !== false).map(p => `<a class="${NAV_LINK}${isOn(p) ? ' is-active' : ''}" href="${p.href}"${isOn(p) ? ' aria-current="page"' : ''}>${p.label}${badge(p, 'ms-1.5 py-[4px] px-[7px] text-[.66rem]')}</a>`).join('\n        ')}
+      </nav>
+      <div class="justify-self-end flex items-center gap-2">
+        <a href="${S.navButton.href}" class="pill pill--orange h-11 px-5 text-[.95rem] whitespace-nowrap xs:hidden [&[aria-current=page]]:bg-orange-600"${S.navButton.href === here ? ' aria-current="page"' : ''}>${S.navButton.label} ${ico('i-arrow')}</a>
+        <button class="icon-btn menu-btn hidden lg:inline-grid" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="sheet">${ico('i-menu')}</button>
+      </div>
+    </header>
+  </div>
+
+  <div class="sheet fixed inset-0 z-[70] bg-band text-white flex flex-col [justify-content:safe_center] gap-7 pt-[84px] px-7 pb-10 overflow-y-auto opacity-0 -translate-y-4 pointer-events-none transition-[opacity,transform] duration-300 ease-brand [&[hidden]]:hidden [&.is-open]:opacity-100 [&.is-open]:translate-y-0 [&.is-open]:pointer-events-auto" id="sheet" hidden>
     <button class="icon-btn sheet__close absolute top-5 left-5 !bg-white/10 !text-white hover:!bg-navy" type="button" aria-label="إغلاق القائمة">${ico('i-x')}</button>
-    <nav class="grid gap-1.5" aria-label="القائمة">
-      ${S.pages.map((p, i) => `<a class="flex items-baseline gap-4 text-[clamp(1.8rem,7vw,2.6rem)] font-bold leading-[1.5] hover:text-orange-300" href="${p.href}"${isOn(p) ? ' aria-current="page"' : ''}><span class="text-[.9rem] text-orange font-semibold">${ar(i + 1)}</span>${p.label}</a>`).join('\n      ')}
+    <nav class="grid gap-1" aria-label="القائمة">
+      ${S.pages.map((p, i) => `<a class="flex items-baseline gap-4 text-[clamp(1.6rem,6.5vw,2.4rem)] font-bold leading-[1.5] hover:text-orange-300 [&[aria-current]]:text-orange-300" href="${p.href}"${isOn(p) ? ' aria-current="page"' : ''}><span class="text-[.9rem] text-orange font-semibold">${ar(i + 1)}</span>${p.label}${badge(p, 'self-center py-1.5 px-2.5 text-[.8rem]')}</a>`).join('\n      ')}
     </nav>
-    ${fileLink('inline-flex items-center gap-2.5 mt-[18px] py-3 px-5 rounded-full border-2 border-solid border-orange/50 text-orange-300 font-bold text-[1.05rem] [&_.ico]:w-5 [&_.ico]:h-5 [&_.ico]:[stroke-width:2.1]')}
+    ${fileLink('self-start inline-flex items-center gap-2.5 py-3 px-5 rounded-full border-2 border-solid border-orange/50 text-orange-300 font-bold text-[1.05rem] [&_.ico]:w-5 [&_.ico]:h-5 [&_.ico]:[stroke-width:2.1]')}
     <a href="${S.menuButton.href}" class="pill pill--orange pill--lg self-start">${S.menuButton.label} ${ico('i-arrow')}</a>
+    ${(S.social || []).length ? `<div class="flex items-center gap-3"><span class="text-white/60 text-[.95rem] me-1">تابعونا</span>${socialLinks('w-11 h-11 [&_.ico]:w-5 [&_.ico]:h-5')}</div>` : ''}
   </div>`;
 
   // contact details: phone → dialer, WhatsApp → chat (new tab), e-mail → mail app.
@@ -146,13 +175,6 @@ window.SITE = {
     `<li>${ico('i-pin')}<span>${S.address}</span></li>`,
   ].filter(Boolean).join('\n          ');
 
-  // social links keep each network's own colour
-  const SOCIAL_BG = {
-    facebook: 'bg-[#1877F2]',
-    instagram: 'bg-[radial-gradient(circle_at_30%_107%,#FDF497_0%,#FDF497_5%,#FD5949_45%,#D6249F_60%,#285AEB_90%)]',
-    linkedin: 'bg-[#0A66C2]',
-  };
-
   const footer = () => `
   <footer class="bg-[#CED3D9] bg-[radial-gradient(55%_85%_at_18%_100%,rgba(243,114,33,.30),transparent_70%)] text-[#33414F] pt-sec overflow-hidden [&_a]:transition-colors [&_a]:duration-200 [&_a:hover]:text-hl">
     <div class="wrap grid grid-cols-[1.5fr_1fr_1.3fr] lg:grid-cols-2 xs:grid-cols-1 gap-x-pad gap-y-8 xs:gap-7 items-start">
@@ -160,9 +182,6 @@ window.SITE = {
         <img class="h-[52px] w-auto" src="assets/logos/logo.svg" alt="Dokan Zaman" width="160" height="64" loading="lazy">
         <p class="mt-4 text-heading font-semibold">${S.tagline}</p>
         <p class="mt-1.5 text-[.95rem]">${S.message}</p>
-        ${(S.social || []).length ? `<ul class="flex gap-2.5 mt-5" aria-label="تابعونا">
-          ${S.social.map(s => `<li><a href="${s.href}" class="is-${s.key} ${SOCIAL_BG[s.key] || 'bg-navy'} w-[42px] h-[42px] grid place-items-center rounded-full !text-white shadow-[0_8px_18px_-10px_rgba(16,36,63,.45)] transition-[transform,filter,box-shadow] duration-300 ease-brand hover:-translate-y-[3px] hover:brightness-110 hover:shadow-[0_12px_22px_-10px_rgba(16,36,63,.55)] active:scale-[.94] [&_.ico]:w-5 [&_.ico]:h-5" target="_blank" rel="noopener" aria-label="${s.name}" title="${s.name}">${ico(s.icon)}</a></li>`).join('\n          ')}
-        </ul>` : ''}
       </div>
       <nav aria-label="صفحات الموقع">
         <h2 class="text-[1rem] font-bold text-navy mb-3.5">الصفحات</h2>

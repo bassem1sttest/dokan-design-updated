@@ -35,12 +35,15 @@
   }
 
   /* ---------- Scroll-linked (single rAF) ---------- */
-  const toTop = $('.to-top2');
-  let ticking = false, showTop = false, vh = innerHeight;
+  const toTop = $('.to-top2'), head = $('#site-head');
+  let ticking = false, showTop = false, scrolled = false, vh = innerHeight;
   function update() {
     ticking = false;
     const t = scrollY > vh;
     if (t !== showTop && toTop) { showTop = t; toTop.classList.toggle('is-visible', t); }
+    // the navy top bar slides away once the page moves; the navbar stays
+    const s = scrollY > 8;
+    if (s !== scrolled && head) { scrolled = s; head.classList.toggle('is-scrolled', s); }
   }
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
   addEventListener('resize', () => { vh = innerHeight; requestAnimationFrame(update); }, { passive: true });
@@ -128,6 +131,16 @@
   /* ---------- Form → mail app ---------- */
   const form = $('#form2'), msg = $('#form2-msg');
   if (form) {
+    // arriving from a procurement-page button (contact.html?topic=…): pick the service and start the message
+    const topic = new URLSearchParams(location.search).get('topic');
+    if (topic) {
+      const service = [...form.elements.service.options].find(o => o.text.includes('إدارة المشتريات'));
+      if (service) form.elements.service.value = service.value;
+      if (!form.elements.message.value) form.elements.message.value = `أرغب في الاستفسار عن خدمة: ${topic}`;
+    }
+    // arriving from a product card (contact.html?item=…): start the message with the product
+    const item = new URLSearchParams(location.search).get('item');
+    if (item && !form.elements.message.value) form.elements.message.value = `أرغب في طلب عرض سعر لـ: ${item}`;
     form.addEventListener('submit', e => {
       e.preventDefault();
       const data = new FormData(form);

@@ -127,7 +127,7 @@ const sharedComponents = ({ addComponents }) => {
     '.row-btns': { '@apply flex flex-wrap gap-2.5 mt-[30px]': {} },
 
     // inner pages: the dark title tile under the navbar
-    '.page-hero2': { padding: '100px 0 0' },
+    '.page-hero2': { padding: '136px 0 0' },          // clears the fixed top bar + navbar
     '.page-hero2__tile': { '@apply text-white/[.78]': {} },
     '.page-hero2__tile::before': {
       content: '""', '@apply absolute w-[60%] aspect-square rounded-full pointer-events-none': {}, inset: 'auto auto -60% -10%',
@@ -149,7 +149,7 @@ const sharedComponents = ({ addComponents }) => {
   addComponents({
     [XS]: {
       '.row-btns .pill': { flex: '1 1 100%' },        // buttons fill the row on phones
-      '.page-hero2': { paddingTop: '88px' },
+      '.page-hero2': { paddingTop: '120px' },
       '.cta-tile .pill': { '@apply w-full': {} },
     },
   });
@@ -187,6 +187,54 @@ const sharedComponents = ({ addComponents }) => {
     '.supply-card:has(.supply-card__link:focus-visible) .supply-card__media': { outline: '3px solid #F37221', outlineOffset: '3px' },
   });
   addComponents({ [TOUCH]: { '.supply-card:hover .supply-card__media, .supply-card:hover .supply-card__num': { transform: 'none', boxShadow: 'none' } } });
+
+  /* ---------- service row (procurement page): text beside a soft panel with white cards floating over it ----------
+     <article class="svc">                      add svc--flip to put the panel on the right
+       <div class="svc__text"> tag · h2 · p · button </div>
+       <div class="svc__panel bg-…"><span class="svc__deco"></span> …float-card… </div>
+     svc__list / svc__card is the zig-zag stack of cards. */
+  addComponents({
+    '.svc': { '@apply grid grid-cols-2 items-center': {}, gap: 'clamp(32px, 6vw, 96px)' },
+    '.svc--flip .svc__panel': { order: '-1' },
+    '.svc__tag': { '@apply inline-flex items-center gap-2 py-1.5 px-3.5 rounded-xl text-[.85rem] font-bold mb-5 text-hl bg-orange/[.12]': {} },
+    '.svc__tag .ico': { '@apply w-4 h-4': {}, strokeWidth: '2.2' },
+    '.svc__text h2': { '@apply text-[length:clamp(1.9rem,1.2rem+2.4vw,2.9rem)] font-bold leading-[1.3] tracking-[-.03em]': {} },
+    '.svc__text p': { '@apply mt-4 text-muted text-[1.02rem] leading-[1.85] max-w-[44ch]': {} },
+    '.svc__text .pill': { '@apply mt-7': {} },
+    // default tone light orange; another site tone goes on the element (bg-navy/[.09], bg-chip)
+    '.svc__panel': { '@apply relative flex flex-col justify-center min-h-[420px] rounded-[32px] bg-orange/[.12]': {}, padding: 'clamp(24px, 4vw, 52px)' },
+    // two soft rings drawn on the panel (they stay inside its rounded corners; the cards may stick out)
+    '.svc__deco': { '@apply absolute inset-0 overflow-hidden pointer-events-none': {}, borderRadius: 'inherit' },
+    '.svc__deco::before, .svc__deco::after': { content: '""', '@apply absolute aspect-square rounded-full': {}, border: '1.5px solid rgba(255,255,255,.95)' },
+    '.svc__deco::before': { width: '120%', right: '-55%', bottom: '-75%' },
+    '.svc__deco::after': { width: '70%', left: '-28%', top: '-32%' },
+    // a white card floating over the panel
+    '.float-card': {
+      '@apply relative z-[1] bg-white rounded-2xl': {},
+      boxShadow: '0 18px 40px -22px rgba(16,36,63,.35)', transition: `transform .4s ${EASE}, box-shadow .4s`,
+    },
+    '.float-card:hover': { boxShadow: '0 22px 46px -20px rgba(16,36,63,.42)' },
+    // zig-zag stack: cards stick out toward the gap between the columns, and on wide screens toward the outer edge too
+    '.svc__list': { '@apply relative z-[1] flex flex-col gap-4': {} },
+    '.svc__card': { '@apply flex items-center gap-3 w-fit max-w-[92%] py-3.5 ps-3.5 pe-5': {} },
+    '.svc__card:hover': { transform: 'translateY(-4px)' },
+    '.svc__card:nth-child(odd)': { alignSelf: 'flex-start', marginInlineStart: '-48px' },
+    '.svc__card:nth-child(even)': { alignSelf: 'flex-end' },
+    '.svc__card:nth-child(2)': { borderBottom: '4px solid #1A3659' },
+    '.svc__card b': { '@apply grid place-items-center w-10 h-10 flex-none rounded-full text-[.95rem] text-hl bg-orange/[.12]': {} },
+    '.svc__card span': { '@apply text-[.95rem] font-medium leading-[1.6] text-heading': {} },
+  });
+  addComponents({
+    '@media (min-width: 1280px)': { '.svc__card:nth-child(even)': { marginInlineEnd: '-48px' } },
+    '@media (max-width: 960px)': {
+      '.svc': { gridTemplateColumns: '1fr' },
+      '.svc--flip .svc__panel': { order: '0' },
+      '.svc__panel': { minHeight: '0' },
+      '.svc__list .svc__card:nth-child(n)': { margin: '0' },
+    },
+    [XS]: { '.svc__card': { maxWidth: '100%' } },
+  });
+  addComponents({ [TOUCH]: { '.svc__card:hover': { transform: 'none' } } });
 
   /* ---------- form field with a floating label (contact page) ---------- */
   addComponents({
