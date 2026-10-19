@@ -29,11 +29,17 @@ const sharedComponents = ({ addComponents }) => {
     '.num': { '@apply inline-block': {}, unicodeBidi: 'isolate' },
     '.wrap': { '@apply mx-auto': {}, width: 'min(1200px, 100% - 32px)' },
     '.hl': { '@apply text-hl': {} },
+    // card grid whose rows split evenly — main.js sets --cols from the number of cards and the screen
+    // (at most 4 / 3 on ≤1080px / 2 on ≤760px, or data-max="5,3,2"); a shorter last row is centred,
+    // or with even-grid--fill it stretches to the full width. Same gaps for every grid (--gx / --gy).
+    '.even-grid': { display: 'flex', flexWrap: 'wrap', justifyContent: 'center', columnGap: 'var(--gx)', rowGap: 'var(--gy)', '--gx': '28px', '--gy': '36px', '--cols': '3' },
+    '.even-grid > *': { flex: '0 0 calc((100% - (var(--cols) - 1) * var(--gx)) / var(--cols) - .1px)', minWidth: '0' },
+    '.even-grid--fill > *': { flexGrow: '1' },
   });
 
   /* ---------- tags / pills / buttons ---------- */
   addComponents({
-    '.tag': { '@apply inline-flex items-center gap-2.5 text-[.85rem] font-semibold tracking-[.01em] text-heading bg-chip py-1.5 px-3.5 rounded-full mb-[18px] w-fit': {} },
+    '.tag': { '@apply inline-flex items-center gap-2.5 text-[.9rem] font-semibold tracking-[.01em] text-heading bg-chip py-1.5 px-3.5 rounded-full mb-[18px] w-fit': {} },
     '.tag i': { '@apply w-2 h-2 rounded-[2px] bg-orange': {}, transform: 'rotate(45deg)' },
     '.tag--light': { '@apply text-white bg-white/[.08]': {} },
     '.tag--dark': { '@apply text-white bg-black/10': {} },
@@ -66,6 +72,7 @@ const sharedComponents = ({ addComponents }) => {
     '.icon-btn .ico': { '@apply w-5 h-5': {}, gridArea: '1 / 1' },
   });
   addComponents({ [TOUCH]: { '.pill:hover': { transform: 'none' } } });
+  addComponents({ [XS]: { '.even-grid': { '--gx': '12px', '--gy': '26px' } } });
 
   /* ---------- tiles (cards) ---------- */
   addComponents({
@@ -144,7 +151,7 @@ const sharedComponents = ({ addComponents }) => {
     // the orange call-to-action card at the end of the pages
     '.cta-tile': { '@apply flex items-center justify-between gap-y-[18px] gap-x-8 flex-wrap': {} },
     '.cta-tile h2': { '@apply text-[length:clamp(1.3rem,1rem+1.3vw,1.9rem)] font-bold': {} },
-    '.cta-tile p': { '@apply text-white/90': {} },
+    '.cta-tile p': { '@apply text-white': {} },
   });
   addComponents({
     [XS]: {
@@ -173,7 +180,7 @@ const sharedComponents = ({ addComponents }) => {
     '.supply-card:hover .supply-card__media img': { transform: 'scale(1.07)' },
     '.supply-card:target .supply-card__media': { border: '3px solid #F37221' },
     '.supply-card__num': {
-      '@apply absolute z-[2] top-3.5 right-3.5 py-0.5 px-2.5 rounded-full bg-black/55 text-white text-[.82rem] font-bold leading-[1.7]': {},
+      '@apply absolute z-[2] top-3.5 right-3.5 py-0.5 px-2.5 rounded-full bg-black/60 text-white text-[.875rem] font-bold leading-[1.6]': {},
       transition: `transform .4s ${EASE}`,
     },
     '.supply-card:hover .supply-card__num': { transform: 'translateY(-6px)' },
@@ -196,7 +203,7 @@ const sharedComponents = ({ addComponents }) => {
   addComponents({
     '.svc': { '@apply grid grid-cols-2 items-center': {}, gap: 'clamp(32px, 6vw, 96px)' },
     '.svc--flip .svc__panel': { order: '-1' },
-    '.svc__tag': { '@apply inline-flex items-center gap-2 py-1.5 px-3.5 rounded-xl text-[.85rem] font-bold mb-5 text-hl bg-orange/[.12]': {} },
+    '.svc__tag': { '@apply inline-flex items-center gap-2 py-1.5 px-3.5 rounded-xl text-[.9rem] font-bold mb-5 text-hl bg-orange/[.12]': {} },
     '.svc__tag .ico': { '@apply w-4 h-4': {}, strokeWidth: '2.2' },
     '.svc__text h2': { '@apply text-[length:clamp(1.9rem,1.2rem+2.4vw,2.9rem)] font-bold leading-[1.3] tracking-[-.03em]': {} },
     '.svc__text p': { '@apply mt-4 text-muted text-[1.02rem] leading-[1.85] max-w-[44ch]': {} },
@@ -257,6 +264,7 @@ const sharedComponents = ({ addComponents }) => {
       borderLeft: '2px solid #55555A', borderBottom: '2px solid #55555A', transform: 'translateY(-50%) rotate(-45deg)',
     },
     '.f .is-invalid': { borderColor: '#E04848' },
+    '.f select:disabled, .f input:disabled': { '@apply opacity-60 cursor-not-allowed': {} },
   });
 };
 

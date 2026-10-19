@@ -8,7 +8,6 @@
 window.DOKAN_CLIENTS = [
   { name: 'البنك المركزي المصري', logo: 'assets/img/clients/central-bank-of-egypt.webp' },
   { name: 'فوري', logo: 'assets/img/clients/fawry.svg' },
-  { name: 'البريد المصري', logo: 'assets/img/clients/egypt-post.webp' },
   { name: 'Red Sea Mix', logo: 'assets/img/clients/red-sea-mix.webp' },
   { name: 'كير مصر', logo: 'assets/img/clients/care-egypt.webp' },
   { name: 'TransGlobe Logistics', logo: 'assets/img/clients/tgl.webp' },

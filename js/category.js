@@ -45,7 +45,7 @@
           <h1>${esc(cat.title)}</h1>
           <p>${esc(cat.summary)}</p>
           <div class="row-btns mt-6 xs:[&>.pill]:flex-auto">
-            <a href="contact.html" class="pill pill--orange pill--lg">اطلب عرض سعر ${ARROW}</a>
+            <a href="contact.html?c=${esc(cat.id)}" class="pill pill--orange pill--lg">اطلب عرض سعر ${ARROW}</a>
             ${cat.profile ? `<a href="${esc(cat.profile)}" download="${esc(`دكان زمان - ${cat.title}.pdf`)}" class="pill pill--lg border-orange/50 text-orange-300 hover:bg-orange hover:border-orange hover:text-white [&_.ico]:[stroke-width:2.1] hover:[&_.ico]:translate-y-[2px]"><span>ملف تعريف المجال</span>${DOWNLOAD}</a>` : ''}
           </div>
         </div>
@@ -64,7 +64,7 @@
           </div>
           <p class="sec__lead">اختاروا القسم لعرض منتجاته وسعر كل منتج.</p>
         </header>
-        <div class="grid grid-cols-3 lg:grid-cols-2 gap-8 xs:gap-y-7 xs:gap-x-3 xs:[&_.supply-card\\_\\_media]:mb-2.5 xs:[&_.supply-card\\_\\_media]:rounded-2xl xs:[&_h3]:text-[.98rem] xs:[&_h3]:leading-[1.5] xs:[&_h3]:px-[2px] xs:[&_article>p]:text-[.82rem] xs:[&_article>p]:leading-[1.6] xs:[&_article>p]:px-[2px]">${products}
+        <div class="even-grid xs:[&_h3]:text-[.95rem] xs:[&_h3]:leading-[1.5] xs:[&_h3]:px-[2px] xs:[&_article>p]:text-[.9rem] xs:[&_article>p]:leading-[1.6] xs:[&_article>p]:px-[2px] xs:[&_.supply-card\\_\\_media]:mb-2.5 xs:[&_.supply-card\\_\\_media]:rounded-2xl">${products}
         </div>
       </div>
     </section>

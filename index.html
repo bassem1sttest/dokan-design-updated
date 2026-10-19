@@ -16,7 +16,7 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="css/style.css?v=3f928d8d">
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="js/tailwind.config.js?v=6d4ebe25"></script>
+  <script src="js/tailwind.config.js?v=9cf5fcc2"></script>
 </head>
 
 <body id="top">
@@ -50,7 +50,7 @@
         </article>
 
         <article class="tile card-fx col-span-3 xs:col-span-6 flex flex-col justify-between gap-4 min-h-[170px] xs:min-h-[140px] bg-orange border-transparent text-white [--spot:rgba(255,255,255,.34)]" data-reveal style="--d:.14s">
-          <span class="block text-[.9rem] font-semibold text-white/85 pe-[38px]">وفورات في المشتريات</span>
+          <span class="block text-[.9rem] font-semibold text-white pe-[38px]">وفورات في المشتريات</span>
           <strong class="big text-white"><span class="num"><span data-count="5">٠</span>–<span
                 data-count="20">٠</span>٪</span></strong>
           <svg class="ico absolute top-[22px] left-[22px] w-7 h-7 [stroke-width:2.2] text-white">
@@ -73,7 +73,7 @@
           </div>
           <ol class="grid grid-cols-5 gap-2.5
             [&>li]:flex [&>li]:items-center [&>li]:gap-3 [&>li]:py-2.5 [&>li]:px-3 [&>li]:rounded-[18px] [&>li]:bg-tint [&>li]:text-muted [&>li]:text-[.92rem] [&>li]:font-medium [&>li]:transition-colors [&>li]:duration-300
-            lg:[&>li]:flex-col lg:[&>li]:text-center lg:[&>li]:gap-1.5 lg:[&>li]:text-[.8rem] xs:[&>li]:py-2 xs:[&>li]:px-1 xs:[&>li]:text-[0px] xs:[&>li]:gap-0
+            lg:[&>li]:flex-col lg:[&>li]:text-center lg:[&>li]:gap-1.5 lg:[&>li]:text-[.875rem] xs:[&>li]:py-2 xs:[&>li]:px-1 xs:[&>li]:text-[0px] xs:[&>li]:gap-0
             [&>li>span]:w-[38px] [&>li>span]:h-[38px] xs:[&>li>span]:w-[34px] xs:[&>li>span]:h-[34px] [&>li>span]:flex-none [&>li>span]:rounded-xl [&>li>span]:grid [&>li>span]:place-items-center [&>li>span]:bg-chip [&>li>span]:transition-colors [&>li>span]:duration-300 [&_.ico]:w-[19px] [&_.ico]:h-[19px]
             [&>li.is-done]:text-heading [&>li.is-done>span]:bg-orange/[.16] [&>li.is-done>span]:text-hl
             [&>li.is-current]:bg-navy [&>li.is-current]:text-white [&>li.is-current>span]:bg-orange [&>li.is-current>span]:text-white" id="track">
@@ -101,7 +101,7 @@
 
     <!-- ============ DOUBLE TICKER ============ -->
     <div class="group mt-14" data-anim aria-label="مجالات التوريد ورسائلنا">
-      <div class="overflow-hidden py-3.5 bg-orange text-white">
+      <div class="overflow-hidden py-3.5 bg-orange text-white" data-areas="ticker">
         <div class="flex w-max animate-[marquee_50s_linear_infinite] group-hover:[animation-play-state:paused] motionless:animate-none">
           <ul class="flex gap-9 pe-9 [&>li]:inline-flex [&>li]:items-center [&>li]:gap-9 [&>li]:whitespace-nowrap [&>li]:font-bold [&>li]:text-[length:clamp(1.1rem,.9rem+.8vw,1.6rem)] [&>li]:after:content-['✦'] [&>li]:after:text-[.7em]">
             <li>مستهلكات وأدوات النظافة</li>
@@ -159,72 +159,7 @@
               <use href="#i-arrow" />
             </svg></a>
         </header>
-        <div class="grid grid-cols-3 lg:grid-cols-2 gap-8 xs:gap-x-4 xs:[&_.supply-card\_\_media]:mb-2 xs:[&_.supply-card\_\_media]:rounded-2xl xs:[&_.supply-card\_\_num]:top-2 xs:[&_.supply-card\_\_num]:right-2 xs:[&_.supply-card\_\_num]:text-[.72rem] xs:[&_.supply-card\_\_num]:px-2 xs:[&_.supply-card\_\_num]:py-px xs:[&_h3]:text-[.95rem] xs:[&_h3]:px-[2px] xs:[&_h3]:leading-[1.5] xs:[&_p]:hidden">
-          <article class="supply-card" data-reveal style="--d:0.00s">
-            <div class="supply-card__media"><img src="assets/img/categories/cleaning.webp?v=7a54be75" alt="منظفات وأدوات نظافة"
-                width="720" height="480" loading="lazy" decoding="async"></div>
-            <span class="supply-card__num">١</span>
-            <h3><a href="category.html?c=cleaning" class="supply-card__link">مستهلكات وأدوات النظافة</a></h3>
-            <p style="font-weight: 20;">المنظفات، الملمعات، أدوات النظافة، الخامات، أكياس الرابش، والمناديل.</p>
-          </article>
-          <article class="supply-card" data-reveal style="--d:0.06s">
-            <div class="supply-card__media"><img src="assets/img/categories/office.webp?v=0637ccbe"
-                alt="منظم مكتب بالأوراق والأدوات المكتبية" width="720" height="480" loading="lazy" decoding="async">
-            </div>
-            <span class="supply-card__num">٢</span>
-            <h3><a href="category.html?c=office" class="supply-card__link">الأدوات المكتبية</a></h3>
-            <p style="font-weight: 20;">أقلام، ملفات، دفاتر، أدوات تنظيم ومستلزمات المكاتب.</p>
-          </article>
-          <article class="supply-card" data-reveal style="--d:0.12s">
-            <div class="supply-card__media"><img src="assets/img/categories/paper.webp?v=80b0c609" alt="ماكينات طباعة وتصوير"
-                width="720" height="480" loading="lazy" decoding="async"></div>
-            <span class="supply-card__num">٣</span>
-            <h3><a href="category.html?c=paper" class="supply-card__link">الورق ومستلزماته</a></h3>
-            <p style="font-weight: 20;">ورق A4 وA3، أوراق طباعة وتصوير، رول ورق، ومستلزمات ورقية متنوعة.</p>
-          </article>
-          <article class="supply-card" data-reveal style="--d:0.00s">
-            <div class="supply-card__media"><img src="assets/img/categories/buffet.webp?v=368095a1" alt="ماكينة تحضير قهوة"
-                width="720" height="480" loading="lazy" decoding="async"></div>
-            <span class="supply-card__num">٤</span>
-            <h3><a href="category.html?c=buffet" class="supply-card__link">متطلبات البوفيه والضيافة</a></h3>
-            <p style="font-weight: 20;">شاي، قهوة، حليب، ينسون، سكر، وماكينات تحضير القهوة.</p>
-          </article>
-          <article class="supply-card" data-reveal style="--d:0.06s">
-            <div class="supply-card__media"><img src="assets/img/categories/packaging.webp?v=100e6e05"
-                alt="كراتين وبكر لصق ورولات تغليف" width="720" height="480" loading="lazy" decoding="async"></div>
-            <span class="supply-card__num">٥</span>
-            <h3><a href="category.html?c=packaging" class="supply-card__link">التغليف والعبوات والكراتين</a></h3>
-            <p style="font-weight: 20;">الكراتين، بكر اللصق، الإستريتش، البابل، العبوات، والجراكن.</p>
-          </article>
-          <article class="supply-card" data-reveal style="--d:0.12s">
-            <div class="supply-card__media"><img src="assets/img/categories/safety.webp?v=f820139d"
-                alt="رفوف مهمات الصحة والسلامة" width="720" height="480" loading="lazy" decoding="async"></div>
-            <span class="supply-card__num">٦</span>
-            <h3><a href="category.html?c=safety" class="supply-card__link">مهمات الصحة والسلامة</a></h3>
-            <p style="font-weight: 20;">الفيست، الخوذة، الجوانتي، والعلامات الإرشادية.</p>
-          </article>
-          <article class="supply-card" data-reveal style="--d:0.00s">
-            <div class="supply-card__media"><img src="assets/img/categories/operations.webp?v=0b1de168"
-                alt="طقم عدد صيانة متكامل" width="720" height="480" loading="lazy" decoding="async"></div>
-            <span class="supply-card__num">٧</span>
-            <h3><a href="category.html?c=operations" class="supply-card__link">مستلزمات التشغيل</a></h3>
-            <p style="font-weight: 20;">أدوات العمل والمستلزمات الفنية.</p>
-          </article>
-          <article class="supply-card" data-reveal style="--d:0.06s">
-            <div class="supply-card__media"><img src="assets/img/categories/medical.webp?v=cc4c0b6e"
-                alt="مستلزمات طبية: جوانتي وكمامات وسماعة" width="720" height="480" loading="lazy" decoding="async">
-            </div>
-            <span class="supply-card__num">٨</span>
-            <h3><a href="category.html?c=medical" class="supply-card__link">المستلزمات الطبية</a></h3>
-            <p style="font-weight: 20;">الجوانتي، الكمامة، الشاش، واللصق الطبي.</p>
-          </article>
-          <article class="supply-card" data-reveal style="--d:0.12s">
-            <div class="supply-card__media"><img src="assets/img/categories/tools.webp?v=1e449ba0" alt="عدد وآلات خفيفة"
-                width="720" height="480" loading="lazy" decoding="async"></div>
-            <span class="supply-card__num">٩</span>
-            <h3><a href="category.html?c=tools" class="supply-card__link">العدد والآلات الخفيفة</a></h3>
-            <p style="font-weight: 20;">المفكات، المفاتيح، العدد الكهربائية، السلالم، وشنط العدة من ١٢ إلى ٥٠ قطعة.</p>
-          </article>
+        <div class="even-grid xs:[&_.supply-card\_\_media]:mb-2 xs:[&_.supply-card\_\_media]:rounded-2xl xs:[&_.supply-card\_\_num]:top-2 xs:[&_.supply-card\_\_num]:right-2 xs:[&_.supply-card\_\_num]:text-[.875rem] xs:[&_.supply-card\_\_num]:px-2 xs:[&_.supply-card\_\_num]:py-px xs:[&_h3]:text-[.95rem] xs:[&_h3]:px-[2px] xs:[&_h3]:leading-[1.5] xs:[&_p]:hidden" data-areas="grid" data-home>
         </div>
       </div>
     </section>
@@ -277,7 +212,7 @@
           <figure class="tile tile--photo col-span-5 lg:col-span-12 m-0 min-h-[240px] xs:min-h-[170px]" data-reveal style="--d:.04s">
             <img src="assets/img/site/warehouse.webp" alt="مستودع منظم بأرفف مليئة بالأصناف" width="1280" height="853"
               loading="lazy" decoding="async">
-            <figcaption><b>٩</b> مجالات توريد من مصدر واحد</figcaption>
+            <figcaption><b data-areas="number">٩</b> <span data-areas="word">مجالات</span> توريد من مصدر واحد</figcaption>
           </figure>
           <article class="tile card-fx col-span-3 lg:col-span-4 xs:col-span-6 flex flex-col gap-1.5" data-reveal><b class="text-[3rem] xs:text-[2rem] font-bold leading-none opacity-20 mb-[18px] xs:mb-2.5">١</b>
             <h3 class="text-[1.3rem] xs:text-[1.05rem]">مُوَرِّد واحد لكل الأصناف</h3>
@@ -285,7 +220,7 @@
           </article>
           <article class="tile card-fx col-span-3 lg:col-span-4 xs:col-span-6 flex flex-col gap-1.5 bg-orange border-transparent text-white [--spot:rgba(255,255,255,.34)]" data-reveal style="--d:.06s"><b class="text-[3rem] xs:text-[2rem] font-bold leading-none opacity-[.35] mb-[18px] xs:mb-2.5">٢</b>
             <h3 class="text-[1.3rem] xs:text-[1.05rem] text-white">سرعة الاستجابة</h3>
-            <p class="text-white/90 text-[.98rem]">تجهيز ومتابعة حتى التسليم.</p>
+            <p class="text-white text-[.98rem]">تجهيز ومتابعة حتى التسليم.</p>
           </article>
           <article class="tile card-fx col-span-3 lg:col-span-4 xs:col-span-6 flex flex-col gap-1.5" data-reveal style="--d:.12s"><b class="text-[3rem] xs:text-[2rem] font-bold leading-none opacity-20 mb-[18px] xs:mb-2.5">٣</b>
             <h3 class="text-[1.3rem] xs:text-[1.05rem]">أسعار تنافسية</h3>
@@ -302,9 +237,13 @@
 
   <div data-site="footer"></div>
 
-  <script src="js/layout.js?v=84fcc7b9" defer></script>
+  <script src="js/layout.js?v=f0a2c332" defer></script>
 
-  <script src="js/main.js?v=55e8b709" defer></script>
+  <script src="js/catalog.js?v=e964f9a8" defer></script>
+
+  <script src="js/areas.js?v=31a64ab2" defer></script>
+
+  <script src="js/main.js?v=42116f13" defer></script>
 </body>
 
 </html>

@@ -4,6 +4,10 @@
    صفحة category.html تُبنى بالكامل من هذا الملف:
    category.html?c=cleaning  ←  يعرض مجال «مستهلكات وأدوات النظافة»
 
+   كل مجال: id (في الرابط) · title الاسم · image الصورة · short سطر الوصف على كارت المجال · summary وصف صفحة المجال.
+   لإضافة مجال: انسخ مجالًا كاملًا والصقه تحته وعدّل بياناته — يظهر وحده في الرئيسية، صفحة مجالات التوريد، الشريط المتحرك،
+   عدد المجالات في الكلام، فورم التواصل، وصفحته الخاصة (ضع صورته في assets/img/categories).
+
    لتعديل منتج: غيّر بياناته في السطر الخاص به فقط:
      name   اسم المنتج
      desc   وصف قصير
@@ -35,6 +39,7 @@ window.DOKAN_CATALOG = {
       image: 'assets/img/categories/cleaning.webp',
       profile: 'assets/files/categories/cleaning.pdf',
       summary: 'كل ما يحتاجه مقركم ليبقى نظيفًا كل يوم: منظفات، ملمعات، أدوات تنظيف، أكياس قمامة، مناديل، ومستلزمات الحمامات والمطابخ.',
+      short: 'المنظفات، الملمعات، أدوات النظافة، الخامات، أكياس الرابش، والمناديل.',
       products: [
         { name: 'المنظفات', desc: 'منظفات أرضيات وأسطح وأطباق بأحجام مختلفة.', price: [69, 95], unit: '', images: ['assets/img/products/cleaning/detergents/1.webp', 'assets/img/products/cleaning/detergents/2.webp'],
           items: [
@@ -96,6 +101,7 @@ window.DOKAN_CATALOG = {
       image: 'assets/img/categories/office.webp',
       profile: 'assets/files/categories/office.pdf',
       summary: 'أقلام، ملفات، دفاتر، أدوات تنظيم، وكل مستلزمات المكاتب اليومية.',
+      short: 'أقلام، ملفات، دفاتر، أدوات تنظيم ومستلزمات المكاتب.',
       products: [
         { name: 'الأقلام', desc: 'أقلام جاف وحبر وماركر وهايلايتر.', price: [84, 92], unit: '', images: ['assets/img/products/office/pens/1.webp', 'assets/img/products/office/pens/2.webp', 'assets/img/products/office/pens/3.webp'],
           items: [
@@ -148,6 +154,7 @@ window.DOKAN_CATALOG = {
       image: 'assets/img/categories/paper.webp',
       profile: 'assets/files/categories/paper.pdf',
       summary: 'ورق طباعة وتصوير A4 وA3، رول ورق، أظرف، ومستلزمات ورقية متنوعة.',
+      short: 'ورق A4 وA3، أوراق طباعة وتصوير، رول ورق، ومستلزمات ورقية متنوعة.',
       products: [
         { name: 'ورق A4', desc: 'ورق طباعة وتصوير بأوزان مختلفة.', price: [57, 91], unit: '', images: ['assets/img/products/paper/a4/1.webp', 'assets/img/products/paper/a4/2.webp'],
           items: [
@@ -199,6 +206,7 @@ window.DOKAN_CATALOG = {
       image: 'assets/img/categories/buffet.webp',
       profile: 'assets/files/categories/buffet.pdf',
       summary: 'شاي، قهوة، حليب، ينسون، سكر، ماكينات تحضير القهوة، وأدوات التقديم.',
+      short: 'شاي، قهوة، حليب، ينسون، سكر، وماكينات تحضير القهوة.',
       products: [
         { name: 'الشاي', desc: 'شاي فتلة وناعم بأنواعه.', price: [67, 92], unit: '', images: ['assets/img/products/buffet/tea/1.webp', 'assets/img/products/buffet/tea/2.webp', 'assets/img/products/buffet/tea/3.webp'],
           items: [
@@ -264,6 +272,7 @@ window.DOKAN_CATALOG = {
       image: 'assets/img/categories/packaging.webp',
       profile: 'assets/files/categories/packaging.pdf',
       summary: 'كراتين، بكر لصق، إستريتش، بابل، عبوات، وجراكن .. وحلول تغليف حسب الطلب.',
+      short: 'الكراتين، بكر اللصق، الإستريتش، البابل، العبوات، والجراكن.',
       products: [
         { name: 'الكراتين', desc: 'كراتين بمقاسات وطبقات مختلفة.', price: [76, 95], unit: '', images: ['assets/img/products/packaging/cartons/1.webp', 'assets/img/products/packaging/cartons/2.webp', 'assets/img/products/packaging/cartons/3.webp'],
           items: [
@@ -321,6 +330,7 @@ window.DOKAN_CATALOG = {
       image: 'assets/img/categories/safety.webp',
       profile: 'assets/files/categories/safety.pdf',
       summary: 'الفيست، الخوذة، الجوانتي، أحذية السلامة، والعلامات الإرشادية.',
+      short: 'الفيست، الخوذة، الجوانتي، والعلامات الإرشادية.',
       products: [
         { name: 'الفيست العاكس', desc: 'فيست عاكس للمواقع والمخازن.', price: [61, 90], unit: '', images: ['assets/img/products/safety/vest/1.webp', 'assets/img/products/safety/vest/2.webp', 'assets/img/products/safety/vest/3.webp', 'assets/img/products/safety/vest/4.webp'],
           items: [
@@ -371,6 +381,7 @@ window.DOKAN_CATALOG = {
       image: 'assets/img/categories/operations.webp',
       profile: 'assets/files/categories/operations.pdf',
       summary: 'أدوات العمل والمستلزمات الفنية التي يحتاجها التشغيل والصيانة اليومية.',
+      short: 'أدوات العمل والمستلزمات الفنية.',
       products: [
         { name: 'أدوات القياس', desc: 'شرائط قياس ومساطر وأدوات قياس.', price: [63, 72], unit: '', images: ['assets/img/products/operations/tape-measure/1.webp', 'assets/img/products/operations/tape-measure/2.webp', 'assets/img/products/operations/tape-measure/3.webp'],
           items: [
@@ -421,6 +432,7 @@ window.DOKAN_CATALOG = {
       image: 'assets/img/categories/medical.webp',
       profile: 'assets/files/categories/medical.pdf',
       summary: 'الجوانتي، الكمامة، الشاش، اللصق الطبي، وشنط الإسعافات الأولية.',
+      short: 'الجوانتي، الكمامة، الشاش، واللصق الطبي.',
       products: [
         { name: 'الجوانتي الطبي', desc: 'جوانتي لاتكس ونيتريل بمقاسات مختلفة.', price: [63, 80], unit: '', images: ['assets/img/products/medical/gloves/1.webp', 'assets/img/products/medical/gloves/2.webp', 'assets/img/products/medical/gloves/3.webp', 'assets/img/products/medical/gloves/4.webp'],
           items: [
@@ -471,6 +483,7 @@ window.DOKAN_CATALOG = {
       image: 'assets/img/categories/tools.webp',
       profile: 'assets/files/categories/tools.pdf',
       summary: 'المفكات، المفاتيح، العدد الكهربائية، السلالم، وشنط العدة من ١٢ إلى ٥٠ قطعة.',
+      short: 'المفكات، المفاتيح، العدد الكهربائية، السلالم، وشنط العدة من ١٢ إلى ٥٠ قطعة.',
       products: [
         { name: 'المفكات', desc: 'أطقم مفكات بأحجام ورؤوس مختلفة.', price: [54, 97], unit: '', images: ['assets/img/products/tools/screwdrivers/1.webp', 'assets/img/products/tools/screwdrivers/2.webp', 'assets/img/products/tools/screwdrivers/3.webp'],
           items: [

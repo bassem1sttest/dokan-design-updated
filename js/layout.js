@@ -36,13 +36,16 @@ window.SITE = {
   navButton: { href: 'contact.html', label: 'تواصل معنا' },     // الزر البرتقالي في الشريط العلوي
   menuButton: { href: 'contact.html', label: 'اطلب عرض سعر' },  // الزر في قائمة الموبايل
 
-  // ---- ملف التعريف بالشركة (لينك في الشريط الكحلي أعلى الصفحة وفي قائمة الموبايل)
+  // ---- ملف التعريف بالشركة (لينك في الشريط العلوي بجانب «عملاؤنا» وفي قائمة الموبايل)
   //      لتغيير الملف: ضع الملف الجديد في assets/files باسم company-profile.pdf (بدل القديم)،
   //      أو ضعه بأي اسم وغيّر href هنا. downloadName = اسم الملف عند الزائر بعد التحميل.
   companyFile: { href: 'assets/files/company-profile.pdf', label: 'ملف تعريف الشركة', downloadName: 'دكان زمان - تعريف الشركة.pdf' },
   copyright: 'دكان زمان للتوريدات العمومية. جميع الحقوق محفوظة.',
 
-  // ---- صفحات التواصل الاجتماعي (أيقونات بألوانها الأصلية في الشريط الكحلي أعلى الصفحة وفي قائمة الموبايل، تفتح في تبويب جديد)
+  // ---- زر اللغة الإنجليزية (في الشريط الكحلي أعلى الصفحة وقائمة الموبايل) — يفتح صفحة «قريبًا»
+  langSwitch: { href: 'en.html', label: 'English' },
+
+  // ---- صفحات التواصل الاجتماعي (أيقونات بألوانها الأصلية في الشريط الكحلي أعلى الصفحة وفي الفوتر وقائمة الموبايل، تفتح في تبويب جديد)
   //      ضع رابط صفحة الشركة مكان الرابط العام (مثال: 'https://www.facebook.com/اسم-الصفحة')، واحذف السطر لإخفاء الأيقونة
   social: [
     { key: 'facebook', name: 'فيسبوك', icon: 'i-facebook', href: 'https://www.facebook.com/profile.php?id=61595169910489' },
@@ -59,6 +62,7 @@ window.SITE = {
     'i-linkedin': 'viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>',
     'i-briefcase': 'viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></symbol>',
     'i-shopping-bag': 'viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>',
+    'i-globe': 'viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>',
     'i-download': 'viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>',
     'i-arrow': 'viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"></path></symbol>',
     'i-check': 'viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></symbol>',
@@ -104,7 +108,7 @@ window.SITE = {
     ? `<a href="${S.companyFile.href}" class="${cls}" download="${S.companyFile.downloadName || ''}"><span>${S.companyFile.label}</span>${ico('i-download')}</a>`
     : '';
 
-  // social links keep each network's own colour (top bar + mobile menu)
+  // social links keep each network's own colour (top bar, footer, mobile menu)
   const SOCIAL_BG = {
     facebook: 'bg-[#1877F2]',
     instagram: 'bg-[radial-gradient(circle_at_30%_107%,#FDF497_0%,#FDF497_5%,#FD5949_45%,#D6249F_60%,#285AEB_90%)]',
@@ -115,29 +119,32 @@ window.SITE = {
     + `target="_blank" rel="noopener" aria-label="${s.name}" title="${s.name}">${ico(s.icon)}</a>`).join('');
 
   // ---- Tailwind class sets (shared pieces)
-  // navbar link: grey pill on hover; the current page is a navy pill with a small orange dot under the label
-  const NAV_LINK = 'relative inline-flex items-center h-11 px-[18px] tab:px-3.5 rounded-full font-medium text-[1rem] tab:text-[.95rem] text-heading whitespace-nowrap '
-    + 'transition-[background-color,color,transform] duration-200 hover:bg-chip active:scale-[.97] [&.is-active]:!bg-navy [&.is-active]:!text-white '
-    + "after:content-[''] after:absolute after:bottom-[6px] after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:rounded-full after:bg-orange after:opacity-0 [&.is-active]:after:opacity-100";
+  // navbar link: grey pill on hover; the current page is a navy pill
+  const NAV_LINK = 'inline-flex items-center gap-2 h-11 px-4 tab:px-3 rounded-full font-medium text-[1rem] tab:text-[.92rem] text-heading whitespace-nowrap '
+    + 'transition-[background-color,color,transform] duration-200 hover:bg-chip active:scale-[.97] [&.is-active]:!bg-navy [&.is-active]:!text-white';
+  // the company-file link in the navbar: download icon after the label, nudges down on hover
+  const NAV_FILE_ICON = '[&_.ico]:w-[17px] [&_.ico]:h-[17px] [&_.ico]:[stroke-width:2.1] [&_.ico]:transition-transform [&_.ico]:duration-300 hover:[&_.ico]:translate-y-[2px]';
+  // «English» button: opens the coming-soon page
+  const langLink = cls => S.langSwitch ? `<a href="${S.langSwitch.href}" lang="en" class="${cls}">${ico('i-globe')}<span>${S.langSwitch.label}</span></a>` : '';
   // the «جديد» badge next to a page name (SITE.pages[].badge)
   const badge = (p, cls) => p.badge ? `<span class="${cls} rounded-full bg-orange text-white font-bold leading-none">${p.badge}</span>` : '';
   const TOP_LINK = 'inline-flex items-center gap-2 hover:text-orange-300 transition-colors duration-200 [&_.ico]:w-[15px] [&_.ico]:h-[15px] [&_.ico]:text-orange-300';
 
-  // header = a slim navy bar (contact, company file, social) + the floating navbar.
+  // header = a slim navy bar (contact, social, language) + the floating navbar.
   // On scroll the whole block slides up by the bar's height (main.js adds .is-scrolled), so only the navbar stays.
   const header = () => `
   <div class="group/head fixed top-0 inset-x-0 z-[60] pointer-events-none [--bar:40px] xs:[--bar:36px] transition-transform duration-300 ease-brand [&.is-scrolled]:-translate-y-[var(--bar)]" id="site-head">
-    <div class="h-[var(--bar)] bg-band text-white/80 text-[.84rem] xs:text-[.8rem] pointer-events-auto transition-opacity duration-300 group-[.is-scrolled]/head:opacity-0">
+    <div class="h-[var(--bar)] bg-band text-white/90 text-[.9rem] xs:text-[.875rem] pointer-events-auto transition-opacity duration-300 group-[.is-scrolled]/head:opacity-0">
       <div class="wrap h-full flex items-center justify-between gap-4">
         <div class="flex items-center gap-5">
           <a href="tel:${S.phone.tel}" class="${TOP_LINK}">${ico('i-phone')}<span dir="ltr">${S.phone.display}</span></a>
           <a href="mailto:${S.emails[0]}" class="${TOP_LINK} sm:hidden">${ico('i-mail')}<span>${S.emails[0]}</span></a>
         </div>
         <div class="flex items-center gap-4 xs:gap-3">
-          ${fileLink('inline-flex items-center gap-1.5 font-semibold text-orange-300 hover:text-white transition-colors duration-200 md:hidden [&_.ico]:w-[15px] [&_.ico]:h-[15px] [&_.ico]:[stroke-width:2.2]')}
-          <span class="w-px h-4 bg-white/20 md:hidden" aria-hidden="true"></span>
           <span class="sm:hidden">تابعونا</span>
           <div class="flex items-center gap-2">${socialLinks('w-7 h-7 [&_.ico]:w-[14px] [&_.ico]:h-[14px]')}</div>
+          <span class="w-px h-4 bg-white/20" aria-hidden="true"></span>
+          ${langLink('inline-flex items-center gap-1.5 h-7 px-3 rounded-full [border:1px_solid_rgba(255,255,255,.3)] text-white text-[.875rem] font-semibold transition-colors duration-200 hover:text-orange hover:[border-color:#F37221] [&_.ico]:w-[14px] [&_.ico]:h-[14px]')}
         </div>
       </div>
     </div>
@@ -146,8 +153,9 @@ window.SITE = {
       <a href="${here === 'index.html' ? '#top' : 'index.html'}" class="justify-self-start flex items-center ps-3" aria-label="دكان زمان — الصفحة الرئيسية">
         <img class="h-[38px] xs:h-[34px] w-auto" src="assets/logos/logo.svg" alt="Dokan Zaman" width="120" height="48">
       </a>
-      <nav class="justify-self-center flex items-center gap-1 lg:hidden" aria-label="القائمة الرئيسية">
-        ${S.pages.filter(p => p.navbar !== false).map(p => `<a class="${NAV_LINK}${isOn(p) ? ' is-active' : ''}" href="${p.href}"${isOn(p) ? ' aria-current="page"' : ''}>${p.label}${badge(p, 'ms-1.5 py-[4px] px-[7px] text-[.66rem]')}</a>`).join('\n        ')}
+      <nav class="justify-self-center flex items-center gap-1 tab:gap-0.5 lg:hidden" aria-label="القائمة الرئيسية">
+        ${S.pages.filter(p => p.navbar !== false).map(p => `<a class="${NAV_LINK}${isOn(p) ? ' is-active' : ''}" href="${p.href}"${isOn(p) ? ' aria-current="page"' : ''}>${p.label}${badge(p, 'py-[4px] px-[7px] text-[.8rem]')}</a>`).join('\n        ')}
+        ${fileLink(`${NAV_LINK} ${NAV_FILE_ICON}`)}
       </nav>
       <div class="justify-self-end flex items-center gap-2">
         <a href="${S.navButton.href}" class="pill pill--orange h-11 px-5 text-[.95rem] whitespace-nowrap xs:hidden [&[aria-current=page]]:bg-orange-600"${S.navButton.href === here ? ' aria-current="page"' : ''}>${S.navButton.label} ${ico('i-arrow')}</a>
@@ -159,11 +167,12 @@ window.SITE = {
   <div class="sheet fixed inset-0 z-[70] bg-band text-white flex flex-col [justify-content:safe_center] gap-7 pt-[84px] px-7 pb-10 overflow-y-auto opacity-0 -translate-y-4 pointer-events-none transition-[opacity,transform] duration-300 ease-brand [&[hidden]]:hidden [&.is-open]:opacity-100 [&.is-open]:translate-y-0 [&.is-open]:pointer-events-auto" id="sheet" hidden>
     <button class="icon-btn sheet__close absolute top-5 left-5 !bg-white/10 !text-white hover:!bg-navy" type="button" aria-label="إغلاق القائمة">${ico('i-x')}</button>
     <nav class="grid gap-1" aria-label="القائمة">
-      ${S.pages.map((p, i) => `<a class="flex items-baseline gap-4 text-[clamp(1.6rem,6.5vw,2.4rem)] font-bold leading-[1.5] hover:text-orange-300 [&[aria-current]]:text-orange-300" href="${p.href}"${isOn(p) ? ' aria-current="page"' : ''}><span class="text-[.9rem] text-orange font-semibold">${ar(i + 1)}</span>${p.label}${badge(p, 'self-center py-1.5 px-2.5 text-[.8rem]')}</a>`).join('\n      ')}
+      ${S.pages.map((p, i) => `<a class="flex items-baseline gap-4 text-[clamp(1.6rem,6.5vw,2.4rem)] font-bold leading-[1.5] hover:text-orange-300 [&[aria-current]]:text-orange-300" href="${p.href}"${isOn(p) ? ' aria-current="page"' : ''}><span class="text-[.9rem] text-orange font-semibold">${ar(i + 1)}</span>${p.label}${badge(p, 'self-center py-1.5 px-2.5 text-[.85rem]')}</a>`).join('\n      ')}
     </nav>
     ${fileLink('self-start inline-flex items-center gap-2.5 py-3 px-5 rounded-full border-2 border-solid border-orange/50 text-orange-300 font-bold text-[1.05rem] [&_.ico]:w-5 [&_.ico]:h-5 [&_.ico]:[stroke-width:2.1]')}
     <a href="${S.menuButton.href}" class="pill pill--orange pill--lg self-start">${S.menuButton.label} ${ico('i-arrow')}</a>
     ${(S.social || []).length ? `<div class="flex items-center gap-3"><span class="text-white/60 text-[.95rem] me-1">تابعونا</span>${socialLinks('w-11 h-11 [&_.ico]:w-5 [&_.ico]:h-5')}</div>` : ''}
+    ${langLink('self-start inline-flex items-center gap-2 py-2.5 px-5 rounded-full [border:1px_solid_rgba(255,255,255,.3)] text-white font-semibold hover:text-orange hover:[border-color:#F37221] transition-colors [&_.ico]:w-[18px] [&_.ico]:h-[18px]')}
   </div>`;
 
   // contact details: phone → dialer, WhatsApp → chat (new tab), e-mail → mail app.
@@ -182,6 +191,7 @@ window.SITE = {
         <img class="h-[52px] w-auto" src="assets/logos/logo.svg" alt="Dokan Zaman" width="160" height="64" loading="lazy">
         <p class="mt-4 text-heading font-semibold">${S.tagline}</p>
         <p class="mt-1.5 text-[.95rem]">${S.message}</p>
+        ${(S.social || []).length ? `<div class="flex gap-2.5 mt-5" aria-label="تابعونا">${socialLinks('w-[42px] h-[42px] !text-white shadow-[0_8px_18px_-10px_rgba(16,36,63,.45)] [&_.ico]:w-5 [&_.ico]:h-5')}</div>` : ''}
       </div>
       <nav aria-label="صفحات الموقع">
         <h2 class="text-[1rem] font-bold text-navy mb-3.5">الصفحات</h2>
@@ -191,15 +201,15 @@ window.SITE = {
       </nav>
       <div>
         <h2 class="text-[1rem] font-bold text-navy mb-3.5">تواصل معنا</h2>
-        <ul class="grid gap-2.5 [&>li]:text-[.95rem] [&>li]:leading-[1.6] [&>li]:flex [&>li]:items-center [&>li]:gap-2.5 [&>li>*]:[overflow-wrap:anywhere] [&_small]:text-[#5B6876] [&_small]:me-2 [&_a:hover_small]:text-hl [&_.ico]:w-[18px] [&_.ico]:h-[18px] [&_.ico]:text-hl [&_.ico]:flex-none [&_.ico--wa]:!fill-current [&_.ico--wa]:![stroke:none] [&_.ico--wa]:!text-wa">
+        <ul class="grid gap-2.5 [&>li]:text-[.95rem] [&>li]:leading-[1.6] [&>li]:flex [&>li]:items-center [&>li]:gap-2.5 [&>li>*]:[overflow-wrap:anywhere] [&_small]:text-[#3F4C59] [&_small]:text-[.875rem] [&_small]:me-2 [&_a:hover_small]:text-hl [&_.ico]:w-[18px] [&_.ico]:h-[18px] [&_.ico]:text-hl [&_.ico]:flex-none [&_.ico--wa]:!fill-current [&_.ico--wa]:![stroke:none] [&_.ico--wa]:!text-wa">
           ${contactItems(false)}
         </ul>
       </div>
     </div>
     <p class="text-[clamp(4.5rem,19vw,17rem)] font-bold leading-[1.1] text-center whitespace-nowrap mt-[30px] mb-[-0.25em] xs:mb-[-0.2em] tracking-[-.04em] bg-[linear-gradient(to_left,rgba(243,114,33,.75),rgba(26,54,89,.6))] bg-clip-text text-transparent [-webkit-mask-image:linear-gradient(180deg,#000_25%,transparent_92%)] [mask-image:linear-gradient(180deg,#000_25%,transparent_92%)] select-none" aria-hidden="true">دكان زمان</p>
-    <div class="wrap relative flex flex-wrap justify-between gap-2.5 pt-[22px] pb-7 xs:pb-[88px] [border-top:1px_solid_rgba(26,54,89,.18)] text-[.88rem]">
-      <small>© <span id="year">${ar(new Date().getFullYear())}</span> ${S.copyright}</small>
-      <small>${S.slogan}</small>
+    <div class="wrap relative flex flex-wrap justify-between gap-2.5 pt-[22px] pb-7 xs:pb-[88px] [border-top:1px_solid_rgba(26,54,89,.18)] text-[.9rem]">
+      <span>© <span id="year">${ar(new Date().getFullYear())}</span> ${S.copyright}</span>
+      <span>${S.slogan}</span>
     </div>
   </footer>
 

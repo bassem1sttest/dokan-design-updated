@@ -37,19 +37,22 @@
   const itemUrl = (sk, i) => `product-details.html?c=${esc(cat.id)}&s=${sk + 1}&p=${i + 1}`;
   const sectionUrl = sk => `products.html?c=${esc(cat.id)}&s=${sk + 1}`;
 
-  // product card: photo, then name, description and price under it; the whole card opens the product
+  // price badge on the photo (top corner) — the price only; the unit shows on the product page
+  const BADGE = 'absolute z-[2] top-3 left-3 xs:top-2 xs:left-2 inline-flex items-baseline gap-1 py-1.5 px-3 xs:py-1 xs:px-2.5 rounded-full bg-orange text-white '
+    + 'text-[1rem] xs:text-[.9rem] font-bold leading-[1.3] shadow-[0_10px_22px_-10px_rgba(243,114,33,.8)] [transition:transform_.4s_cubic-bezier(.22,.8,.24,1)] group-hover:-translate-y-1.5';
+
+  // product card: photo with the price on it, then name and description; the whole card opens the product
   const card = (sk, i, n) => {
     const s = cat.products[sk], it = s.items[i];
     return `
           <article class="supply-card group" data-reveal style="--d:${((n % 4) * 0.05).toFixed(2)}s">
             <div class="supply-card__media aspect-square bg-white after:hidden"><img src="${esc(photosOf(s, it, i)[0])}" alt="${esc(it.name)}" width="480" height="480" loading="lazy" decoding="async" data-fallback="${esc(cat.image)}"></div>
+            <span class="${BADGE}">${price(it)}</span>
             <h3><a href="${itemUrl(sk, i)}" class="supply-card__link">${esc(it.name)}</a></h3>
             <p class="line-clamp-2">${esc(it.desc)}</p>
-            <p class="!mt-2 !text-[1.05rem] font-bold !text-hl">${price(it)}${it.unit ? ` <small class="text-[.8rem] font-medium text-muted">${esc(it.unit)}</small>` : ''}</p>
           </article>`;
   };
-  const GRID = 'grid grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 gap-x-6 gap-y-9 xs:gap-x-3 xs:gap-y-7 [&_h3]:text-[1.02rem] [&_h3]:leading-[1.55] xs:[&_h3]:text-[.92rem] '
-    + 'xs:[&_p]:text-[.82rem] xs:[&_.supply-card\\_\\_media]:rounded-2xl xs:[&_.supply-card\\_\\_media]:mb-2.5';
+  const GRID = 'even-grid [&_h3]:text-[1.02rem] [&_h3]:leading-[1.55] xs:[&_h3]:text-[.95rem] xs:[&_h3]:leading-[1.5] xs:[&_h3]:px-[2px] xs:[&_article>p]:text-[.9rem] xs:[&_article>p]:leading-[1.6] xs:[&_article>p]:px-[2px] xs:[&_.supply-card\\_\\_media]:mb-2.5 xs:[&_.supply-card\\_\\_media]:rounded-2xl';
   const crumbsTo = last => `<a href="index.html">الرئيسية</a><span aria-hidden="true">/</span><a href="categories.html">مجالات التوريد</a><span aria-hidden="true">/</span><a href="category.html?c=${esc(cat.id)}">${esc(cat.title)}</a><span aria-hidden="true">/</span>${last}`;
   const CTA = `
     <section class="sec pt-0">
@@ -77,7 +80,7 @@
           <h1>${esc(sec.name)}</h1>
           <p>${esc(sec.desc)}</p>
           <div class="row-btns">
-            <a href="contact.html" class="pill pill--orange pill--lg">اطلب عرض سعر ${ARROW}</a>
+            <a href="contact.html?c=${esc(cat.id)}&s=${k + 1}" class="pill pill--orange pill--lg">اطلب عرض سعر ${ARROW}</a>
             <a href="category.html?c=${esc(cat.id)}" class="pill pill--lg border-white/35 text-white hover:bg-white hover:border-white hover:text-heading">أقسام ${esc(cat.title)}</a>
           </div>
         </div>
@@ -127,7 +130,7 @@ ${CTA}`;
               <strong class="text-[length:clamp(1.8rem,1.3rem+1.4vw,2.4rem)] font-bold text-hl leading-none">${price(it)}</strong>
               ${it.unit ? `<span class="text-muted font-medium">${esc(it.unit)}</span>` : ''}
             </div>
-            <p class="mt-2 text-[.85rem] text-muted">${esc(C.priceNote)}</p>
+            <p class="mt-2 text-[.9rem] text-muted">${esc(C.priceNote)}</p>
             <dl class="tile !p-0 mt-6 [&>div]:flex [&>div]:items-center [&>div]:justify-between [&>div]:gap-4 [&>div]:py-3.5 [&>div]:px-5 [&>div+div]:[border-top:1px_solid_#E0DED9]
                        [&_dt]:text-muted [&_dt]:text-[.92rem] [&_dd]:m-0 [&_dd]:font-semibold [&_dd]:text-heading [&_dd]:text-end [&_dd_a]:text-hl [&_dd_a:hover]:underline">
               <div><dt>المجال</dt><dd><a href="category.html?c=${esc(cat.id)}">${esc(cat.title)}</a></dd></div>
@@ -136,7 +139,7 @@ ${CTA}`;
               <div><dt>التوريد</dt><dd>حسب الكمية المطلوبة</dd></div>
             </dl>
             <div class="row-btns mt-7">
-              <a href="contact.html?item=${encodeURIComponent(`${it.name} — ${cat.title}`)}" class="pill pill--orange pill--lg">اطلب هذا المنتج ${ARROW}</a>
+              <a href="contact.html?item=${encodeURIComponent(`${it.name} — ${cat.title}`)}&c=${esc(cat.id)}&s=${k + 1}" class="pill pill--orange pill--lg">اطلب هذا المنتج ${ARROW}</a>
               ${wa ? `<a href="${wa}" target="_blank" rel="noopener" class="pill pill--lg bg-wa text-white hover:bg-[#1EBE5A] [&_.ico]:w-5 [&_.ico]:h-5 [&_.ico]:[stroke:none]">اطلب عبر واتساب <svg class="ico"><use href="#i-whatsapp"/></svg></a>` : ''}
             </div>
           </div>

@@ -14,7 +14,7 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="css/style.css?v=3f928d8d">
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="js/tailwind.config.js?v=6d4ebe25"></script>
+  <script src="js/tailwind.config.js?v=9cf5fcc2"></script>
 </head>
 <body id="top">
 
@@ -101,7 +101,7 @@
               <div class="float-card overflow-hidden">
                 <div class="flex items-center justify-between gap-3 py-4 px-5">
                   <b class="text-heading">نموذج فحص الجودة</b>
-                  <span class="py-1 px-2.5 rounded-full bg-orange/[.12] text-hl text-[.75rem] font-bold">قبل التسليم</span>
+                  <span class="py-1 px-2.5 rounded-full bg-orange/[.12] text-hl text-[.875rem] font-bold">قبل التسليم</span>
                 </div>
                 <ul class="[&>li]:flex [&>li]:items-start [&>li]:gap-3.5 [&>li]:py-4 [&>li]:px-5 [&>li]:[border-top:1px_dashed_#E0DED9]
                            [&>li>span]:grid [&>li>span]:place-items-center [&>li>span]:w-7 [&>li>span]:h-7 [&>li>span]:flex-none [&>li>span]:rounded-lg [&>li>span]:bg-orange [&>li>span]:text-white
@@ -111,8 +111,8 @@
                   <li><span><svg class="ico"><use href="#i-check"/></svg></span><p>التعامل مع أي ملاحظات أو استبدال قبل التسليم.</p></li>
                 </ul>
               </div>
-              <!-- stamp on the inner corner (toward the text) -->
-              <span class="absolute z-[2] -top-9 -end-9 md:-top-7 md:-end-2 grid place-items-center w-[92px] h-[92px] rounded-full bg-white text-hl text-center text-[.76rem] font-bold leading-[1.35] -rotate-12 [border:3px_solid_#F37221] shadow-[0_14px_30px_-14px_rgba(16,36,63,.4)]" aria-hidden="true">مطابق<br>للمواصفات</span>
+              <!-- stamp: hangs below the card corner, so it never covers any text -->
+              <span class="absolute z-[2] -bottom-[80px] -end-2 md:-bottom-[66px] md:-end-1 grid place-items-center w-[92px] h-[92px] md:w-[78px] md:h-[78px] md:text-[.66rem] rounded-full bg-white text-hl text-center text-[.76rem] font-bold leading-[1.35] -rotate-12 [border:3px_solid_#F37221] shadow-[0_14px_30px_-14px_rgba(16,36,63,.4)]" aria-hidden="true">مطابق<br>للمواصفات</span>
             </div>
           </div>
         </article>
@@ -146,37 +146,25 @@
       </div>
     </section>
 
-    <!-- 5) REPORTS & FOLLOW-UP — floating-cards style: a weekly chart, a quarterly ring and an order board, overlapping like a dashboard -->
+    <!-- 5) REPORTS & FOLLOW-UP — the presentation's three points (page 8) as cards with icons, stepping down -->
     <section class="sec sec--tint" id="svc-5">
       <div class="wrap">
         <article class="svc">
           <div class="svc__text" data-reveal>
             <span class="svc__tag"><svg class="ico"><use href="#i-clipboard"/></svg> التقارير</span>
             <h2>التقارير <span class="hl">والمتابعة</span></h2>
-            <p>تعرفون حالة كل طلب وحجم الوفر المحقق .. بتقارير دورية ولوحة متابعة إلكترونية.</p>
             <a href="contact.html?topic=التقارير والمتابعة" class="pill pill--dark pill--lg">اطلب عرضًا للوحة المتابعة <svg class="ico"><use href="#i-arrow"/></svg></a>
           </div>
           <div class="svc__panel" data-reveal style="--d:.08s">
             <span class="svc__deco" aria-hidden="true"></span>
-            <div class="float-card self-end w-[84%] md:w-full p-5 xs:p-4">
-              <div class="flex items-center justify-between gap-3"><b class="text-heading text-[.95rem]">أوامر الشراء</b><span class="py-1 px-2.5 rounded-full bg-navy/[.09] text-navy text-[.75rem] font-bold">هذا الأسبوع</span></div>
-              <div class="flex items-end gap-2 h-24 mt-4 [&>i]:flex-1 [&>i]:rounded-t-lg" aria-hidden="true">
-                <i class="h-[40%] bg-orange/25"></i><i class="h-[62%] bg-orange/40"></i><i class="h-[48%] bg-orange/30"></i><i class="h-[86%] bg-orange"></i><i class="h-[70%] bg-orange/60"></i><i class="h-[56%] bg-orange/40"></i>
-              </div>
-              <p class="mt-3 text-[.9rem] font-medium leading-[1.6] text-heading">تقارير أسبوعية حول أوامر الشراء الجارية.</p>
-            </div>
-            <div class="float-card self-start -ms-12 md:ms-0 -mt-8 md:mt-4 flex items-center gap-3.5 w-fit max-w-[78%] md:max-w-full py-3.5 ps-3.5 pe-5 [border-bottom:4px_solid_#1A3659]">
-              <span class="grid place-items-center w-14 h-14 flex-none rounded-full bg-[conic-gradient(#1A3659_0_72%,#E0DED9_0)]" aria-hidden="true"><span class="grid place-items-center w-10 h-10 rounded-full bg-white text-navy text-[.72rem] font-bold">ر٤</span></span>
-              <span class="text-[.9rem] font-medium leading-[1.6] text-heading">تحليل ربع سنوي للواردات والوفورات المحققة.</span>
-            </div>
-            <div class="float-card self-end w-[72%] md:w-full mt-4 p-4">
-              <ul class="grid gap-2 [&>li]:flex [&>li]:items-center [&>li]:justify-between [&>li]:gap-3 [&>li]:text-[.8rem] [&>li]:text-muted [&_b]:inline-flex [&_b]:items-center [&_b]:gap-1.5 [&_b]:font-semibold [&_b_i]:w-2 [&_b_i]:h-2 [&_b_i]:rounded-full" aria-hidden="true">
-                <li><i class="w-24 h-2 rounded-full bg-chip"></i><b class="text-navy"><i class="bg-navy"></i> تم التسليم</b></li>
-                <li><i class="w-20 h-2 rounded-full bg-chip"></i><b class="text-hl"><i class="bg-orange"></i> قيد الشحن</b></li>
-                <li><i class="w-28 h-2 rounded-full bg-chip"></i><b class="text-muted"><i class="bg-muted"></i> قيد التجهيز</b></li>
-              </ul>
-              <p class="mt-3 text-[.9rem] font-medium leading-[1.6] text-heading">لوحة متابعة إلكترونية لعرض حالة الطلبات.</p>
-            </div>
+            <ul class="relative z-[1] grid gap-4 [&>li]:flex [&>li]:items-center [&>li]:gap-4 [&>li]:p-5 xs:[&>li]:p-4
+                       [&>li>span]:grid [&>li>span]:place-items-center [&>li>span]:w-12 [&>li>span]:h-12 [&>li>span]:flex-none [&>li>span]:rounded-2xl [&>li>span]:bg-navy [&>li>span]:text-white
+                       [&>li>span]:[transition:background-color_.3s,transform_.4s_cubic-bezier(.22,.8,.24,1)] [&>li:hover>span]:bg-orange [&>li:hover>span]:-rotate-[8deg]
+                       [&_.ico]:w-[22px] [&_.ico]:h-[22px] [&_.ico]:[stroke-width:1.8] [&_p]:flex-1 [&_p]:text-[1.02rem] [&_p]:font-semibold [&_p]:leading-[1.65] [&_p]:text-heading">
+              <li class="float-card me-12 md:me-0"><span><svg class="ico"><use href="#i-calendar"/></svg></span><p>تقارير أسبوعية حول أوامر الشراء الجارية.</p></li>
+              <li class="float-card mx-6 md:mx-0 [border-bottom:4px_solid_#1A3659]"><span><svg class="ico"><use href="#i-down"/></svg></span><p>تحليل ربع سنوي للواردات والوفورات المحققة.</p></li>
+              <li class="float-card ms-12 md:ms-0"><span><svg class="ico"><use href="#i-list"/></svg></span><p>لوحة متابعة إلكترونية لعرض حالة الطلبات.</p></li>
+            </ul>
           </div>
         </article>
       </div>
@@ -185,8 +173,8 @@
 
   <div data-site="footer"></div>
 
-  <script src="js/layout.js?v=84fcc7b9" defer></script>
+  <script src="js/layout.js?v=f0a2c332" defer></script>
 
-  <script src="js/main.js?v=55e8b709" defer></script>
+  <script src="js/main.js?v=42116f13" defer></script>
 </body>
 </html>

@@ -45,13 +45,14 @@
 ## هيكل الملفات
 
 ```
-index.html, categories.html, category.html, products.html, product-details.html, procurement.html, about.html, clients.html, contact.html   الصفحات
+index.html, categories.html, category.html, products.html, product-details.html, procurement.html, about.html, clients.html, contact.html, en.html   الصفحات
 js/tailwind.config.js        إعدادات Tailwind: الألوان، الخط، مقاسات الشاشات، والمكوّنات المشتركة
 css/style.css                أساس صغير تحت Tailwind: المسافات العامة، إعادة الضبط، الحركات (keyframes)، وظهور الأقسام عند التمرير
 js/layout.js                 الأجزاء المشتركة: الشريط الكحلي (تواصل + السوشيال)، الشريط العلوي، قائمة الموبايل، الفوتر، زر واتساب، زر الرجوع لأعلى،
                              الأيقونات، وبيانات التواصل (كائن SITE في أول الملف) — عدّلها هنا مرة واحدة
-js/main.js                   التفاعلات (القائمة، الحركات، العدادات، النموذج…)
+js/main.js                   التفاعلات (القائمة، الحركات، العدادات، توزيع الكروت، النموذج وحقلي المجال/القسم بالبحث…)
 js/catalog.js                بيانات المجالات والمنتجات (الاسم، الوصف، السعر، الصور)
+js/areas.js                  يبني كروت المجالات (الرئيسية + مجالات التوريد) والشريط المتحرك وعدد المجالات من catalog.js
 js/category.js               يبني صفحة المجال من catalog.js
 js/products.js               يبني صفحة منتجات القسم (products.html?c=<المجال>&s=<رقم القسم>) وصفحة المنتج (product-details.html?…&p=<رقم المنتج>) من items في catalog.js
 js/clients.js                شعارات العملاء + الشريط المتحرك في صفحة «عملاؤنا»

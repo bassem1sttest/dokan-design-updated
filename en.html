@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coming soon | Dokan Zaman</title>
+  <meta name="description" content="The English website of Dokan Zaman General Supplies is coming soon.">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#F2F1EE">
+  <link rel="icon" type="image/svg+xml" href="assets/logos/logo-mark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="css/style.css?v=3f928d8d">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="js/tailwind.config.js?v=9cf5fcc2"></script>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- the English site is not ready yet: one card with the logo, the message and the way back -->
+  <main class="flex-1 grid place-items-center px-4 py-10">
+    <div class="w-[min(760px,100%)] grid gap-gap">
+
+      <header class="flex items-center justify-between gap-4 py-2 ps-5 pe-2 bg-tile border border-solid border-line rounded-full shadow-card">
+        <a href="index.html" aria-label="Dokan Zaman — home"><img class="h-[38px] xs:h-[32px] w-auto" src="assets/logos/logo.svg" alt="Dokan Zaman" width="120" height="48"></a>
+        <a href="index.html" lang="ar" dir="rtl" class="pill h-11 px-5 bg-chip text-heading hover:bg-navy hover:text-white text-[.95rem]">العربية</a>
+      </header>
+
+      <section class="tile tile--dark page-hero2__tile !p-[clamp(28px,6vw,64px)] text-center">
+        <span class="tag tag--light mx-auto"><i></i> English version</span>
+        <h1>Coming soon</h1>
+        <p class="mx-auto">We are preparing the English website of <b class="text-white">Dokan Zaman General Supplies</b>. Until it is ready, you can browse the Arabic website or get in touch with us.</p>
+        <div class="row-btns justify-center">
+          <a href="index.html" class="pill pill--orange pill--lg"><svg class="ico"><use href="#i-arrow"/></svg> Back to the Arabic website</a>
+          <a href="contact.html" class="pill pill--lg border-white/35 text-white hover:bg-white hover:border-white hover:text-heading">Contact us</a>
+        </div>
+        <div class="flex justify-center gap-2.5 mt-8" data-social aria-label="Follow us"></div>
+      </section>
+
+      <p class="text-center text-[.88rem] text-muted">© <span data-year></span> Dokan Zaman General Supplies</p>
+    </div>
+  </main>
+
+  <!-- layout.js only adds the icons here (this page has no Arabic header / footer); the social links come from SITE.social -->
+  <script src="js/layout.js?v=f0a2c332"></script>
+  <script>
+    (() => {
+      const BG = { facebook: '#1877F2', instagram: 'radial-gradient(circle at 30% 107%,#FDF497 0%,#FDF497 5%,#FD5949 45%,#D6249F 60%,#285AEB 90%)', linkedin: '#0A66C2' };
+      const box = document.querySelector('[data-social]');
+      (window.SITE && SITE.social || []).forEach(s => box.insertAdjacentHTML('beforeend',
+        `<a href="${s.href}" target="_blank" rel="noopener" aria-label="${s.key}" class="w-[42px] h-[42px] grid place-items-center rounded-full text-white transition-transform duration-300 hover:-translate-y-0.5 [&_.ico]:w-5 [&_.ico]:h-5" style="background:${BG[s.key] || '#1A3659'}"><svg class="ico"><use href="#${s.icon}"/></svg></a>`));
+      document.querySelector('[data-year]').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
