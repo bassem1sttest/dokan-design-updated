@@ -6,3 +6,6 @@ desktop.ini
 # Editor settings
 .vscode/
 .idea/
+
+# Build tools (npm install)
+node_modules/

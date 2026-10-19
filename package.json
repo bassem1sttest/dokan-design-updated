@@ -1,0 +1,11 @@
+{
+  "name": "dokan-zaman-site",
+  "private": true,
+  "description": "Dokan Zaman website — builds css/tailwind.css from the Tailwind classes used in the pages",
+  "scripts": {
+    "build:css": "tailwindcss -c tailwind.build.cjs -i css/tailwind.input.css -o css/tailwind.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}

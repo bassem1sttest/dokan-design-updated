@@ -27,13 +27,22 @@
 
 ## التشغيل
 
-لا يحتاج المشروع إلى أي تثبيت أو أدوات بناء — افتح `index.html` في المتصفح مباشرة،
-أو ارفع المجلد كما هو على أي استضافة ملفات ثابتة (مثل GitHub Pages).
+افتح `index.html` في المتصفح مباشرة، أو ارفع المجلد كما هو على أي استضافة ملفات ثابتة (مثل GitHub Pages).
+
+### بعد إضافة كلاسات Tailwind جديدة أو تعديل `js/tailwind.config.js`
+التنسيق في ملف جاهز `css/tailwind.css` (أسرع بكثير من تشغيل Tailwind داخل المتصفح). أعِد بناءه:
+
+```
+npm install          (مرة واحدة فقط — يحتاج Node.js)
+npm run build:css
+```
+
+تعديل الكلام أو الصور أو بيانات `catalog.js` و`layout.js` لا يحتاج إعادة بناء — فقط الكلاسات الجديدة.
 
 ## التقنيات
 
-- **HTML + Tailwind CSS + JavaScript**. Tailwind يعمل من CDN (`https://cdn.tailwindcss.com/3.4.17`) بدون أي أدوات بناء،
-  لذلك تحتاج الصفحات اتصالًا بالإنترنت لتظهر بتنسيقها (مثل خط Google Fonts).
+- **HTML + Tailwind CSS 3.4.17 + JavaScript**. ملف CSS جاهز (`css/tailwind.css`، حوالي ١٥ كيلو بعد الضغط) مبني من الكلاسات
+  المكتوبة في الصفحات والسكريبتات — بدون تشغيل Tailwind في المتصفح.
 - خط **IBM Plex Sans Arabic** من Google Fonts.
 - الأيقونات SVG مدمجة داخل الصفحة (رسمها مأخوذ من Lucide).
 - كل التنسيق بكلاسات Tailwind داخل الصفحات والقوالب. الألوان والخط ومقاسات الشاشات والمكوّنات المشتركة
@@ -47,6 +56,8 @@
 ```
 index.html, categories.html, category.html, products.html, product-details.html, procurement.html, about.html, clients.html, contact.html, en.html   الصفحات
 js/tailwind.config.js        إعدادات Tailwind: الألوان، الخط، مقاسات الشاشات، والمكوّنات المشتركة
+css/tailwind.css             التنسيق الجاهز (لا تعدّله يدويًا — يُبنى بـ npm run build:css من css/tailwind.input.css)
+tailwind.build.cjs, package.json   إعدادات البناء (تقرأ js/tailwind.config.js)
 css/style.css                أساس صغير تحت Tailwind: المسافات العامة، إعادة الضبط، الحركات (keyframes)، وظهور الأقسام عند التمرير
 js/layout.js                 الأجزاء المشتركة: الشريط الكحلي (تواصل + السوشيال)، الشريط العلوي، قائمة الموبايل، الفوتر، زر واتساب، زر الرجوع لأعلى،
                              الأيقونات، وبيانات التواصل (كائن SITE في أول الملف) — عدّلها هنا مرة واحدة
