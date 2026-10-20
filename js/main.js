@@ -57,16 +57,14 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   $$('[data-reveal]').forEach(el => revealer.observe(el));
 
-  /* ---------- Card grids (.even-grid): columns from the number of cards — one rule for every grid ----------
-     at most 4 columns on computers, 3 up to 1080px, 2 up to 760px (a grid may set its own: data-max="5,3,2");
-     the rows split as evenly as they can and a shorter last row is centred — so adding cards never breaks a grid */
+  /* ---------- Card grids (.even-grid): one grid system for every list of cards (areas, sections, products) ----------
+     3 cards per row on computers and tablets, 2 on phones (≤760px); a grid may set its own: data-max="5,3,2".
+     A shorter last row starts at the same edge as the full rows (aligned under them). */
   const grids = $$('.even-grid');
   if (grids.length) {
     const lg = matchMedia('(max-width: 1080px)'), sm = matchMedia('(max-width: 760px)');
     const layout = () => grids.forEach(g => {
-      const max = (g.dataset.max || '4,3,2').split(',').map(Number)[sm.matches ? 2 : lg.matches ? 1 : 0];
-      const n = g.children.length;
-      g.style.setProperty('--cols', Math.max(1, Math.ceil(n / Math.ceil(n / max))));
+      g.style.setProperty('--cols', (g.dataset.max || '3,3,2').split(',').map(Number)[sm.matches ? 2 : lg.matches ? 1 : 0]);
     });
     layout();
     lg.addEventListener('change', layout); sm.addEventListener('change', layout);

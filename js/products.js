@@ -42,10 +42,10 @@
     + 'text-[1rem] xs:text-[.9rem] font-bold leading-[1.3] shadow-[0_10px_22px_-10px_rgba(243,114,33,.8)] [transition:transform_.4s_cubic-bezier(.22,.8,.24,1)] group-hover:-translate-y-1.5';
 
   // product card: photo with the price on it, then name and description; the whole card opens the product
-  const card = (sk, i, n) => {
+  const card = (sk, i, n, extra = '') => {
     const s = cat.products[sk], it = s.items[i];
     return `
-          <article class="supply-card group" data-reveal style="--d:${((n % 4) * 0.05).toFixed(2)}s">
+          <article class="supply-card group${extra}" data-reveal style="--d:${((n % 4) * 0.05).toFixed(2)}s">
             <div class="supply-card__media aspect-square bg-white after:hidden"><img src="${esc(photosOf(s, it, i)[0])}" alt="${esc(it.name)}" width="480" height="480" loading="lazy" decoding="async" data-fallback="${esc(cat.image)}"></div>
             <span class="${BADGE}">${price(it)}</span>
             <h3><a href="${itemUrl(sk, i)}" class="supply-card__link">${esc(it.name)}</a></h3>
@@ -53,6 +53,9 @@
           </article>`;
   };
   const GRID = 'even-grid [&_h3]:text-[1.02rem] [&_h3]:leading-[1.55] xs:[&_h3]:text-[.95rem] xs:[&_h3]:leading-[1.5] xs:[&_h3]:px-[2px] xs:[&_article>p]:text-[.9rem] xs:[&_article>p]:leading-[1.6] xs:[&_article>p]:px-[2px] xs:[&_.supply-card\\_\\_media]:mb-2.5 xs:[&_.supply-card\\_\\_media]:rounded-2xl';
+  // slider arrows: white circles at the middle of the photos; faded at either end of the track
+  const SLIDE_BTN = 'absolute z-[4] top-[38%] -translate-y-1/2 grid place-items-center w-12 h-12 xs:w-10 xs:h-10 rounded-full bg-tile text-heading border border-solid border-line shadow-card cursor-pointer '
+    + 'transition-[background-color,color,opacity] duration-200 hover:bg-navy hover:text-white disabled:opacity-0 disabled:pointer-events-none [&_.ico]:w-5 [&_.ico]:h-5';
   const crumbsTo = last => `<a href="index.html">الرئيسية</a><span aria-hidden="true">/</span><a href="categories.html">مجالات التوريد</a><span aria-hidden="true">/</span><a href="category.html?c=${esc(cat.id)}">${esc(cat.title)}</a><span aria-hidden="true">/</span>${last}`;
   const CTA = `
     <section class="sec pt-0">
@@ -105,7 +108,7 @@ ${CTA}`;
     const S = window.SITE;
     const wa = S && S.whatsapp ? `https://wa.me/${S.whatsapp.number}?text=${encodeURIComponent(`مرحبًا دكان زمان، أريد طلب: ${it.name} (${cat.title})`)}` : '';
 
-    // similar products: the rest of this section first, then other sections of the same area — up to 4
+    // similar products: the rest of this section first, then other sections of the same area — up to 12, in a slider
     const similar = [];
     sec.items.forEach((_, j) => { if (j !== i) similar.push([k, j]); });
     cat.products.forEach((s, sk) => { if (sk !== k && has(s)) s.items.forEach((_, j) => similar.push([sk, j])); });
@@ -156,11 +159,33 @@ ${CTA}`;
           </div>
           <a href="${sectionUrl(k)}" class="pill pill--dark pill--lg">كل منتجات ${esc(sec.name)} ${ARROW}</a>
         </header>
-        <div class="${GRID}">${similar.slice(0, 4).map(([sk, j], n) => card(sk, j, n)).join('')}
+        <div class="relative" data-slider>
+          <div class="flex gap-[var(--g)] [--g:28px] xs:[--g:12px] [--per:4] lg:[--per:3] sm:[--per:2] overflow-x-auto snap-x snap-mandatory scroll-smooth overscroll-x-contain pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+                      [&_h3]:text-[1.02rem] [&_h3]:leading-[1.55] xs:[&_h3]:text-[.95rem] xs:[&_h3]:leading-[1.5] xs:[&_h3]:px-[2px] xs:[&_article>p]:text-[.9rem] xs:[&_article>p]:leading-[1.6] xs:[&_article>p]:px-[2px]
+                      xs:[&_.supply-card\\_\\_media]:mb-2.5 xs:[&_.supply-card\\_\\_media]:rounded-2xl" data-slider-track>${similar.slice(0, 12).map(([sk, j], n) => card(sk, j, n, ' flex-none w-[calc((100%-(var(--per)-1)*var(--g))/var(--per))] snap-start')).join('')}
+          </div>
+          <button type="button" class="${SLIDE_BTN} -right-5 sm:-right-2 [&_.ico]:rotate-180" data-slider-prev aria-label="السابق">${ARROW}</button>
+          <button type="button" class="${SLIDE_BTN} -left-5 sm:-left-2" data-slider-next aria-label="التالي">${ARROW}</button>
         </div>
       </div>
     </section>` : ''}
 ${CTA}`;
+
+    // similar-products slider: arrows move one view; each arrow hides at its end of the track
+    main.querySelectorAll('[data-slider]').forEach(sl => {
+      const track = sl.querySelector('[data-slider-track]'), prev = sl.querySelector('[data-slider-prev]'), next = sl.querySelector('[data-slider-next]');
+      track.querySelectorAll('[data-reveal]').forEach(c => c.removeAttribute('data-reveal'));   // cards hidden to the side must not wait for a scroll-in
+      const step = () => track.clientWidth + parseFloat(getComputedStyle(track).columnGap || 0);
+      const ends = () => {
+        const max = track.scrollWidth - track.clientWidth, x = Math.abs(track.scrollLeft);   // RTL: scrollLeft runs negative
+        prev.disabled = x < 4; next.disabled = x > max - 4;
+      };
+      prev.addEventListener('click', () => track.scrollBy({ left: step() }));              // toward the start (right)
+      next.addEventListener('click', () => track.scrollBy({ left: -step() }));             // toward the end (left)
+      track.addEventListener('scroll', () => requestAnimationFrame(ends), { passive: true });
+      addEventListener('resize', ends);
+      ends();
+    });
 
     // photo thumbnails switch the large photo
     const big = main.querySelector('[data-main]'), thumbs = [...main.querySelectorAll('[data-thumb]')];

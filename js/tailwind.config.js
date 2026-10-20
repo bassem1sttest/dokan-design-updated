@@ -29,10 +29,10 @@ const sharedComponents = ({ addComponents }) => {
     '.num': { '@apply inline-block': {}, unicodeBidi: 'isolate' },
     '.wrap': { '@apply mx-auto': {}, width: 'min(1200px, 100% - 32px)' },
     '.hl': { '@apply text-hl': {} },
-    // card grid whose rows split evenly — main.js sets --cols from the number of cards and the screen
-    // (at most 4 / 3 on ≤1080px / 2 on ≤760px, or data-max="5,3,2"); a shorter last row is centred,
+    // card grid — main.js sets --cols for the screen: 3 per row on computers and tablets, 2 on phones
+    // (or the grid's own data-max="5,3,2"); a shorter last row starts at the same edge as the full rows,
     // or with even-grid--fill it stretches to the full width. Same gaps for every grid (--gx / --gy).
-    '.even-grid': { display: 'flex', flexWrap: 'wrap', justifyContent: 'center', columnGap: 'var(--gx)', rowGap: 'var(--gy)', '--gx': '28px', '--gy': '36px', '--cols': '3' },
+    '.even-grid': { display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start', columnGap: 'var(--gx)', rowGap: 'var(--gy)', '--gx': '28px', '--gy': '36px', '--cols': '3' },
     '.even-grid > *': { flex: '0 0 calc((100% - (var(--cols) - 1) * var(--gx)) / var(--cols) - .1px)', minWidth: '0' },
     '.even-grid--fill > *': { flexGrow: '1' },
   });
